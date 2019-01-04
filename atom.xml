@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrianmejia.com/"/>
-  <updated>2018-12-19T21:20:36.000Z</updated>
+  <updated>2019-01-04T14:31:00.000Z</updated>
   <id>https://adrianmejia.com/</id>
   
   <author>
@@ -17,12 +17,13 @@
   
   <entry>
     <title>How can developers reduce stress</title>
-    <link href="https://adrianmejia.com/blog/2018/12/19/How-can-developers-reduce-stress/"/>
-    <id>https://adrianmejia.com/blog/2018/12/19/How-can-developers-reduce-stress/</id>
-    <published>2018-12-19T21:20:36.000Z</published>
-    <updated>2018-12-19T21:20:36.000Z</updated>
+    <link href="https://adrianmejia.com/blog/2019/01/03/How-can-developers-reduce-stress/"/>
+    <id>https://adrianmejia.com/blog/2019/01/03/How-can-developers-reduce-stress/</id>
+    <published>2019-01-04T00:28:50.000Z</published>
+    <updated>2019-01-04T14:31:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Most professions nowadays involve a certain degree of stress. We have deadlines to meet, change of requirements at the last minute and to deal with people. On top of that, when you work in front of a computer 8+ hours additional stressors are added. Your eyes might get dry, the lack of movement might cause you back/neck pain. Your muscles shrink while your belly expands. This post will give you some tips to accomplish your goals without sacrificing your health. Being a Software developer myself, I also included some bonus tips for my colleges.</p>
+    <content type="html"><![CDATA[<!-- draft date: 2018-12-19 16:20:36 -->
+<p>Most professions nowadays involve a certain degree of stress. We have deadlines to meet, change of requirements at the last minute and to deal with people. On top of that, when you work in front of a computer 8+ hours additional stressors are added. Your eyes might get dry, the lack of movement might cause you back/neck pain. Your muscles shrink while your belly expands. This post will give you some tips to accomplish your goals without sacrificing your health. Being a Software developer myself, I also included some bonus tips for my colleges.</p>
 <a id="more"></a>
 <h1 id="Background">Background<a href="#Background" class="headerlink" title="Background"></a></h1><p>There was a time in my life, back in 2015, where I went through severe stress crisis. I was juggling too many things at once: writing a book, interviewing in the USA for new jobs and getting a work visa, planning a wedding in another country while keeping up with a full-time job and also the sole programmer on two startups. It was the busiest time of my life, and my health suffered a lot! I dreamt in the source code. Most nights I couldn’t sleep, so often I worked instead. I went to the ER multiple times with heart palpitations. I knew I could not keep doing what I was doing. I’ve been experimenting what helps and what not. This post is compilation of the ones that helped.</p>
 <h1 id="Ideas-to-handle-stress">Ideas to handle stress<a href="#Ideas-to-handle-stress" class="headerlink" title="Ideas to handle stress"></a></h1><p>I’ve been incorporating the following techniques and it had helped me a lot to cope with stress! Hope they can help you, too!</p>
@@ -322,7 +323,8 @@ https://support.google.com/affiliate/answer/7188084?hl=en&ref_topic=7477733
     
     <summary type="html">
     
-      &lt;p&gt;Most professions nowadays involve a certain degree of stress. We have deadlines to meet, change of requirements at the last minute and to deal with people. On top of that, when you work in front of a computer 8+ hours additional stressors are added. Your eyes might get dry, the lack of movement might cause you back/neck pain. Your muscles shrink while your belly expands. This post will give you some tips to accomplish your goals without sacrificing your health. Being a Software developer myself, I also included some bonus tips for my colleges.&lt;/p&gt;
+      &lt;!-- draft date: 2018-12-19 16:20:36 --&gt;
+&lt;p&gt;Most professions nowadays involve a certain degree of stress. We have deadlines to meet, change of requirements at the last minute and to deal with people. On top of that, when you work in front of a computer 8+ hours additional stressors are added. Your eyes might get dry, the lack of movement might cause you back/neck pain. Your muscles shrink while your belly expands. This post will give you some tips to accomplish your goals without sacrificing your health. Being a Software developer myself, I also included some bonus tips for my colleges.&lt;/p&gt;
     
     </summary>
     
