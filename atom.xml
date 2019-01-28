@@ -2896,7 +2896,7 @@ https://www.yuque.com/ruanyf/share/issue-10
     <link href="https://adrianmejia.com/blog/2018/04/05/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/"/>
     <id>https://adrianmejia.com/blog/2018/04/05/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/</id>
     <published>2018-04-05T20:10:09.000Z</published>
-    <updated>2019-01-25T14:02:36.770Z</updated>
+    <updated>2019-01-28T21:57:10.224Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>We are going to learn the top algorithm’s running time that every developer should be familiar. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. You would be able to estimate which one will perform better.</p>
 <a id="more"></a>
@@ -3279,7 +3279,7 @@ https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms) -->
     <link href="https://adrianmejia.com/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/"/>
     <id>https://adrianmejia.com/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/</id>
     <published>2018-04-04T20:16:07.000Z</published>
-    <updated>2019-01-25T14:02:36.670Z</updated>
+    <updated>2019-01-28T21:57:10.214Z</updated>
     
     <content type="html"><![CDATA[<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
@@ -3295,7 +3295,7 @@ Baidu, Youtube, Facebook). -->
 <li><p>Intro to Algorithm’s Time Complexity and Big O Notation <strong>👈 you are here</strong></p>
 <!-- 1. [Intro to algorithm's time complexity and Big O notation](/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/) -->
 </li>
-<li><p><a href="/blog/2018/04/05/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/">Eight time complexities that every programmer should know</a></p>
+<li><p><a href="/blog/2018/04/05/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/">Eight-time complexities that every programmer should know</a></p>
 <!-- 1. Eight time complexities that every programmer should know **👈 you are here** -->
 </li>
 <li><p><a href="/blog/2018/04/28/Data-Structures-Time-Complexity-for-Beginners-Arrays-HashMaps-Linked-Lists-Stacks-Queues-tutorial/">Data Structures for Beginners: Arrays, HashMaps, and Lists</a></p>
@@ -3310,7 +3310,7 @@ Baidu, Youtube, Facebook). -->
 <li><p><a href="/blog/2018/07/16/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/">Self-balanced Binary Search Trees</a></p>
 <!-- 1. Self-balanced Binary Search Trees  **👈 you are here** -->
 </li>
-<li><p><a href="/blog/2018/04/24/Analysis-of-Recursive-Algorithms/">Apendix I: Analysis of Recursive Algorithms</a></p>
+<li><p><a href="/blog/2018/04/24/Analysis-of-Recursive-Algorithms/">Appendix I: Analysis of Recursive Algorithms</a></p>
 <!-- 1. Appendix I: Analysis of Recursive Algorithms **👈 you are here** -->
 </li>
 </ol>
@@ -3364,7 +3364,7 @@ Baidu, Youtube, Facebook). -->
 <li>Line 7: 1 operation</li>
 <li>Line 9-13: it is a loop that executes size of <code>n</code> times<ul>
 <li>Line 10: 1 operation</li>
-<li>Line 11: this one it is tricky. It is inside a conditional. We will assume the worst case where the array is sorted in ascending order. The condition (<code>if</code> block) will be executed each time. Thus, 1 operation</li>
+<li>Line 11: this one is tricky. It is inside a conditional. We will assume the worst case where the array is sorted in ascending order. The condition (<code>if</code> block) will be executed each time. Thus, 1 operation</li>
 </ul>
 </li>
 <li>Line 14: 1 operation</li>
@@ -3408,7 +3408,7 @@ Baidu, Youtube, Facebook). -->
 </tr>
 </tbody>
 </table>
-<p>Believe it or not also <code>k</code> wouldn’t make too much of a difference. Using this kind of asymptotic analysis we take the higher order element, in this case: <code>n</code>.</p>
+<p>Believe it or not, also <code>k</code> wouldn’t make too much of a difference. Using this kind of asymptotic analysis we take the higher order element, in this case: <code>n</code>.</p>
 <p>Let’s do another example so that we can make this concept clearer. Let’s say we have the following function: `3 n^2 + 2n + 20`. What would be the result using the asymptotic analysis?</p>
 <blockquote>
 <p>`3 n^2 + 2n + 20` as `n` grows bigger and bigger; the term that will make the most difference is `n^2`.</p>
@@ -4136,11 +4136,12 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     <link href="https://adrianmejia.com/blog/2016/08/12/Getting-started-with-Node-js-modules-require-exports-imports-npm-and-beyond/"/>
     <id>https://adrianmejia.com/blog/2016/08/12/Getting-started-with-Node-js-modules-require-exports-imports-npm-and-beyond/</id>
     <published>2016-08-12T20:30:23.000Z</published>
-    <updated>2016-08-12T20:30:23.000Z</updated>
+    <updated>2019-01-28T21:50:23.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Modules are a key concept to understand Node.js projects. We cover Node modules: require, exports and the future import.</p>
+    <content type="html"><![CDATA[<p>Getting started with Node.js modules: require, exports, imports and beyond.</p>
+<p>Modules are a crucial concept to understand Node.js projects. In this post, we cover Node modules: <code>require</code>, <code>exports</code> and, the future <code>import</code>.</p>
 <a id="more"></a>
-<p>Node modules allow you to write reusable code. You can include your own modules into another module. Using Node Package Manager (NPM), you can publish your module to the community. Also, NPM enables you to reuse modules made by other developers using.</p>
+<p>Node modules allow you to write reusable code. You can nest them one inside another. Using the Node Package Manager (NPM), you can publish your modules and make them available to the community. Also, NPM enables you to reuse modules made by other developers.</p>
 <p>In this section, we are going to cover how to create Node modules and each one of its components:</p>
 <ul>
 <li>Require</li>
@@ -4148,28 +4149,28 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 <li>Module.exports</li>
 </ul>
 <blockquote>
-<p>We are using Node 6+ for the examples and ES6 syntax. But the concepts are true for any version.</p>
+<p>We are using Node 10.x for the examples and ES6 syntax. However, the concepts are valid for any version.</p>
 </blockquote>
-<h1 id="Require">Require<a href="#Require" class="headerlink" title="Require"></a></h1><p><code>require</code> are used to consume modules. It allows you to include modules into your programs. You can include built-in core Node.js modules, community-based modules (node_modules) and local modules.</p>
+<h1 id="Require">Require<a href="#Require" class="headerlink" title="Require"></a></h1><p><code>require</code> are used to consume modules. It allows you to include modules in your programs. You can add built-in core Node.js modules, community-based modules (<code>node_modules</code>) and local modules.</p>
 <p>Let’s say we want to read a file from the filesystem. Node has a core module called ‘fs’:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line marked"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'./file.txt'</span>, <span class="string">'utf-8'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> err; &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'data: '</span>, data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>As you can see, we imported the “fs” module into our program. It allows us to any function attached to it, like “readFile”.</p>
-<p>Require will look for files in the following order:</p>
+<p>As you can see, we imported the “fs” module into our code. It allows us to use any function attached to it, like “readFile” and many others.</p>
+<p>The <code>require</code> function will look for files in the following order:</p>
 <ol>
 <li>Built-in core Node.js modules (like <code>fs</code>)</li>
-<li>Modules in <code>node_modules</code> folder.</li>
-<li>If the module name has a <code>./</code>, <code>/</code> or <code>../</code>, it will look for the directory/file in the given path. It matches the extensions: <code>*.js</code>, <code>*.json</code> and <code>*.node</code>.</li>
+<li>Modules in the <code>node_modules</code> folder.</li>
+<li>If the module name has a <code>./</code>, <code>/</code> or <code>../</code>, it will look for the directory/file in the given path. It matches the file extensions: <code>*.js</code>, <code>*.json</code> and <code>*.node</code>.</li>
 </ol>
-<h1 id="Exports">Exports<a href="#Exports" class="headerlink" title="Exports"></a></h1><p><code>exports</code> are used to create modules. It allows you to export your own objects and functions. Let’s do an example:</p>
-<figure class="highlight javascript"><figcaption><span>circle.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14159265359</span>;</span><br><span class="line">exports.area = <span class="function">(<span class="params">radius</span>) =&gt;</span> <span class="built_in">Math</span>.pow(radius, <span class="number">2</span>) * PI;</span><br><span class="line">exports.circunference = <span class="function">(<span class="params">radius</span>) =&gt;</span> <span class="number">2</span> * radius * PI;</span><br></pre></td></tr></table></figure>
-<p>In the code below, we are exporting the <code>area</code> function. We defined the constant PI but this is only accessible within the module. Only the elements associated to <code>exports</code> are accessible outside the module.</p>
+<h1 id="Exports">Exports<a href="#Exports" class="headerlink" title="Exports"></a></h1><p>The <code>exports</code> keyword gives you the chance to “export” your own objects and methods. Let’s do an example:</p>
+<figure class="highlight javascript"><figcaption><span>circle.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14159265359</span>;</span><br><span class="line"></span><br><span class="line">exports.area = <span class="function"><span class="params">radius</span> =&gt;</span> (radius ** <span class="number">2</span>) * PI;</span><br><span class="line">exports.circumference = <span class="function"><span class="params">radius</span> =&gt;</span> <span class="number">2</span> * radius * PI;</span><br></pre></td></tr></table></figure>
+<p>In the code below, we are exporting the <code>area</code> and <code>circumference</code> functions. We defined the <code>PI</code> constant, but this is only accessible within the module. Only the elements associated with <code>exports</code> are available outside the module.</p>
 <p>So, we can consume it using <code>require</code> in another file like follows:</p>
-<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> circle = <span class="built_in">require</span>(<span class="string">'./circle'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;circle.area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circunference: <span class="subst">$&#123;circle.circunference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
-<p>Noticed that this time we prefix the module name with ‘./‘. That indicates that the module is a local file.</p>
-<h1 id="Module-Wrapper">Module Wrapper<a href="#Module-Wrapper" class="headerlink" title="Module Wrapper"></a></h1><p>You can think of each module as self-contained function like the following one:</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> circle = <span class="built_in">require</span>(<span class="string">'./circle'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;circle.area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circunference: <span class="subst">$&#123;circle.circumference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+<p>Noticed that this time we prefix the module name with <code>./</code>. That indicates that the module is a local file.</p>
+<h1 id="Module-Wrapper">Module Wrapper<a href="#Module-Wrapper" class="headerlink" title="Module Wrapper"></a></h1><p>You can think of each Node.js module as a self-contained function like the following one:</p>
 <figure class="highlight javascript"><figcaption><span>Module Wrapper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">exports, require, module, __filename, __dirname</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">module</span>.exports = exports = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Your module code ...</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>We have already covered <code>exports</code> and <code>require</code>. Notice the relationship between <code>module.exports</code> and <code>exports</code>. They points to the same reference. However, if you assign something directly to <code>exports</code> you will break its link to <code>module.exports</code>. More on that in the next section.</p>
-<p>For our convenience <code>__filename</code> and <code>__dirname</code> are defined. They provide the full path to the current file and directory. The latter excludes the filename and just print out the directory path.</p>
+<p>We have already covered <code>exports</code> and <code>require</code>. Notice the relationship between <code>module.exports</code> and <code>exports</code>. They point to the same reference. But, if you assign something directly to <code>exports</code> you will break its link to <code>module.exports</code>. More on that in the next section.</p>
+<p>For our convenience <code>__filename</code> and <code>__dirname</code> are defined. They provide the full path to the current file and directory. The latter excludes the filename and print out the directory path.</p>
 <p>For instance, for our <code>./circle.js</code> module, it would be something like this:</p>
 <ul>
 <li><p><code>__filename</code>: <code>/User/adrian/code/circle.js</code></p>
@@ -4178,11 +4179,11 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 </li>
 </ul>
 <p>Ok, we have covered <code>exports</code>, <code>require</code>, <code>__filename</code>, and <code>__dirname</code>. The only one we haven’t cover is <code>module</code>. Let’s go for it!</p>
-<h1 id="Module-exports-vs-Exports">Module.exports vs Exports<a href="#Module-exports-vs-Exports" class="headerlink" title="Module.exports vs Exports"></a></h1><p>Module is not a global, it is local for each module. It contains metadata about a module, such as module id, exports, parent, children, …</p>
-<p><code>exports</code> is an alias of <code>module.exports</code>. So, whatever you assign to <code>exports</code> is also available on <code>module.exports</code>. However, if you assign something directly to exports, then you lose the shortcut to <code>module.exports</code>. E.g.</p>
-<figure class="highlight javascript"><figcaption><span>cat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">  makeSound() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Meowww'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exports = Cat; // It will not work</span></span><br><span class="line"><span class="built_in">module</span>.exports = Cat;</span><br></pre></td></tr></table></figure>
-<p>Try the following example with <code>exports</code> and then with <code>module.exports</code>.</p>
-<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Cat = <span class="built_in">require</span>(<span class="string">'./cat'</span>);</span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.makeSound());</span><br></pre></td></tr></table></figure>
+<h1 id="Module-exports-vs-Exports">Module.exports vs Exports<a href="#Module-exports-vs-Exports" class="headerlink" title="Module.exports vs Exports"></a></h1><p>The <code>module</code> is not global; it is local for each module. It contains metadata about a module like id, exports, parent, children, and so on.</p>
+<p><code>exports</code> is an alias of <code>module.exports</code>. Consequently, whatever you assign to <code>exports</code> is also available on <code>module.exports</code>. However, if you assign something directly to exports, then you lose the shortcut to <code>module.exports</code>. E.g.</p>
+<figure class="highlight javascript"><figcaption><span>cat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">  makeSound() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Meowww'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exports = Cat; // It will not work with `new Cat();`</span></span><br><span class="line"><span class="comment">// exports.Cat = Cat; // It will require `new Cat.Cat();` to work (yuck!)</span></span><br><span class="line"><span class="built_in">module</span>.exports = Cat;</span><br></pre></td></tr></table></figure>
+<p>Try the following case with <code>exports</code> and then with <code>module.exports</code>.</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Cat = <span class="built_in">require</span>(<span class="string">'./cat'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.makeSound());</span><br></pre></td></tr></table></figure>
 <p>To sum up, when to use <code>module.exports</code> vs <code>exports</code>:</p>
 <p>Use <code>exports</code> to:</p>
 <ul>
@@ -4190,20 +4191,29 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 </ul>
 <p>Use <code>module.exports</code> to:</p>
 <ol>
-<li><p>If you want to export an object, class, function at the root level (e.g. <code>module.exports = Cat</code></p>
+<li><p>If you want to export an object, class, function at the root level (e.g. <code>module.exports = Cat</code>)</p>
 </li>
-<li><p>If you want to return a single object that exposes multiple assignments. e.g.<code>module.exports = {area: area, circumference: circunference};</code></p>
+<li><p>If you prefer to return a single object that exposes multiple assignments. e.g.<code>module.exports = {area, circumference};</code></p>
 </li>
 </ol>
-<h1 id="Imports">Imports<a href="#Imports" class="headerlink" title="Imports"></a></h1><p>Imports are not available in Node as the version 6. However, it might come in future versions.</p>
-<figure class="highlight javascript"><figcaption><span>future of modules in javascript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> circle <span class="keyword">from</span> <span class="string">'./circle'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;area, circumference&#125; <span class="keyword">from</span> <span class="string">'./circle'</span>;</span><br></pre></td></tr></table></figure>
-<p>You can use it today, using transpilers such as Traceur Compiler, Babel or Rollup. But, that will be for another post.</p>
-<h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>We learned about how to create Node.js modules and use it in our code.  Modules allow us to reuse code easily. They provide functionality that is isolated from other modules. Required is used to load modules. Export and module exports allow defining what parts of our code we want to expose. We also explored the difference between module.exports and exports. Finally, we took a quick pick about what’s coming up for modules using <code>imports</code>.</p>
+<h1 id="Imports">Imports<a href="#Imports" class="headerlink" title="Imports"></a></h1><p>Starting with version 8.5.0+, Node.js supports ES modules natively with a feature flag and new file extention <code>*.mjs</code>.</p>
+<p>For instace, our previous <code>circle.js</code> can be rewritten as <code>circle.mjs</code> as follows:</p>
+<figure class="highlight javascript"><figcaption><span>cirle.mjs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14159265359</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (radius ** <span class="number">2</span>) * PI;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">circumference</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span> * radius * PI;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then, we can use import:</p>
+<figure class="highlight javascript"><figcaption><span>main.mjs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; area, circumference &#125; <span class="keyword">from</span> <span class="string">'./circle.mjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circunference: <span class="subst">$&#123;circumference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+<p>And, finally you can run it using the experimental module feature flag:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --experimental-modules main.mjs</span><br></pre></td></tr></table></figure>
+<p>If you don’t like experimental modules, another alternative is to use a transpiler. That converts modern JavaScript to older versions for you. Good options are
+<a href="https://www.typescriptlang.org/docs/handbook/modules.html" target="_blank" rel="noopener">TypeScript</a>,
+<a href="https://babeljs.io/docs/en/babel-plugin-transform-modules-commonjs" target="_blank" rel="noopener">Babel</a>, and
+<a href="https://rollupjs.org/guide/en#importing" target="_blank" rel="noopener">Rollup</a>.</p>
+<h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>We learned about how to create Node.js modules and used it in our code.  Modules allow us to reuse code easily. They provide functionality that is isolated from other modules. The <code>require</code> function is used to load modules. The <code>exports</code> and <code>module.exports</code> allow us to define what parts of our code we want to expose. We also explored the difference between <code>module.exports</code> and <code>exports</code>. Finally, we took a quick pick about what’s coming up for modules using <code>imports</code>.</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Modules are a key concept to understand Node.js projects. We cover Node modules: require, exports and the future import.&lt;/p&gt;
+      &lt;p&gt;Getting started with Node.js modules: require, exports, imports and beyond.&lt;/p&gt;
+&lt;p&gt;Modules are a crucial concept to understand Node.js projects. In this post, we cover Node modules: &lt;code&gt;require&lt;/code&gt;, &lt;code&gt;exports&lt;/code&gt; and, the future &lt;code&gt;import&lt;/code&gt;.&lt;/p&gt;
     
     </summary>
     
@@ -4223,7 +4233,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     <link href="https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-01-25T14:02:36.665Z</updated>
+    <updated>2019-01-28T21:57:10.209Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 ]]></content>
