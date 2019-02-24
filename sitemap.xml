@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adrianmejia.com/support/index.html</loc>
+    
+    <lastmod>2019-02-24T16:18:35.149Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://adrianmejia.com/blog/2018/04/05/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/</loc>
     
     <lastmod>2019-02-23T23:55:20.264Z</lastmod>
@@ -44,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
@@ -58,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/stylesheets/company_revenue.css</loc>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
+    <loc>https://adrianmejia.com/stylesheets/company_revenue.css</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
