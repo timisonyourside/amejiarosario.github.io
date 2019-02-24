@@ -42,7 +42,7 @@
     <meta property="og:url" content="https://adrianmejia.com/blog/2011/07/18/cs-getmanifestresourcestream-gotcha/">
     <meta property="og:site_name" content="Adrian Mejia Blog">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="In the .NET framework, the method Assembly -&gt; Get Manifest Resource Stream has a gotcha that could take some time to figure out why is not working as intented. I was working in a piece of code (show below), and the GetManifestResourceStream always returned NULL exception error. Even though the file was there…">
+    <meta property="og:description" content="In the .NET framework, the method Assembly -&gt; Get Manifest Resource Stream has a gotcha that could take some time to figure out why is not working as intented. I was working in a piece of code (show below), and the GetManifestResourceStream always returned NULL exception error. Even though the file was there...">
     <meta property="og:image" content="https://adrianmejia.comundefined">
     <meta property="og:title" content="C#'s GetManifestResourceStream Gotcha">
     <meta property="fb:app_id" content="761831487293468">
@@ -276,7 +276,7 @@ ga('send', 'pageview');
       "height": 50
     }
   },
-  "description": "In the .NET framework, the method Assembly -&gt; Get Manifest Resource Stream has a gotcha that could take some time to figure out why is not working as intented. I was working in a piece of code (show below), and the GetManifestResourceStream always returned NULL exception error. Even though the file was there…"
+  "description": "In the .NET framework, the method Assembly -&gt; Get Manifest Resource Stream has a gotcha that could take some time to figure out why is not working as intented. I was working in a piece of code (show below), and the GetManifestResourceStream always returned NULL exception error. Even though the file was there..."
 }
 </script>
 
@@ -298,7 +298,7 @@ ga('send', 'pageview');
       
         <span class="m-x-2" title="Pageviews">
           <i class="fa fa-eye" aria-hidden="true"></i>
-          28.7k
+          28.8k
         </span>
       
 
@@ -325,21 +325,21 @@ ga('send', 'pageview');
     <section class="col-sm-8 p-x-2">
 
       <div class="post-content ">
-        <p>In the .NET framework, the method Assembly -&gt; Get Manifest Resource Stream has a gotcha that could take some time to figure out why is not working as intented. I was working in a piece of code (show below), and the GetManifestResourceStream always returned NULL exception error. Even though the file was there…</p>
+        <p>In the .NET framework, the method Assembly -&gt; Get Manifest Resource Stream has a gotcha that could take some time to figure out why is not working as intented. I was working in a piece of code (show below), and the GetManifestResourceStream always returned NULL exception error. Even though the file was there...</p>
 <a id="more"></a>
 <p>C# example:</p>
 <div>
     <pre>public XmlTextReader GetSyntaxModeFile(SyntaxMode syntaxMode)
 {
 &nbsp;&nbsp; &nbsp;Assembly assembly = typeof(SyntaxMode).Assembly;
-&nbsp;&nbsp; &nbsp;var stream = assembly.GetManifestResourceStream(“ICSharpCode.TextEditor.Resources.” + syntaxMode.FileName);
+&nbsp;&nbsp; &nbsp;var stream = assembly.GetManifestResourceStream("ICSharpCode.TextEditor.Resources." + syntaxMode.FileName);
 &nbsp;&nbsp; &nbsp;if(stream == null)
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;throw new Exception(“The resource “+syntaxMode.FileName+” was not loaded properly.”);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;throw new Exception("The resource "+syntaxMode.FileName+" was not loaded properly.");
 &nbsp;&nbsp; &nbsp;return new XmlTextReader(stream);
 }</pre>
 </div>
 <p><strong>Solution:</strong></p>
-<p>The GetManifestResourceStream method will always returns NULL if the resource ‘<strong>built action</strong>‘ property is not set to ‘<strong>embedded resource</strong>‘</p>
+<p>The GetManifestResourceStream method will always returns NULL if the resource '<strong>built action</strong>' property is not set to '<strong>embedded resource</strong>'</p>
 <p>
 
 <!--
@@ -550,8 +550,8 @@ ga('send', 'pageview');
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Thu Feb 21 2019 19:18:42 GMT-0500 (Eastern Standard Time)">
-            v.pnawv6
+          <span class="muted m-x-4" title="Sat Feb 23 2019 20:56:28 GMT-0500 (Eastern Standard Time)">
+            v.pneqq4
           </span>
         </div>
       </div>

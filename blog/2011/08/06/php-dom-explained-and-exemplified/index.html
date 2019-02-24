@@ -325,14 +325,14 @@ ga('send', 'pageview');
     <section class="col-sm-8 p-x-2">
 
       <div class="post-content ">
-        <p></p><p>This is guide to get started with PHP DOM or a quick reminder to those who have a little while since the last time they used it.&nbsp;The extended documentation is in&nbsp;<a href="http://www.php.net/manual/en/book.dom.php" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; vertical-align: baseline; color: rgb(0, 116, 189); text-decoration: none; " target="_blank" rel="noopener">PHP.net</a>, but it is quite long. Here you might found a quick reference to get started in no time.</p>
-<a id="more"></a><p></p>
-<p></p><p>Purpose of the DOM (Docuement Object Model): It is a convention used to represent and manipulate objects in XML, XHTML and HTML documents. Parsing XML and HTML files is very useful. It allows to manipulate RSS Feeds, interact with APIs and web services through XML (e.g. Google Maps, Facebook and Twitter APIs, etc.), extract information from websites (web crawling) and more.&nbsp;</p><p></p>
-<p></p><h2>Getting Started</h2><p></p>
-<p></p><p>The DOM implementation in PHP have more than 15 classes! But don’t get afraid, for most cases, you might just end up using these ones: DOMNode, DOMDocument, DOMNodeList and DOMElement. In the following UML class diagram of PHP’s DOM&nbsp;you will see how these classes are related to each other and them the explanation of each one.</p><p></p>
-<p></p><p>
+        <p>This is guide to get started with PHP DOM or a quick reminder to those who have a little while since the last time they used it.&nbsp;The extended documentation is in&nbsp;<a href="http://www.php.net/manual/en/book.dom.php" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; vertical-align: baseline; color: rgb(0, 116, 189); text-decoration: none; " target="_blank" rel="noopener">PHP.net</a>, but it is quite long. Here you might found a quick reference to get started in no time.</p>
+<a id="more"></a>
+<p>Purpose of the DOM (Docuement Object Model): It is a convention used to represent and manipulate objects in XML, XHTML and HTML documents. Parsing XML and HTML files is very useful. It allows to manipulate RSS Feeds, interact with APIs and web services through XML (e.g. Google Maps, Facebook and Twitter APIs, etc.), extract information from websites (web crawling) and more.&nbsp;</p>
+<h2>Getting Started</h2>
+<p>The DOM implementation in PHP have more than 15 classes! But don't get afraid, for most cases, you might just end up using these ones: DOMNode, DOMDocument, DOMNodeList and DOMElement. In the following UML class diagram of PHP's DOM&nbsp;you will see how these classes are related to each other and them the explanation of each one.</p>
+<p>
 <!-- <img alt="PHP DOM UML Class Diagram (lean)" src="http://www.adrianmejiarosario.com/sites/default/files/pictures/PHP_DOM__UML_%28lean%29_Class_Diagram.gif" style="width: 541px; height: 345px; "> -->
-</p><p></p>
+</p>
 <div>Fig 1.&nbsp;&nbsp;PHP DOM: UML Class Diagram</div>
 <div>&nbsp;</div>
 <h3>Loading and Saving DOM Documents</h3>
@@ -359,12 +359,12 @@ ga('send', 'pageview');
 <p>&nbsp;Example using DOMDocument for loading and showing HTML:</p>
 <div><code>&lt;?php</code></div>
 <div><code>&nbsp; $dom = new DOMDocuement;</code></div>
-<div><code>&nbsp; $dom-&gt;loadHTML(‘<a href="http://www.adrianmejiarosario.com&#39;)" target="_blank" rel="noopener">http://www.adrianmejiarosario.com&#39;)</a>; &nbsp;// load website content to DOM&nbsp;</code></div>
+<div><code>&nbsp; $dom-&gt;loadHTML('http://www.adrianmejiarosario.com'); &nbsp;// load website content to DOM&nbsp;</code></div>
 <div><code>&nbsp; echo $dom-&gt;save(); &nbsp;// print to screen</code></div>
 <div><code>?&gt;</code></div>
 <div>&nbsp;</div>
 <h3>Iterating through DOM Elements</h3>
-<p>The first thing you need to do after loading the XML that you want to process, it’s to select the data that you are intereted in. To search for you data you need to iterate through the DOM elements and you need to know what methods and objects are using in this process.</p>
+<p>The first thing you need to do after loading the XML that you want to process, it's to select the data that you are intereted in. To search for you data you need to iterate through the DOM elements and you need to know what methods and objects are using in this process.</p>
 <p><u>DOMDocument must-know methods (part 2: get data)</u></p>
 <ul>
     <li>DOMElement&nbsp;<a href="http://us.php.net/manual/en/domdocument.getelementbyid.php" target="_blank" rel="noopener">DOMDocument::getElementById</a>&nbsp;(&nbsp;string&nbsp;$elementId&nbsp;)&nbsp;— Searches for an element with a certain id.</li>
@@ -382,7 +382,7 @@ ga('send', 'pageview');
     <li>int&nbsp;<a href="http://us.php.net/manual/en/class.domnodelist.php#domnodelist.props.length" target="_blank" rel="noopener">$DOMNodeList-&gt;length</a>&nbsp;- Node list length</li>
 </ul>
 <div>&nbsp;</div>
-<div><a href="http://www.php.net/manual/en/class.domelement.php" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; vertical-align: baseline; color: rgb(0, 116, 189); text-decoration: none; " target="_blank" rel="noopener">DOMElement</a>&nbsp;— class that extends DOMNode and add new methods but we don’t need those for iterating through nodes.</div>
+<div><a href="http://www.php.net/manual/en/class.domelement.php" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; vertical-align: baseline; color: rgb(0, 116, 189); text-decoration: none; " target="_blank" rel="noopener">DOMElement</a>&nbsp;— class that extends DOMNode and add new methods but we don't need those for iterating through nodes.</div>
 <div><a href="http://www.php.net/manual/en/class.domnode.php" target="_blank" rel="noopener">DOMNode</a>&nbsp;— The DOMNode class is the pillar class and it is used by all others classes directly or indirectly by one of its children classes.</div>
 <div>&nbsp;</div>
 <div><u style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; vertical-align: baseline; text-decoration: underline; border-style: initial; border-color: initial; "><u style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; vertical-align: baseline; text-decoration: underline; border-style: initial; border-color: initial; border-style: initial; border-color: initial; ">DOMNode must-know properties (part 4: get node data)</u></u></div>
@@ -601,8 +601,8 @@ ga('send', 'pageview');
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Thu Feb 21 2019 19:18:42 GMT-0500 (Eastern Standard Time)">
-            v.pnawv6
+          <span class="muted m-x-4" title="Sat Feb 23 2019 20:56:28 GMT-0500 (Eastern Standard Time)">
+            v.pneqq4
           </span>
         </div>
       </div>

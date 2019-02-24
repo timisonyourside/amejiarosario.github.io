@@ -350,69 +350,68 @@ name,line1,line2,city,zip code,country</pre>
     {
         List&lt;string&gt; datalist = new List&lt;string&gt;();
 
-        /<em>
-         </em> Define a regular expression for csv.
-         <em> This Pattern will match on either quoted text or text between commas, including
-         </em> whitespace, and accounting for beginning and end of line.
-         <em>/
+<pre><code>    /*
+     * Define a regular expression for csv.
+     * This Pattern will match on either quoted text or text between commas, including
+     * whitespace, and accounting for beginning and end of line.
+     */
 
-        Regex rx = new Regex(&quot;\&quot;([^\&quot;]</em>)\&quot;|(?&lt;=,|^)([^,]<em>)(?:,|$)&quot;,
-          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    Regex rx = new Regex(&amp;quot;\&amp;quot;([^\&amp;quot;]*)\&amp;quot;|(?&amp;lt;=,|^)([^,]*)(?:,|$)&amp;quot;,
+      RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-        // Find matches.
-        MatchCollection matches = rx.Matches(line);
+    // Find matches.
+    MatchCollection matches = rx.Matches(line);
 
-        // Report the number of matches found.
-        Console.WriteLine(&quot;{0} matches found.&quot;, matches.Count);
+    // Report the number of matches found.
+    Console.WriteLine(&amp;quot;{0} matches found.&amp;quot;, matches.Count);
 
-        // Report on each match.
-        foreach (Match match in matches)
-        {
-            if (match.Groups[1].Value.Length &gt; 0)
-                datalist.Add(match.Groups[1].Value); // match csv values inside commas
-            else
-                datalist.Add(match.Groups[2].Value); // match csv values outside commas
-        }
-        return datalist.ToArray();
-    }</em></pre>
-    </div>
-    <div>
-        &nbsp;</div>
-    <div>
-        &nbsp;</div>
-    <div>
-        Java Example:</div>
-    <div>
-        <pre>
-    public String[] parse(String csvLine) {
-        Pattern csvPattern = Pattern.compile(&quot;\&quot;([^\&quot;])\&quot;|(?&lt;=,|^)([^,]*)(?:,|$)&quot;);
-        matcher = csvPattern.matcher(csvLine);
-        allMatches.clear();
-        String match;
+    // Report on each match.
+    foreach (Match match in matches)
+    {
+        if (match.Groups[1].Value.Length &amp;gt; 0)
+            datalist.Add(match.Groups[1].Value); // match csv values inside commas
+        else
+            datalist.Add(match.Groups[2].Value); // match csv values outside commas
+    }
+    return datalist.ToArray();
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &amp;nbsp;&lt;/div&gt;
+&lt;div&gt;
+    &amp;nbsp;&lt;/div&gt;
+&lt;div&gt;
+    Java Example:&lt;/div&gt;
+&lt;div&gt;
+    &lt;pre&gt;
+public String[] parse(String csvLine) {
+    Pattern csvPattern = Pattern.compile(&amp;quot;\&amp;quot;([^\&amp;quot;]*)\&amp;quot;|(?&amp;lt;=,|^)([^,]*)(?:,|$)&amp;quot;);
+    matcher = csvPattern.matcher(csvLine);
+    allMatches.clear();
+    String match;
 
-        while (matcher.find()) {
-                match = matcher.group(1);
+    while (matcher.find()) {
+            match = matcher.group(1);
 
-                if (match!=null) {
-                        allMatches.add(match);
-                }
-                else {
-                        allMatches.add(matcher.group(2));
-                }
-        }
+            if (match!=null) {
+                    allMatches.add(match);
+            }
+            else {
+                    allMatches.add(matcher.group(2));
+            }
+    }
 
-        size = allMatches.size();
-        if (size &gt; 0) {
-                return allMatches.toArray(new String[size]);
-        }
-        else {
-                return new String[0];
-        }
-    } </pre>
-    </div>
-</div>
+    size = allMatches.size();
+    if (size &amp;gt; 0) {
+            return allMatches.toArray(new String[size]);
+    }
+    else {
+            return new String[0];
+    }
+} &lt;/pre&gt;
+&lt;/div&gt;</code></pre></pre></div>
 <p>&nbsp;</p>
-
+</div>
       </div>
 
       <!-- after post -->
@@ -615,8 +614,8 @@ name,line1,line2,city,zip code,country</pre>
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Thu Feb 21 2019 19:18:42 GMT-0500 (Eastern Standard Time)">
-            v.pnawv6
+          <span class="muted m-x-4" title="Sat Feb 23 2019 20:56:28 GMT-0500 (Eastern Standard Time)">
+            v.pneqq4
           </span>
         </div>
       </div>
