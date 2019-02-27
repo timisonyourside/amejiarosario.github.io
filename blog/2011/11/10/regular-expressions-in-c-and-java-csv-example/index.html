@@ -352,68 +352,69 @@ name,line1,line2,city,zip code,country</pre>
     {
         List&lt;string&gt; datalist = new List&lt;string&gt;();
 
-<pre><code>    /*
-     * Define a regular expression for csv.
-     * This Pattern will match on either quoted text or text between commas, including
-     * whitespace, and accounting for beginning and end of line.
-     */
+        /<em>
+         </em> Define a regular expression for csv.
+         <em> This Pattern will match on either quoted text or text between commas, including
+         </em> whitespace, and accounting for beginning and end of line.
+         <em>/
 
-    Regex rx = new Regex(&amp;quot;\&amp;quot;([^\&amp;quot;]*)\&amp;quot;|(?&amp;lt;=,|^)([^,]*)(?:,|$)&amp;quot;,
-      RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        Regex rx = new Regex(&quot;\&quot;([^\&quot;]</em>)\&quot;|(?&lt;=,|^)([^,]<em>)(?:,|$)&quot;,
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-    // Find matches.
-    MatchCollection matches = rx.Matches(line);
+        // Find matches.
+        MatchCollection matches = rx.Matches(line);
 
-    // Report the number of matches found.
-    Console.WriteLine(&amp;quot;{0} matches found.&amp;quot;, matches.Count);
+        // Report the number of matches found.
+        Console.WriteLine(&quot;{0} matches found.&quot;, matches.Count);
 
-    // Report on each match.
-    foreach (Match match in matches)
-    {
-        if (match.Groups[1].Value.Length &amp;gt; 0)
-            datalist.Add(match.Groups[1].Value); // match csv values inside commas
-        else
-            datalist.Add(match.Groups[2].Value); // match csv values outside commas
-    }
-    return datalist.ToArray();
-}&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div&gt;
-    &amp;nbsp;&lt;/div&gt;
-&lt;div&gt;
-    &amp;nbsp;&lt;/div&gt;
-&lt;div&gt;
-    Java Example:&lt;/div&gt;
-&lt;div&gt;
-    &lt;pre&gt;
-public String[] parse(String csvLine) {
-    Pattern csvPattern = Pattern.compile(&amp;quot;\&amp;quot;([^\&amp;quot;]*)\&amp;quot;|(?&amp;lt;=,|^)([^,]*)(?:,|$)&amp;quot;);
-    matcher = csvPattern.matcher(csvLine);
-    allMatches.clear();
-    String match;
+        // Report on each match.
+        foreach (Match match in matches)
+        {
+            if (match.Groups[1].Value.Length &gt; 0)
+                datalist.Add(match.Groups[1].Value); // match csv values inside commas
+            else
+                datalist.Add(match.Groups[2].Value); // match csv values outside commas
+        }
+        return datalist.ToArray();
+    }</em></pre>
+    </div>
+    <div>
+        &nbsp;</div>
+    <div>
+        &nbsp;</div>
+    <div>
+        Java Example:</div>
+    <div>
+        <pre>
+    public String[] parse(String csvLine) {
+        Pattern csvPattern = Pattern.compile(&quot;\&quot;([^\&quot;])\&quot;|(?&lt;=,|^)([^,]*)(?:,|$)&quot;);
+        matcher = csvPattern.matcher(csvLine);
+        allMatches.clear();
+        String match;
 
-    while (matcher.find()) {
-            match = matcher.group(1);
+        while (matcher.find()) {
+                match = matcher.group(1);
 
-            if (match!=null) {
-                    allMatches.add(match);
-            }
-            else {
-                    allMatches.add(matcher.group(2));
-            }
-    }
+                if (match!=null) {
+                        allMatches.add(match);
+                }
+                else {
+                        allMatches.add(matcher.group(2));
+                }
+        }
 
-    size = allMatches.size();
-    if (size &amp;gt; 0) {
-            return allMatches.toArray(new String[size]);
-    }
-    else {
-            return new String[0];
-    }
-} &lt;/pre&gt;
-&lt;/div&gt;</code></pre></pre></div>
-<p>&nbsp;</p>
+        size = allMatches.size();
+        if (size &gt; 0) {
+                return allMatches.toArray(new String[size]);
+        }
+        else {
+                return new String[0];
+        }
+    } </pre>
+    </div>
 </div>
+<p>&nbsp;</p>
+
       </div>
 
       <!-- after post -->
@@ -463,9 +464,9 @@ public String[] parse(String csvLine) {
             </a>
           
           
-            <a href="/blog/2011/11/09/how-to-setup-drupal-wysiwyg-and-images-uploading/" class="article-nav-older">
+            <a href="/blog/2011/11/09/how-to-execute-sql-statements-on-ms-access/" class="article-nav-older">
               <strong class="article-nav-caption">older <i class="fa fa-chevron-right"></i></strong>
-              <div class="article-nav-title">How to setup Drupal WYSIWYG and Images uploading?</div>
+              <div class="article-nav-title">How to execute SQL statements on MS Access?</div>
             </a>
           
         </div>
@@ -619,8 +620,8 @@ public String[] parse(String csvLine) {
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Sun Feb 24 2019 11:23:14 GMT-0500 (Eastern Standard Time)">
-            v.pnfuuq
+          <span class="muted m-x-4" title="Wed Feb 27 2019 07:52:43 GMT-0500 (Eastern Standard Time)">
+            v.pnl53v
           </span>
         </div>
       </div>

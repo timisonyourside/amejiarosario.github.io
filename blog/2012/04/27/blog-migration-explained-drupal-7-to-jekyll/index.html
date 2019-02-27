@@ -327,21 +327,16 @@ ga('send', 'pageview');
     <section class="col-sm-8 p-x-2">
 
       <div class="post-content ">
-        <p>This post is a guide on how to extract your blog posts information from Drupal 7 to other systems. And also automatically create a redirect files from the old blog to the new one. In this case, I migrated to Jerkyll/Octopress blog but from the data extracted in with my script you can migrate any other blog system. Hopefully, this will save you a lot of time if you need to do the same task. If you run into troubles go to last section of the post it has some suggestions.</p>
-<a id="more"></a>
-
-<h2 id="Extract-data-from-Drupal-7-site"><a href="#Extract-data-from-Drupal-7-site" class="headerlink" title="Extract data from Drupal 7 site"></a>Extract data from Drupal 7 site</h2><h3 id="SQL-extraction"><a href="#SQL-extraction" class="headerlink" title="SQL extraction"></a>SQL extraction</h3><p>You need to extract the data from your Drupal 7, there are several ways. You can connect to your web host via ssh and generate SQL dump.</p>
+        <p>This post is a guide on how to extract your blog posts information from Drupal 7 to other systems. And also automatically create a redirect files from the old blog to the new one. In this case, I migrated to Jerkyll/Octopress blog but from the data extracted in with my script you can migrate any other blog system. Hopefully, this will save you a lot of time if you need to do the same task. If you run into troubles go to last section of the post it has some suggestions.
+<a id="more"></a></p>
+<h2 id="Extract-data-from-Drupal-7-site">Extract data from Drupal 7 site<a href="#Extract-data-from-Drupal-7-site" class="headerlink" title="Extract data from Drupal 7 site"></a></h2><h3 id="SQL-extraction">SQL extraction<a href="#SQL-extraction" class="headerlink" title="SQL extraction"></a></h3><p>You need to extract the data from your Drupal 7, there are several ways. You can connect to your web host via ssh and generate SQL dump.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump –uUSERNAME –pPASSWORD DATABASE &gt; FILENAME.sql</span><br></pre></td></tr></table></figure>
-
 <p>(replace the UPPERCASE letters with your settings)</p>
 <p>You can download the file *.sql to your computer and run the following command to install to upload the data in your local database.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql –uUSERNAME –pPASSWORD DATABASE &lt; FILENAME.sql</span><br></pre></td></tr></table></figure>
-
 <p>If you have a access to you phpmyadmin in your host server you can download your sql dump file through that also. Other method is to use a local port fordwarding using SSH… anyways, get access to your database.</p>
-<h3 id="Run-the-script"><a href="#Run-the-script" class="headerlink" title="Run the script"></a>Run the script</h3><p>The 2nd and final step is to run the script that does all the magic. Below I will explain how it works in case that you want to customize.</p>
+<h3 id="Run-the-script">Run the script<a href="#Run-the-script" class="headerlink" title="Run the script"></a></h3><p>The 2nd and final step is to run the script that does all the magic. Below I will explain how it works in case that you want to customize.</p>
 <script src="//gist.github.com/2515239.js?file=drupal2jekyll.rb"></script>
-
-
 <p>Replace the place holders with your actual values:</p>
 <ul>
 <li>OLD_DOMAIN</li>
@@ -357,14 +352,13 @@ ga('send', 'pageview');
 <li>drupal_redirect: for each url of your posts it has a folder with a redirect index.php file to your new domain.</li>
 </ul>
 <p>Copy each of this folder to their respective places. Copy the content to your drupal_redirect to the root of your old blog and that’s it. It will redirect all your all blog URLs to your new site.</p>
-<h3 id="Behind-the-scenes…"><a href="#Behind-the-scenes…" class="headerlink" title="Behind the scenes…"></a>Behind the scenes…</h3><p>First, you need to extract the data from your Drupal site. I reversed engineer the database in order to extract the post, title, url alias (slug), tags, publish info, format and the last version of the post. The query that does all the magic is the following one:</p>
+<h3 id="Behind-the-scenes…">Behind the scenes…<a href="#Behind-the-scenes…" class="headerlink" title="Behind the scenes…"></a></h3><p>First, you need to extract the data from your Drupal site. I reversed engineer the database in order to extract the post, title, url alias (slug), tags, publish info, format and the last version of the post. The query that does all the magic is the following one:</p>
 <figure class="highlight sql"><figcaption><span>Drupal 7 Query to extract all the post info</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">n.nid,</span><br><span class="line">n.title,</span><br><span class="line">n.created,</span><br><span class="line">n.changed,</span><br><span class="line">b.body_value <span class="keyword">AS</span> <span class="string">'body'</span>,</span><br><span class="line">b.body_summary,</span><br><span class="line">b.body_format,</span><br><span class="line">n.status,</span><br><span class="line">l.alias <span class="keyword">AS</span> <span class="string">'slug'</span>,</span><br><span class="line"><span class="keyword">GROUP_CONCAT</span>( d.name SEPARATOR <span class="string">', '</span> ) <span class="keyword">AS</span> <span class="string">'tags'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> url_alias l, node n</span><br><span class="line"><span class="keyword">JOIN</span> field_data_body b <span class="keyword">ON</span> b.entity_id = n.nid</span><br><span class="line"><span class="keyword">JOIN</span> taxonomy_index t <span class="keyword">ON</span> t.nid = n.nid</span><br><span class="line"><span class="keyword">JOIN</span> taxonomy_term_data d <span class="keyword">ON</span> t.tid = d.tid</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span> n.type = <span class="string">'blog'</span></span><br><span class="line"><span class="keyword">AND</span> b.revision_id = n.vid</span><br><span class="line"><span class="keyword">AND</span> l.source = <span class="keyword">CONCAT</span>( <span class="string">'node/'</span>, n.nid )</span><br><span class="line"></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> n.nid</span><br></pre></td></tr></table></figure>
-
 <p>As might notice, it concatenates all the tags separated by comma and also finds the alias of the url if is called node. Also you can also find the url alias for other pages such as terms or taxonomies. But let’s keep it simple and get the posts urls.</p>
 <p>Finally, the script will use the data from this query to generate the new posts files and also to create the redirect files.</p>
 <p>As might notice, it concatenates all the tags separated by comma and also finds the alias of the url if is called node. Also you can also find the url alias for other pages such as terms or taxonomies. But let’s keep it simple and get the posts urls.</p>
 <p>Finally, the script will use the data from this query to generate the new posts files and also to create the redirect files.</p>
-<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><p>I had a hard time having the mysql gem work with seqel in my Mac OS X 10.7 (Lion) and ruby 1.9.2.</p>
+<h3 id="Troubleshooting">Troubleshooting<a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a></h3><p>I had a hard time having the mysql gem work with seqel in my Mac OS X 10.7 (Lion) and ruby 1.9.2.</p>
 <p>I got the following errors:</p>
 <ul>
 <li>Library not loaded: libmysqlclient.18.dylib (LoadError)
@@ -374,12 +368,10 @@ Sequel::DatabaseConnectionError: Mysql::ClientError::ServerGoneError: The MySQL 
 <li>Sequel::AdapterNotFound: LoadError: require ‘mysql’ did not define Mysql::CLIENT_MULTI_RESULTS! You are probably using the pure ruby mysql.rb driver, which Sequel does not support. You need to install the C based adapter, and make sure that the mysql.so file is loaded instead of the mysql.rb file.</li>
 <li>And others…</li>
 </ul>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h4><p>The mysql gem have been abandoned, so you also need mysql2 to work propery with sequel</p>
+<h4 id="Solution">Solution:<a href="#Solution" class="headerlink" title="Solution:"></a></h4><p>The mysql gem have been abandoned, so you also need mysql2 to work propery with sequel</p>
 <figure class="highlight bash"><figcaption><span>bash Install MySQL gems</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install sequel</span><br><span class="line">$ sudo gem install mysql -- --with-mysql-config=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config</span><br><span class="line">$ sudo gem install mysql2 -- --with-mysql-config=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config</span><br></pre></td></tr></table></figure>
-
 <p>also  you need to copy the following lib:</p>
 <figure class="highlight bash"><figcaption><span>Reference needed libs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ln -s /usr/<span class="built_in">local</span>/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib</span><br></pre></td></tr></table></figure>
-
 <p>That should work.</p>
 <p>Just if you are courious there is another gem called ruby-mysql, with which you can connect to mysql. But it doesn’t work with sequel</p>
 <figure class="highlight bash"><figcaption><span>Alternative gem to connect to mysql (ruby-mysql)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem install ruby-mysql -- --with-mysql-config=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config</span><br><span class="line">$ irb</span><br><span class="line">&gt; require <span class="string">'mysql'</span></span><br><span class="line">&gt; db = Mysql.real_connect(<span class="string">"SERVER"</span>,<span class="string">"USER"</span>,<span class="string">"PASSWORD"</span>,<span class="string">"DATABASE"</span>)</span><br></pre></td></tr></table></figure>
@@ -589,8 +581,8 @@ Sequel::DatabaseConnectionError: Mysql::ClientError::ServerGoneError: The MySQL 
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Sun Feb 24 2019 11:23:14 GMT-0500 (Eastern Standard Time)">
-            v.pnfuuq
+          <span class="muted m-x-4" title="Wed Feb 27 2019 07:52:43 GMT-0500 (Eastern Standard Time)">
+            v.pnl53v
           </span>
         </div>
       </div>
