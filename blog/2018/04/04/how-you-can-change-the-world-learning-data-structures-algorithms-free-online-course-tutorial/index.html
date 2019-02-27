@@ -46,6 +46,7 @@
 
 As a developer, you have the power to change the world! You can write programs that enable new technologies and work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.
 
+
 However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this online course.">
     <meta property="og:image" content="https://adrianmejia.com/images/data-structures-algorithms-time-complexity-big-o-notation-large.jpg">
     <meta property="og:title" content="How you can change the world by learning Data Structures and Algorithms">
@@ -284,6 +285,7 @@ ga('send', 'pageview');
 
 As a developer, you have the power to change the world! You can write programs that enable new technologies and work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.
 
+
 However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this online course."
 }
 </script>
@@ -346,8 +348,10 @@ However, these accomplishments are only possible if we write software that is fa
 <p>As a developer, you have the power to change the world! You can write programs that enable new technologies and work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.</p>
 <!-- Millions of people might use some applications (e.g., Google,
 Baidu, Youtube, Facebook). -->
+
 <p>However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this online course.</p>
 <a id="more"></a>
+
 <hr>
 <p>This post is part of a tutorial series:</p>
 <p><strong>Learning Data Structures and Algorithms (DSA) for Beginners</strong></p>
@@ -402,6 +406,7 @@ Baidu, Youtube, Facebook). -->
 <h1 id="How-to-improve-your-coding-skills">How to improve your coding skills?<a href="#How-to-improve-your-coding-skills" class="headerlink" title="How to improve your coding skills?"></a></h1><p>The first step to improving something is to measure it.</p>
 <blockquote><p>Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t control it, you can’t improve it.</p>
 <footer><strong>H. J. Harrington</strong></footer></blockquote>
+
 <p>How do you do “measure” your code? Would you clock “how long” it takes to run? What if you are running the same program on a mobile device or a quantum computer? The same code will give you different results, right?</p>
 <p>To answer these questions, we need to nail some concepts first, like <strong>time complexity</strong>!</p>
 <h2 id="Time-complexity">Time complexity<a href="#Time-complexity" class="headerlink" title="Time complexity"></a></h2><p>Time complexity (or <strong>running time</strong>) is the estimated time an algorithm takes to run. However, you do not measure time complexity in seconds, but as a <strong>function</strong> of the input.  (I know it’s weird but bear with me).</p>
@@ -418,6 +423,7 @@ Baidu, Youtube, Facebook). -->
 <p>We usually care more about the <strong>worst-case time complexity</strong>. We are hoping for the best but preparing for the <strong>worst</strong>.</p>
 <h1 id="Calculating-time-complexity">Calculating time complexity<a href="#Calculating-time-complexity" class="headerlink" title="Calculating time complexity"></a></h1><p>Here’s a code example of how you can calculate the time complexity: <em>Find the smallest number in an array</em>.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Get the smallest number on an array of numbers</span></span><br><span class="line"><span class="comment"> * @param &#123;Array&#125; n array of numbers</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMin</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line marked">  <span class="keyword">const</span> array = <span class="built_in">Array</span>.from(n);</span><br><span class="line marked">  <span class="keyword">let</span> min;</span><br><span class="line"></span><br><span class="line">  array.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line marked">    <span class="keyword">if</span>(min === <span class="literal">undefined</span> || element &lt; min) &#123;</span><br><span class="line marked">      min = element;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line marked">  <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>We can represent <code>getMin</code> as a function of the size of the input <code>n</code> based on the number of operations it has to perform. For simplicity, let’s assume that each line of code takes the same amount of time in the CPU to execute. Let’s make the sum:</p>
 <ul>
 <li>Line 6: 1 operation</li>
@@ -440,8 +446,7 @@ Baidu, Youtube, Facebook). -->
 <th>result</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>1</td>
 <td>2(1) + 3</td>
 <td>5</td>
@@ -466,8 +471,7 @@ Baidu, Youtube, Facebook). -->
 <td>2(10,000) + 3</td>
 <td>20,003</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Believe it or not, also <code>k</code> wouldn’t make too much of a difference. Using this kind of asymptotic analysis we take the higher order element, in this case: <code>n</code>.</p>
 <p>Let’s do another example so we can get this concept. Let’s say we have the following function: `3 n^2 + 2n + 20`. What would be the result of using the asymptotic analysis?</p>
 <blockquote>
@@ -952,8 +956,8 @@ Titles:
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Wed Feb 27 2019 07:52:43 GMT-0500 (Eastern Standard Time)">
-            v.pnl53v
+          <span class="muted m-x-4" title="Wed Feb 27 2019 11:20:55 GMT-0500 (Eastern Standard Time)">
+            v.pnleqv
           </span>
         </div>
       </div>

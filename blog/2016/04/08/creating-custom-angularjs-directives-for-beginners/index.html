@@ -335,13 +335,16 @@ ga('send', 'pageview');
       <div class="post-content  toc-content ">
         <p>Directives are one of the most important concepts to understand Angular. This tutorial takes through the basics and beyond. We will cover how to build your own HTML extensions through directives.</p>
 <a id="more"></a>
+
 <p>Angular framework relies heavily on them to teach the browser new HTML tags. Directives are a powerful tool to create reusable web components. Directives not only could be defined as new HTML tags but also as attributes, CSS classes or even HTML comments. Angular comes with many built-in (core) directives that offer numerous functionalities to your web applications right away. Furthermore, it also allows us to define our own through custom directives. We are going to focus on the later.</p>
 <p>Let’s say we want to create a new HTML component that the browsers doesn’t support yet, like a To-do list:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-todo</span> <span class="attr">list</span>=<span class="string">"todo"</span> <span class="attr">title</span>=<span class="string">"Angular Todo"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-todo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>If you paste that code in any browser, it will not do much. We need to use Angular to teach the browser how to interpret this new HTML element called “my-todo”. We do this by defining a new directive with its attributes.</p>
 <p>Let’s initialize our app and define our new directive:</p>
 <p>Create a new file called “script.js”</p>
 <figure class="highlight javascript"><figcaption><span>script.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'myApp'</span>, []);</span><br><span class="line"></span><br><span class="line">app.directive(<span class="string">'myTodo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      restrict: <span class="string">'EA'</span>,</span><br><span class="line">      templateUrl: <span class="string">'todo.tpl.html'</span>,</span><br><span class="line">      scope: &#123;</span><br><span class="line">        list: <span class="string">'='</span>,</span><br><span class="line">        title: <span class="string">'@'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
 <p>Don’t get scared if you don’t understand what’s going on right now. By the end of this tutorial, you will be able to know what each line is doing.</p>
 <p>In the first line, we initialize an angular module called “myApp”.  That will return an “app” instance where we can start defining our Angular app.</p>
 <p>We start by adding a directive called “myTodo”, notice that is different from “my-todo” that we used in the HTML code above. That’s because, by convention in HTML, tags names words are separated by a hyphen like “my-todo”. On the other hand, in Angular they match the same element with words joint together and capitalizing the beginning of each word, except the first one “myTodo”. This style of joining words is known as “camelCase”.</p>
@@ -355,8 +358,7 @@ ga('send', 'pageview');
 <th>Example</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>E</td>
 <td>Implies we are going to use our directive as a new HTML element.</td>
 <td><code>&lt;my-todo list=&quot;todo&quot; title=&quot;Element&quot;&gt; &lt;/my-todo&gt;</code></td>
@@ -376,12 +378,12 @@ ga('send', 'pageview');
 <td>Matches HTML comments.</td>
 <td><code>&lt;!--directive:my-todo attributes goes here--&gt;</code></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Taking our To-do example, with the combined value ‘EA’, means that will match any element with our directive as an attribute, and also, it will match any element defined as “<my-todo>”</my-todo></p>
 <p>It is a good practice only to use restrict to either ‘E’ or ‘A’ or both. Classes ‘C’ and comments ‘M’ could be easily misinterpreted. That’s why we are using just EA.</p>
 <h1 id="Template">Template<a href="#Template" class="headerlink" title="Template"></a></h1><p>Templates are just HTML code that could be reuse multiple times with different values or text. In order to be generic enough, they use placeholders tied to variables that could be easily replaced. Let’s create the “todo.tpl.html” with the following content:</p>
 <figure class="highlight html"><figcaption><span>todo.tpl.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;title&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"todo in list"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">ng-model</span>=<span class="string">"todo.completed"</span>&gt;</span> &#123;&#123;todo.name&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>Notice that our template contains placeholders with a variable such as Creating custom AngularJS directives for beginners, which is going, to be replaced by real title text. Similarly,  is going to be replaced with a task name.</p>
 <p>We just used our first built-in Angular directive, in this tutorial, “ng-repeat”. This directive is going to take an array of elements, like our list and repeat itself for each one of elements and refer to them as “todo”. In other words, if the list contains 4 tasks, we are going to see 4 checkboxes each one with the name of the individual tasks. We are going to explain where “title” and “list” comes in the next section.</p>
 <p>Going back to our directive definition, we could have used “template” attribute instead of “templateUrl” and take inline html code directly, but often is hard to read and we would prefer to use “templateUrl” and defined as a separated file.</p>
@@ -389,6 +391,7 @@ ga('send', 'pageview');
 <h1 id="Scope">Scope<a href="#Scope" class="headerlink" title="Scope"></a></h1><p>Scopes are key concept to understand Angular. Scope is what glues JavaScript code with HTML and allow us to replace placeholders from templates with real values.</p>
 <p>In our directive definition, we are creating a new “isolated scope” with two elements:</p>
 <figure class="highlight javascript"><figcaption><span>Isolated scope</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scope: &#123;</span><br><span class="line">  list: <span class="string">'='</span>,</span><br><span class="line">  title: <span class="string">'@'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>If you remember from our template, these are exactly the two placeholders that we had “title” and “list”. The symbols = and @ looks a little mysterious but they are not too cryptic once we know what they mean.</p>
 <ul>
 <li><code>@</code> Implies that the value of the attribute with the same name in the HTML element will be passed as a string. For instance, <my-todo title="The Directive"></my-todo>, will replace Creating custom AngularJS directives for beginners in our template for “The Directive”.</li>
@@ -398,6 +401,7 @@ ga('send', 'pageview');
 <h1 id="Controllers">Controllers<a href="#Controllers" class="headerlink" title="Controllers"></a></h1><p>The main purpose of controllers is to set initial values the scope and also add behavior through functions. We are going to use a controller to define the “todo” list that we want to render with our newly created directive.</p>
 <p>The way we create controllers is by attaching the controller to our Angular app instance. Let’s go back to script.js and append the following:</p>
 <figure class="highlight javascript"><figcaption><span>script.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'main'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">  $scope.todo = [</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'Create a custom directive'</span>, <span class="attr">completed</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'Learn about restrict'</span>, <span class="attr">completed</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'Master scopes'</span>, <span class="attr">completed</span>: <span class="literal">false</span>&#125;</span><br><span class="line">  ];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p>Noticed that we defined our controller with the name “main” and pass along a function with the “$scope” parameter. This is important since, whatever we attach to the “$scope” variable it will become available in templates and other directives. We just defined our todo list as an array of objects with two properties name and completed.</p>
 <h1 id="To-do-directive">To-do directive<a href="#To-do-directive" class="headerlink" title="To-do directive"></a></h1><p>So far, we have been preparing the grounds for our directive. We have created:</p>
 <ul>
@@ -409,6 +413,7 @@ ga('send', 'pageview');
 <p>Now, is the time to put everything together and make it work!</p>
 <p>Let’s create an index.html page with the following:</p>
 <figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">data-require</span>=<span class="string">"angular.js@1.5.0"</span> <span class="attr">data-semver</span>=<span class="string">"1.5.0"</span> <span class="attr">src</span>=<span class="string">"https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"myApp"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">my-todo</span> <span class="attr">list</span>=<span class="string">"todo"</span> <span class="attr">title</span>=<span class="string">"Angular To-do"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-todo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>We add the AngularJS library first and then initialize the app using the built-in directive “ng-app”. Notice that this must match to module that we created “myApp” or it won’t work.</p>
 <p>Later, we reference our controller using another core directive called “ng-controller”. Similarly to ng-app, it also takes a value that should match the one we defined, in this case “main” controller.  This main controller defines our “todo” as an array of tasks with names and whether they have been completed or not.</p>
 <p>Finally, we start using our new directive! It takes two attributes the title and a list. If you remember, we defined a template inside the directive definition, so it knows how to render the content.</p>
@@ -646,8 +651,8 @@ ga('send', 'pageview');
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Wed Feb 27 2019 07:52:43 GMT-0500 (Eastern Standard Time)">
-            v.pnl53v
+          <span class="muted m-x-4" title="Wed Feb 27 2019 11:20:55 GMT-0500 (Eastern Standard Time)">
+            v.pnleqv
           </span>
         </div>
       </div>
