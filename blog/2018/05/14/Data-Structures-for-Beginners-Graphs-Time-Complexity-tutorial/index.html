@@ -42,8 +42,8 @@
     <meta property="og:url" content="https://adrianmejia.com/blog/2018/05/14/Data-Structures-for-Beginners-Graphs-Time-Complexity-tutorial/">
     <meta property="og:site_name" content="Adrian Mejia Blog">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="In this post, we are going to explore non-linear data structures like graphs. We are going to cover the central concepts and typical applications.
-You are probably using programs that use graphs (and trees). Let’s say for instance that you want to know the shortest path between your workplace and home you can use graph algorithms to get the answer! We are going to explore this and other fun challenges.">
+    <meta property="og:description" content="In this post, we are going to explore non-linear data structures like graphs. Also, we’ll cover the central concepts and typical applications.
+You are probably using programs with graphs and trees. Let’s say for instance that you want to know the shortest path between your workplace and home, you can use graph algorithms to get the answer! We are going to look into this and other fun challenges.">
     <meta property="og:image" content="https://adrianmejia.com/images/graph-data-structures-time-complexity-large.jpg">
     <meta property="og:title" content="Graph Data Structures for Beginners">
     <meta property="fb:app_id" content="761831487293468">
@@ -277,8 +277,8 @@ ga('send', 'pageview');
       "height": 50
     }
   },
-  "description": "In this post, we are going to explore non-linear data structures like graphs. We are going to cover the central concepts and typical applications.
-You are probably using programs that use graphs (and trees). Let’s say for instance that you want to know the shortest path between your workplace and home you can use graph algorithms to get the answer! We are going to explore this and other fun challenges."
+  "description": "In this post, we are going to explore non-linear data structures like graphs. Also, we’ll cover the central concepts and typical applications.
+You are probably using programs with graphs and trees. Let’s say for instance that you want to know the shortest path between your workplace and home, you can use graph algorithms to get the answer! We are going to look into this and other fun challenges."
 }
 </script>
 
@@ -302,7 +302,7 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
       
         <span class="m-x-2" title="Pageviews">
           <i class="fa fa-eye" aria-hidden="true"></i>
-          16.1k
+          16.4k
         </span>
       
 
@@ -335,11 +335,11 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
     <section class="col-sm-8 p-x-2">
 
       <div class="post-content  toc-content ">
-        <p>In this post, we are going to explore non-linear data structures like graphs. We are going to cover the central concepts and typical applications.</p>
-<p>You are probably using programs that use graphs (and trees). Let’s say for instance that you want to know the shortest path between your workplace and home you can use graph algorithms to get the answer! We are going to explore this and other fun challenges.</p>
+        <p>In this post, we are going to explore non-linear data structures like graphs. Also, we’ll cover the central concepts and typical applications.</p>
+<p>You are probably using programs with graphs and trees. Let’s say for instance that you want to know the shortest path between your workplace and home, you can use graph algorithms to get the answer! We are going to look into this and other fun challenges.</p>
 <a id="more"></a>
 
-<p>In the previous post, we explore linear data structures like arrays, linked lists, sets, stacks and so on. This post builds on top of what we learned.</p>
+<p>In the previous post, we explore linear data structures like arrays, linked lists, sets, stacks and so on. This one builds on top of what we learned.</p>
 <hr>
 <p>This post is part of a tutorial series:</p>
 <p><strong>Learning Data Structures and Algorithms (DSA) for Beginners</strong></p>
@@ -419,22 +419,22 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <!-- { img http://btechsmartclass.com/DS/images/Graph%201.png Graph is composed of vertices and edges } -->
 
 <p>The <strong>degree</strong> is the number of edges connected to a vertex. E.g., the <code>purple</code> vertex has a degree of 3 while the <code>blue</code> one has a degree of 1.</p>
-<p>If the edges are bi-directional, then we have a <strong>undirected graph</strong>. But, if the edges have a direction, then we have a <strong>directed graph</strong> or <strong>di-graph</strong> for short. You can think of it as a one-way street (directed) or two-way street (undirected).</p>
+<p>If the edges are bi-directional, then we have an <strong>undirected graph</strong>. But, if the edges have a direction, then we have a <strong>directed graph</strong> or <strong>di-graph</strong> for short. You can think of it as a one-way street (directed) or two-way street (undirected).</p>
 <!-- image of graph behind a map: edges is POI and edges are the streets -->
 <!-- { img https://koenig-media.raywenderlich.com/uploads/2017/01/graph6.png "Directed and Undirected graphs" } -->
 <img src="/images/directed-vs-undirected-graph.jpg" title="Directed vs Undirected graph">
 
 <p>Vertex can have edges that go to itself (e.g., <code>blue</code> node), this is called <strong>self-loop</strong>.</p>
-<p>A graph can have <strong>cycles</strong> which means that if you traverse through the node, you could get to the same node more than once. The graph without cycles is called <strong>acyclic graph</strong>.</p>
+<p>A graph can have <strong>cycles</strong> which means that if you traverse through the node, you could get the same node more than once. The graph without cycles is called <strong>acyclic graph</strong>.</p>
 <!-- { img http://apprize.info/php/hadoop_1/hadoop_1.files/image190.jpg Acyclic vs Cyclic Graphs } -->
 <img src="/images/cyclic-vs-acyclic-directed-graph.jpg" title="Cyclic vs Acyclic directed graph">
 
 <p>Also, acyclic undirected graphs are called <strong>tree</strong>. We are going to cover trees in depth in the next post.</p>
-<p>Not all vertices have to be connected in the graph. You might have isolated nodes or even separated subgraphs. If all nodes are has a least one edge, then we have a <strong>connected graph</strong>. When all nodes are connected to all other nodes, then we have a <strong>complete graph</strong>.</p>
+<p>Not all vertices have to be connected in the graph. You might have isolated nodes or even separated subgraphs. If all nodes  have at least one edge, then we have a <strong>connected graph</strong>. When all nodes are connected to all other nodes, then we have a <strong>complete graph</strong>.</p>
 <!-- { img /images/digraph-subgraph.png digraph with isolated subgraphs } -->
 <img src="/images/connected-vs-complete-graph.jpg" title="Complete vs Connected graph">
 
-<p>For a complete graph, each node has to have <code>#nodes - 1</code> edges. In the previous example we have 7 vertices, so each node has 6 edges.</p>
+<p>For a complete graph, each node should have <code>#nodes - 1</code> edges. In the previous example we have 7 vertices, so each node has 6 edges.</p>
 <h1 id="Graph-Applications">Graph Applications<a href="#Graph-Applications" class="headerlink" title="Graph Applications"></a></h1><p>When edges have values/cost assigned to them, we say we have a <strong>weighted graph</strong>. If the weight is absent, we can assume it’s 1.</p>
 <img src="/images/airports-weighted-graph.jpg" title="Airports weighted graph">
 
@@ -449,9 +449,9 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 </li>
 <li><p>GPS Navigation</p>
 <ul>
-<li>Node = road insersection</li>
+<li>Node = road intersection</li>
 <li>Edge = road</li>
-<li>Weigth = time required to go from one intersection to another</li>
+<li>Weight = time required to go from one intersection to another</li>
 </ul>
 </li>
 <li><p>Networks routing</p>
@@ -469,13 +469,13 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <li>Driving directions</li>
 <li>Telcom: Cell tower frequency planning</li>
 <li>Social networks. E.g., Facebook uses a graph for suggesting friends</li>
-<li>Recommendations: Amazon/Netflix uses graphs to make suggestions products/movies</li>
-<li>Graphs help to plan logistics of delivering goods</li>
+<li>Recommendations: Amazon/Netflix uses graphs to make suggestions for products/movies</li>
+<li>Graphs help to plan the logistics of delivering goods</li>
 </ul>
-<img src="/images/map-graph.jpg" title="Graph applications: path finder">
+<img src="/images/map-graph.jpg" title="Graph applications: pathfinder">
 
-<p>We just learned the basics of graphs and some applications. Let’s learn now how to represent graphs in code.</p>
-<h1 id="Representing-graphs">Representing graphs<a href="#Representing-graphs" class="headerlink" title="Representing graphs"></a></h1><p>Thre are two primary ways of representing graph:</p>
+<p>We just learned the basics of graphs and some applications. Let’s cover how to represent graphs in JavaScript.</p>
+<h1 id="Representing-graphs">Representing graphs<a href="#Representing-graphs" class="headerlink" title="Representing graphs"></a></h1><p>There are two primary ways of representing graph:</p>
 <ol>
 <li>Adjacency list</li>
 <li>Adjacency Matrix</li>
@@ -483,7 +483,7 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <p>Let’s explain it with the following directed graph (digraph) as an example:</p>
 <img src="/images/digraph.png" title="digraph">
 
-<p>We a digraph with 4 nodes. When a vertex has link to itself (e.g. <code>a</code>) is called <strong>self-loop</strong>.</p>
+<p>We digraph with 4 nodes. When a vertex has a link to itself (e.g. <code>a</code>) is called <strong>self-loop</strong>.</p>
 <!-- Notice that `a` has **self-loop**. -->
 <!-- img https://www.ida.liu.se/opendsa/OpenDSA/Books/TDDD86_2014/html/_images/GraphRep.png Graph representation: Adjacency list and matrix  -->
 
@@ -504,14 +504,14 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 </blockquote>
 <p><a id="Matrix.addVertex"></a></p>
 <p>What is the runtime to add a vertex?</p>
-<p>The vertices are stored as a <em><code>V</code></em>x<em><code>V</code></em> matrix. So, everytime a vertex is added, the matrix needs to be reconstructed to a <em><code>V+1</code></em>x<em><code>V+1</code></em>.</p>
+<p>The vertices are stored as a <em><code>V</code></em>x<em><code>V</code></em> matrix. So, every time a vertex is added, the matrix needs to be reconstructed to a <em><code>V+1</code></em>x<em><code>V+1</code></em>.</p>
 <blockquote>
-<p>Adding a vertex on a adjacency matrix is <em>O(|V|<sup>2</sup>)</em></p>
+<p>Adding a vertex on an adjacency matrix is <em>O(|V|<sup>2</sup>)</em></p>
 </blockquote>
 <p><a id="Matrix.getAdjacents"></a></p>
 <p>What about getting the adjacent nodes?</p>
 <p>Since the matrix has a VxV matrix, to get all the adjacent nodes to a given vertex, we would have to go to the node row and get all its edges with the other nodes.</p>
-<p>In our previous example, let’s say we want all the adjacent nodes to <code>b</code>. We have to get the full row where b with all the other nodes.</p>
+<p>In our previous example, let’s say we want all the adjacent nodes to <code>b</code>. We have to get the full row where b is with all the other nodes.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  a b c d e</span><br><span class="line">b - - 1 - -</span><br></pre></td></tr></table></figure>
 
 <p>We have to visit all nodes so,</p>
@@ -521,8 +521,8 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <p>Imagine that you need to represent Facebook network as a graph. You would have to create a matrix of 2 billion x 2 billion, where most of it would be empty! Nobody would know everybody else just a few thousands at most.</p>
 <p>In general, we deal with sparse graphs so the matrix will waste a lot of space. That’s why in most implementation we would use an adjacency list rather than the matrix.</p>
 <h2 id="Adjacency-List">Adjacency List<a href="#Adjacency-List" class="headerlink" title="Adjacency List"></a></h2><p>Adjacency List is one of the most common ways to represent graphs. Each node has a list of all the nodes connected to it.</p>
-<p>Graphs can be represented as an adjacency list using an Array (or HashMap) containing the nodes. Each of this node entries includes a list (array, linked list, set, etc.) that list its adjacent nodes.</p>
-<p>For instance in the graph above we have that <code>a</code> has an connection to <code>b</code> and also a self-loop to itself. In turn, <code>b</code> has a connection to <code>c</code> and so on:</p>
+<p>Graphs can be represented as an adjacency list using an Array (or HashMap) containing the nodes. Each of these node entries includes a list (array, linked list, set, etc.) that list its adjacent nodes.</p>
+<p>For instance, in the graph above we have that <code>a</code> has a connection to <code>b</code> and also a self-loop to itself. In turn, <code>b</code> has a connection to <code>c</code> and so on:</p>
 <figure class="highlight plain"><figcaption><span>Adjacency List</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a -&gt; &#123; a b &#125;</span><br><span class="line">b -&gt; &#123; c &#125;</span><br><span class="line">c -&gt; &#123; d &#125;</span><br><span class="line">d -&gt; &#123; b c &#125;</span><br></pre></td></tr></table></figure>
 
 <p>As you can imagine if you want to know if a node is connected to another node, you would have to go through the list.</p>
@@ -535,7 +535,7 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <p>Storing a graph as an adjacency list has a space complexity of <em>O(n)</em>, where <code>n</code> is the sum of vertices and edges. Also, represented as <em>O(|V| + |E|)</em></p>
 </blockquote>
 <h1 id="Adjacency-List-Graph-HashMap-Implementation">Adjacency List Graph HashMap Implementation<a href="#Adjacency-List-Graph-HashMap-Implementation" class="headerlink" title="Adjacency List Graph HashMap Implementation"></a></h1><p>The adjacency list is the most common way of representing graphs. There are several ways to implement the adjacency list:</p>
-<p>One of the most simple is using a HashMap. The <code>key</code> is the value of the node, and the <code>value</code> is an array of adjacency.</p>
+<p>One of them is using a HashMap. The <code>key</code> is the value of the node, and the <code>value</code> is an array of adjacency.</p>
 <figure class="highlight js"><figcaption><span>Adjacency List as a Hashmap</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> graph = &#123;</span><br><span class="line">  a: [<span class="string">'a'</span>, <span class="string">'b'</span>],</span><br><span class="line">  b: [<span class="string">'c'</span>],</span><br><span class="line">  c: [<span class="string">'d'</span>],</span><br><span class="line">  d: [<span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Graph usually needs the following operations:</p>
@@ -545,7 +545,7 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 </ul>
 <p>Adding and removing vertices involves updating the adjacency list.</p>
 <p>Let’s say that we want to remove the vertex <code>b</code>. We could do <code>delete graph[&#39;b&#39;];</code>, however, we still have to remove the references on the adjacency list on <code>d</code> and <code>a</code>.</p>
-<p>Everytime we remove a node, we would have to iterate through all the nodes’ list <em>O(|V| + |E|)</em>.  Can do better? We will answer that later, first let’s *implement our list in a more object-oriented way so we can swap implementations easily.</p>
+<p>Every time we remove a node, we would have to iterate through all the nodes’ list <em>O(|V| + |E|)</em>.  Can we do better? We will answer that soon, but first, let’s *implement our list in a more object-oriented way so we can swap implementations easily.</p>
 <h1 id="Adjacency-List-Graph-OO-Implementation">Adjacency List Graph OO Implementation<a href="#Adjacency-List-Graph-OO-Implementation" class="headerlink" title="Adjacency List Graph OO Implementation"></a></h1><p>Let’s start with the <code>Node</code> class that holds the vertex’s value and its adjacent vertices. We can also have helper functions for adding and removing adjacent nodes from the list.</p>
 <p><a id="Node.getAdjacents"></a></p>
 <figure class="highlight js"><figcaption><span>Node</span><a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/node.js" target="_blank" rel="noopener">Commented Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(value) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="keyword">this</span>.adjacents = []; <span class="comment">// adjacency list</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addAdjacent(node) &#123;</span><br><span class="line marked">    <span class="keyword">this</span>.adjacents.push(node);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  removeAdjacent(node) &#123;</span><br><span class="line">    <span class="keyword">const</span> index = <span class="keyword">this</span>.adjacents.indexOf(node);</span><br><span class="line">    <span class="keyword">if</span>(index &gt; <span class="number">-1</span>) &#123;</span><br><span class="line marked">      <span class="keyword">this</span>.adjacents.splice(index, <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getAdjacents() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.adjacents;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isAdjacent(node) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.adjacents.indexOf(node) &gt; <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -576,7 +576,7 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <p>The way we create a node is that we add it to the <code>this.nodes</code> Map. The map store a key/value pair, where the <code>key</code> is the vertex’s value while the map <code>value</code> is the instance of the node class. Take a look at line 5-6:</p>
 <figure class="highlight js"><figcaption><span>Graph.addVertex</span><a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/graph.js" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">addVertex(value) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.nodes.has(value)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.nodes.get(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line marked">    <span class="keyword">const</span> vertex = <span class="keyword">new</span> Node(value);</span><br><span class="line marked">    <span class="keyword">this</span>.nodes.set(value, vertex);</span><br><span class="line">    <span class="keyword">return</span> vertex;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>If the node already exists we don’t want to overwrite it. So, we first check if it already exists if not then we create it.</p>
+<p>If the node already exists we don’t want to overwrite it. So, we first check if it already exists and if it doesn’t, then we create it.</p>
 <blockquote>
 <p>The runtime of adding a vertex from a graph adjacency list is: <em>O(1)</em></p>
 </blockquote>
@@ -585,9 +585,9 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <p>Removing a node from the graph, it’s a little bit more involved. We have to check if the node to be deleted it’s in use as an adjacent node.</p>
 <figure class="highlight js"><figcaption><span>Graph.removeVertex</span><a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/graph.js" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">removeVertex(value) &#123;</span><br><span class="line">  <span class="keyword">const</span> current = <span class="keyword">this</span>.nodes.get(value);</span><br><span class="line">  <span class="keyword">if</span>(current) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> node <span class="keyword">of</span> <span class="keyword">this</span>.nodes.values()) &#123;</span><br><span class="line marked">      node.removeAdjacent(current);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line marked">  <span class="keyword">return</span> <span class="keyword">this</span>.nodes.delete(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>We have to through each vertex and then each adjacent node (edges).</p>
+<p>We have to go through each vertex and then each adjacent node (edges).</p>
 <blockquote>
-<p>The runtime of removing a vertex from a graph adjacency list is: <em>O(|V| + |E|)</em></p>
+<p>The runtime of removing a vertex from a graph adjacency list is <em>O(|V| + |E|)</em></p>
 </blockquote>
 <p>Finally, let’s remove implement removing an edge!</p>
 <p><a id="Graph.removeEdge"></a></p>
@@ -604,19 +604,19 @@ You are probably using programs that use graphs (and trees). Let’s say for ins
 <blockquote>
 <p>The runtime of removing an edge from a graph adjacency list is <em>O(|E|)</em></p>
 </blockquote>
-<p>We are going to explore how to search values from a node.</p>
-<h1 id="Breadth-frirst-search-BFS-Graph-search">Breadth-frirst search (BFS) - Graph search<a href="#Breadth-frirst-search-BFS-Graph-search" class="headerlink" title="Breadth-frirst search (BFS) - Graph search"></a></h1><p>Breadth-first search is a way to navigate a graph from an initial vertex by visiting all the adjacent nodes first.</p>
+<p>We are going to explore how to search for values from a node.</p>
+<h1 id="Breadth-first-search-BFS-Graph-search">Breadth-first search (BFS) - Graph search<a href="#Breadth-first-search-BFS-Graph-search" class="headerlink" title="Breadth-first search (BFS) - Graph search"></a></h1><p>Breadth-first search is a way to navigate a graph from an initial vertex by visiting all the adjacent nodes first.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif" title="Breadth First Search in a graph">
 
 <p>Let’s see how we can accomplish this in code:</p>
 <figure class="highlight js"><figcaption><span>Graph.bfs</span><a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/graph.js" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">*bfs(first) &#123;</span><br><span class="line">  <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line marked">  <span class="keyword">const</span> visitList = <span class="keyword">new</span> Queue();</span><br><span class="line"></span><br><span class="line">  visitList.add(first);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(!visitList.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">const</span> node = visitList.remove();</span><br><span class="line">    <span class="keyword">if</span>(node &amp;&amp; !visited.has(node)) &#123;</span><br><span class="line">      <span class="keyword">yield</span> node;</span><br><span class="line">      visited.set(node);</span><br><span class="line">      node.getAdjacents().forEach(<span class="function"><span class="params">adj</span> =&gt;</span> visitList.add(adj));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>As you can see we are using a <code>Queue</code> where the first node in, is also the first node to be visited (FIFO).</p>
-<p>We are also using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator" target="_blank" rel="noopener">JavaScript generators</a>, notice the <code>*</code> in front of the function. We are using a generator to iterate one value at a time. That’s useful for large graphs (millions of nodes) because in most cases you don’t need to visit every single node.</p>
+<p>As you can see, we are using a <code>Queue</code> where the first node in is also the first node to be visited (FIFO).</p>
+<p>We are as well using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator" target="_blank" rel="noopener">JavaScript generators</a>, notice the <code>*</code> in front of the function. This generator iterates one value at a time. That’s useful for large graphs (millions of nodes) because in most cases you don’t need to visit every single node.</p>
 <p>This an example of how to use the BFS that we just created:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> graph = <span class="keyword">new</span> Graph(Graph.UNDIRECTED);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [first] = graph.addEdge(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">graph.addEdge(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">graph.addEdge(<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line">graph.addEdge(<span class="number">5</span>, <span class="number">2</span>);</span><br><span class="line">graph.addEdge(<span class="number">6</span>, <span class="number">3</span>);</span><br><span class="line">graph.addEdge(<span class="number">7</span>, <span class="number">3</span>);</span><br><span class="line">graph.addEdge(<span class="number">8</span>, <span class="number">4</span>);</span><br><span class="line">graph.addEdge(<span class="number">9</span>, <span class="number">5</span>);</span><br><span class="line">graph.addEdge(<span class="number">10</span>, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">bfsFromFirst = graph.bfs(first);</span><br><span class="line"></span><br><span class="line">bfsFromFirst.next().value.value; <span class="comment">// 1</span></span><br><span class="line">bfsFromFirst.next().value.value; <span class="comment">// 2</span></span><br><span class="line">bfsFromFirst.next().value.value; <span class="comment">// 3</span></span><br><span class="line">bfsFromFirst.next().value.value; <span class="comment">// 4</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 
-<p>You can find more examples of usage in the <a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/graph.spec.js" target="_blank" rel="noopener">test cases</a>. Let’s move on to the DFS!</p>
+<p>You can find more illustrstions of usage in the <a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/graph.spec.js" target="_blank" rel="noopener">test cases</a>. Let’s move on to the DFS!</p>
 <h1 id="Depth-first-search-DFS-Graph-search">Depth-first search (DFS)  - Graph search<a href="#Depth-first-search-DFS-Graph-search" class="headerlink" title="Depth-first search (DFS)  - Graph search"></a></h1><p>Depth-first search is another way to navigate a graph from an initial vertex by recursively the first adjacent node of each vertex found.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif" title="Depth First Search in a graph">
 
@@ -635,7 +635,7 @@ Let's say you are exploring your social network and you want to know who can int
 
 { img /images/you-mark-connections-graph2.png "Friends graph between you and Mark Zuckerberg" %}
 
-You code use a DFS or BFS and iterate until you find the vertex you are looking for (e.g., Mark). That will only tell us if two vertices are **connected**. Let's start with that
+Your code use a DFS or BFS and iterate until you find the vertex you are looking for (e.g., Mark). It will indicate us if two vertices are **connected**. Let's start with that
 
 { codeblock Graph.areConnected lang:js mark:6 https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/graphs/graph.js Full Code }
   areConnected(source, destination) {
@@ -708,8 +708,8 @@ With this function, we get if two nodes are connected or not. However, they don'
 </tbody></table>
 <!-- areConnected | | -->
 
-<p>As you can see, an adjacency list is faster in almost all functions. The only that the adjacency matrix will outperform the adjacency list is checking if a node is adjacent to other, however, if we change our implementation from Array to a HashSet we can get it in constant time as well :)</p>
-<h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>As we saw, Graphs can help to model many real-life scenarios such as airports, social networks, internet and so on. We covered some of most basic algorithms such as Breadth-First Search (BFS) and Depth-First Search (DFS). Also, we talk about implementations trade-offs such as adjacency list and matrix. There are many other applications that we are going to cover in another post such as finding the shortest path between nodes and different exciting graph algorithms.</p>
+<p>As you can see, an adjacency list is faster in almost all operations. The only action that the adjacency matrix will outperform the adjacency list is checking if a node is adjacent to other. However, if we change our implementation from Array to a HashSet, we can get it in constant time as well :)</p>
+<h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>As we saw, Graphs can help to model many real-life scenarios such as airports, social networks, internet and so on. We covered some of the most basic algorithms such as Breadth-First Search (BFS) and Depth-First Search (DFS). Also, we studied about implementations trade-offs such as adjacency list and matrix. Subscribe to my newsletter and don’t miss any of my posts, because there are many other applications that we are going to learn soon, such as finding the shortest path between nodes and different exciting graph algorithms!</p>
 <!-- https://www.slideshare.net/hafsakomal/graphs-49204527 -->
 <!-- https://www.slideshare.net/Abrish06/graph-48747573?next_slideshow=1 -->
 
@@ -1038,7 +1038,7 @@ With this function, we get if two nodes are connected or not. However, they don'
           
             <h3 class="toc-title">Contents</h3>
             <div>
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Graphs-Basics"><span class="toc-number">1.</span> <span class="toc-text">Graphs Basics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graph-Applications"><span class="toc-number">2.</span> <span class="toc-text">Graph Applications</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Representing-graphs"><span class="toc-number">3.</span> <span class="toc-text">Representing graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-Matrix"><span class="toc-number">3.1.</span> <span class="toc-text">Adjacency Matrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-List"><span class="toc-number">3.2.</span> <span class="toc-text">Adjacency List</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Adjacency-List-Graph-HashMap-Implementation"><span class="toc-number">4.</span> <span class="toc-text">Adjacency List Graph HashMap Implementation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Adjacency-List-Graph-OO-Implementation"><span class="toc-number">5.</span> <span class="toc-text">Adjacency List Graph OO Implementation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Breadth-frirst-search-BFS-Graph-search"><span class="toc-number">6.</span> <span class="toc-text">Breadth-frirst search (BFS) - Graph search</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Depth-first-search-DFS-Graph-search"><span class="toc-number">7.</span> <span class="toc-text">Depth-first search (DFS)  - Graph search</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graph-Time-and-Space-Complexity"><span class="toc-number">8.</span> <span class="toc-text">Graph Time and Space Complexity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary"><span class="toc-number">9.</span> <span class="toc-text">Summary</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Graphs-Basics"><span class="toc-number">1.</span> <span class="toc-text">Graphs Basics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graph-Applications"><span class="toc-number">2.</span> <span class="toc-text">Graph Applications</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Representing-graphs"><span class="toc-number">3.</span> <span class="toc-text">Representing graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-Matrix"><span class="toc-number">3.1.</span> <span class="toc-text">Adjacency Matrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-List"><span class="toc-number">3.2.</span> <span class="toc-text">Adjacency List</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Adjacency-List-Graph-HashMap-Implementation"><span class="toc-number">4.</span> <span class="toc-text">Adjacency List Graph HashMap Implementation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Adjacency-List-Graph-OO-Implementation"><span class="toc-number">5.</span> <span class="toc-text">Adjacency List Graph OO Implementation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Breadth-first-search-BFS-Graph-search"><span class="toc-number">6.</span> <span class="toc-text">Breadth-first search (BFS) - Graph search</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Depth-first-search-DFS-Graph-search"><span class="toc-number">7.</span> <span class="toc-text">Depth-first search (DFS)  - Graph search</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graph-Time-and-Space-Complexity"><span class="toc-number">8.</span> <span class="toc-text">Graph Time and Space Complexity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary"><span class="toc-number">9.</span> <span class="toc-text">Summary</span></a></li></ol>
             </div>
 
             <!-- 300x600 -->
@@ -1090,8 +1090,8 @@ With this function, we get if two nodes are connected or not. However, they don'
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Thu Feb 28 2019 20:39:20 GMT-0500 (Eastern Standard Time)">
-            v.pnnz9k
+          <span class="muted m-x-4" title="Sat Mar 02 2019 19:42:49 GMT-0500 (Eastern Standard Time)">
+            v.pnrlzd
           </span>
         </div>
       </div>
