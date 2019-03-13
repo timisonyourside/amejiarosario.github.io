@@ -561,7 +561,7 @@ You are probably using programs with graphs and trees. Let’s say for instance 
 <p>The first thing that we need to know is if the graph is directed or undirected. That makes a difference when we are adding edges.</p>
 <p><a id="Graph.addEdge"></a></p>
 <p><strong>Graph.addEdge</strong></p>
-<p>Two add an edge we need two nodes. One is the source, and the other is the destination.</p>
+<p>To add an edge we need two nodes. One is the source, and the other is the destination.</p>
 <figure class="highlight js"><figcaption><span>Graph.addEdge</span><a href="https://github.com/amejiarosario/algorithms.js/blob/master/lib/data-structures/graphs/graph.js" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">addEdge(source, destination) &#123;</span><br><span class="line">  <span class="keyword">const</span> sourceNode = <span class="keyword">this</span>.addVertex(source);</span><br><span class="line">  <span class="keyword">const</span> destinationNode = <span class="keyword">this</span>.addVertex(destination);</span><br><span class="line"></span><br><span class="line">  sourceNode.addAdjacent(destinationNode);</span><br><span class="line"></span><br><span class="line marked">  <span class="keyword">if</span>(<span class="keyword">this</span>.edgeDirection === Graph.UNDIRECTED) &#123;</span><br><span class="line">    destinationNode.addAdjacent(sourceNode);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [sourceNode, destinationNode];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>We add an edge from the source vertex to the destination. If we have an undirected graph, then we also add from target node to source since it’s bidirectional.</p>
@@ -1090,8 +1090,8 @@ With this function, we get if two nodes are connected or not. However, they don'
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Sat Mar 02 2019 19:42:49 GMT-0500 (Eastern Standard Time)">
-            v.pnrlzd
+          <span class="muted m-x-4" title="Wed Mar 13 2019 10:46:29 GMT-0400 (Eastern Daylight Time)">
+            v.pob7ph
           </span>
         </div>
       </div>
