@@ -1901,6 +1901,8 @@ With this function, we get if two nodes are connected or not. However, they don'
 
   https://betterdev.link/issues/54
 -->
+
+
 ]]></content>
     
     <summary type="html">
@@ -4363,9 +4365,9 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
       <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
-      <category term="npm" scheme="https://adrianmejia.com/tags/npm/"/>
-    
       <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
+    
+      <category term="npm" scheme="https://adrianmejia.com/tags/npm/"/>
     
   </entry>
   
