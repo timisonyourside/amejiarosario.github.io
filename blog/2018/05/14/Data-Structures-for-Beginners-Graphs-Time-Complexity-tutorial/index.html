@@ -370,45 +370,55 @@ You are probably using programs with graphs and trees. Let’s say for instance 
 <table>
 <thead>
 <tr>
+<th>&nbsp;</th>
 <th>Adjacency List</th>
 <th>Adjacency Matrix</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Space</td>
-<td>*<a href="#List.space">O(&#124;V&#124; + &#124;E&#124;)</a>*</td>
+<td><a href="#List.space">O(&#124;V&#124; + &#124;E&#124;)</a></td>
+<td><a href="#Matrix.space">O(&#124;V&#124;<sup>2</sup>)</a></td>
 </tr>
 <tr>
-<td><strong>add</strong>Vertex</td>
-<td>*<a href="#Graph.addVertex">O(1)</a>*</td>
+<td>addVertex</td>
+<td><a href="#Graph.addVertex">O(1)</a></td>
+<td><a href="#Matrix.addVertex">O(&#124;V&#124;<sup>2</sup>)</a></td>
 </tr>
 <tr>
-<td><strong>remove</strong>Vertex</td>
-<td>*<a href="#Graph.removeVertex">O(&#124;V&#124; + &#124;E&#124;)</a>*</td>
+<td>removeVertex</td>
+<td><a href="#Graph.removeVertex">O(&#124;V&#124; + &#124;E&#124;)</a></td>
+<td><a href="#Matrix.addVertex">O(&#124;V&#124;<sup>2</sup>)</a></td>
 </tr>
 <tr>
-<td><strong>add</strong>Edge</td>
-<td>*<a href="#Graph.addEdge">O(1)</a>*</td>
+<td>addEdge</td>
+<td><a href="#Graph.addEdge">O(1)</a></td>
+<td><a href="#Matrix.addVertex">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>remove</strong>Edge (using Array)</td>
-<td>*<a href="#Graph.removeEdge">O(&#124;E&#124;)</a>*</td>
+<td>removeEdge (using Array)</td>
+<td><a href="#Graph.removeEdge">O(&#124;E&#124;)</a></td>
+<td><a href="#Matrix.addVertex">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>remove</strong>Edge (using HashSet)</td>
-<td><em>O(1)</em></td>
+<td>removeEdge (using HashSet)</td>
+<td>O(1)</td>
+<td><a href="#Matrix.addVertex">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>get</strong>Adjacents</td>
-<td>*<a href="#Node.getAdjacents">O(&#124;E&#124;)</a>*</td>
+<td>getAdjacents</td>
+<td><a href="#Node.getAdjacents">O(&#124;E&#124;)</a></td>
+<td><a href="#Matrix.getAdjacents">O(&#124;V&#124;)</a></td>
 </tr>
 <tr>
-<td><strong>is</strong>Adjacent (using Array)</td>
-<td>*<a href="#Node.getAdjacents">O(&#124;E&#124;)</a>*</td>
+<td>isAdjacent (using Array)</td>
+<td><a href="#Node.getAdjacents">O(&#124;E&#124;)</a></td>
+<td><a href="#Matrix.getAdjacents">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>is</strong>Adjacent (using HashSet)</td>
-<td><em>O(1)</em></td>
+<td>isAdjacent (using HashSet)</td>
+<td>O(1)</td>
+<td><a href="#Matrix.getAdjacents">O(1)</a></td>
 </tr>
 </tbody></table>
 <h1 id="Graphs-Basics">Graphs Basics<a href="#Graphs-Basics" class="headerlink" title="Graphs Basics"></a></h1><!-- http://ccicada.org/wp-content/uploads/2017/06/Community-Detection-with-Hierarchical-Clustering-Algorithms-Feb-3-2017.pdf -->
@@ -665,45 +675,55 @@ With this function, we get if two nodes are connected or not. However, they don'
 <table>
 <thead>
 <tr>
+<th>&nbsp;</th>
 <th>Adjacency List</th>
 <th>Adjacency Matrix</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Space</td>
-<td>*<a href="#List.space">O(&#124;V&#124; + &#124;E&#124;)</a>*</td>
+<td><a href="#List.space">O(&#124;V&#124; + &#124;E&#124;)</a></td>
+<td><a href="#Matrix.space">O(&#124;V&#124;<sup>2</sup>)</a></td>
 </tr>
 <tr>
-<td><strong>add</strong>Vertex</td>
-<td>*<a href="#Graph.addVertex">O(1)</a>*</td>
+<td>addVertex</td>
+<td><a href="#Graph.addVertex">O(1)</a></td>
+<td><a href="#Matrix.addVertex">O(&#124;V&#124;<sup>2</sup>)</a></td>
 </tr>
 <tr>
-<td><strong>remove</strong>Vertex</td>
-<td>*<a href="#Graph.removeVertex">O(&#124;V&#124; + &#124;E&#124;)</a>*</td>
+<td>removeVertex</td>
+<td><a href="#Graph.removeVertex">O(&#124;V&#124; + &#124;E&#124;)</a></td>
+<td><a href="#Matrix.addVertex">O(&#124;V&#124;<sup>2</sup>)</a></td>
 </tr>
 <tr>
-<td><strong>add</strong>Edge</td>
-<td>*<a href="#Graph.addEdge">O(1)</a>*</td>
+<td>addEdge</td>
+<td><a href="#Graph.addEdge">O(1)</a></td>
+<td><a href="#Matrix.addVertex">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>remove</strong>Edge (using Array)</td>
-<td>*<a href="#Graph.removeEdge">O(&#124;E&#124;)</a>*</td>
+<td>removeEdge (using Array)</td>
+<td><a href="#Graph.removeEdge">O(&#124;E&#124;)</a></td>
+<td><a href="#Matrix.addVertex">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>remove</strong>Edge (using HashSet)</td>
-<td><em>O(1)</em></td>
+<td>removeEdge (using HashSet)</td>
+<td>O(1)</td>
+<td><a href="#Matrix.addVertex">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>get</strong>Adjacents</td>
-<td>*<a href="#Node.getAdjacents">O(&#124;E&#124;)</a>*</td>
+<td>getAdjacents</td>
+<td><a href="#Node.getAdjacents">O(&#124;E&#124;)</a></td>
+<td><a href="#Matrix.getAdjacents">O(&#124;V&#124;)</a></td>
 </tr>
 <tr>
-<td><strong>is</strong>Adjacent (using Array)</td>
-<td>*<a href="#Node.getAdjacents">O(&#124;E&#124;)</a>*</td>
+<td>isAdjacent (using Array)</td>
+<td><a href="#Node.getAdjacents">O(&#124;E&#124;)</a></td>
+<td><a href="#Matrix.getAdjacents">O(1)</a></td>
 </tr>
 <tr>
-<td><strong>is</strong>Adjacent (using HashSet)</td>
-<td><em>O(1)</em></td>
+<td>isAdjacent (using HashSet)</td>
+<td>O(1)</td>
+<td><a href="#Matrix.getAdjacents">O(1)</a></td>
 </tr>
 </tbody></table>
 <!-- areConnected | | -->
@@ -1092,8 +1112,8 @@ With this function, we get if two nodes are connected or not. However, they don'
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Sun Mar 24 2019 23:29:19 GMT-0400 (Eastern Daylight Time)">
-            v.powkcv
+          <span class="muted m-x-4" title="Tue Mar 26 2019 14:48:16 GMT-0400 (Eastern Daylight Time)">
+            v.pozlkg
           </span>
         </div>
       </div>
