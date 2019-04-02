@@ -42,7 +42,7 @@
     <meta property="og:url" content="https://adrianmejia.com/blog/2018/04/05/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/">
     <meta property="og:site_name" content="Adrian Mejia Blog">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="SummaryWe are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. At the end, you would be able to estimate which one will perform better.">
+    <meta property="og:description" content="SummaryWe are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. By the end, you would be able to eyeball different implementations and know which one will perform better.">
     <meta property="og:image" content="https://adrianmejia.com/images/data-structures-must-know-algorithms-running-time-complexity-large.jpg">
     <meta property="og:title" content="8 time complexities that every programmer should know">
     <meta property="fb:app_id" content="761831487293468">
@@ -261,7 +261,7 @@ ga('send', 'pageview');
   },
   
   "datePublished": "2018-04-05T16:10:09-04:00",
-  "dateModified": "2019-03-31T17:35:58-04:00",
+  "dateModified": "2019-04-02T15:16:53-04:00",
   "author": {
     "@type": "Person",
     "name": "Adrian Mejia"
@@ -276,7 +276,7 @@ ga('send', 'pageview');
       "height": 50
     }
   },
-  "description": "SummaryWe are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. At the end, you would be able to estimate which one will perform better."
+  "description": "SummaryWe are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. By the end, you would be able to eyeball different implementations and know which one will perform better."
 }
 </script>
 
@@ -294,13 +294,13 @@ ga('send', 'pageview');
       <span title="Last time this post was updated">
         <i class="fa fa-calendar" aria-hidden="true"></i>
         Last updated
-        <time datetime="2019-03-31T21:35:58.718Z" itemprop="dateUpdated">March 31st 2019</time>
+        <time datetime="2019-04-02T19:16:53.000Z" itemprop="dateUpdated">April 2nd 2019</time>
       </span>
 
       
         <span class="m-x-2" title="Pageviews">
           <i class="fa fa-eye" aria-hidden="true"></i>
-          22.3k
+          22.5k
         </span>
       
 
@@ -333,25 +333,13 @@ ga('send', 'pageview');
     <section class="col-sm-8 p-x-2">
 
       <div class="post-content  toc-content ">
-        <h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>We are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. At the end, you would be able to estimate which one will perform better.</p>
+        <h1 id="Summary">Summary<a href="#Summary" class="headerlink" title="Summary"></a></h1><p>We are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare different solutions for the same problem. By the end, you would be able to eyeball different implementations and know which one will perform better.</p>
 <a id="more"></a>
 
-<p>In the <a href="/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/">previous post</a>, we saw how Alan Turing saved millions of lives with an optimized algorithm. In most cases, faster algorithms can save you time, money and enabled new technology. So, this is a paramount to know how to measure algorithms performance.</p>
+<p>In the <a href="/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/">previous post</a>, we saw how Alan Turing saved millions of lives with an optimized algorithm. In most cases, faster algorithms can save you time, money and enabled new technology. So, this is paramount to know how to measure algorithms performance.</p>
 <p>To recap <strong>time complexity</strong> estimates how an algorithm performs regardless kind of machine it runs on. You can get the time complexity by “counting” the number of operations performed by your code. This time complexity is defined as a function of the input size <code>n</code> using Big-O notation. <code>n</code> indicates the magnitude of the input while O is the growth rate function.</p>
 <p>We use the Big-O notation to classify algorithms based on their running time or space (memory used) as the input grows. The <code>O</code> function is the growth rate in function of the input size <code>n</code>.</p>
 <p>Before we dive in, here is the <strong>big O cheatsheet</strong> and examples that we are going to cover on this post. <strong>Click</strong> on them to go to the implementation. 😉</p>
-<!--
-Big O Notation | Name | Example(s)
-<i>O(1)</i>| Constant | # [Odd or Even number](#odd-or-even) # [Look-up table](#Look-up-table)
-<i>O(log n)</i>| Logarithmic | # [Finding element on sorted array with **binary search**](#Binary-search)
-<i>O(n)</i>| Linear | # [Find max element in unsorted array](#Largest-item-on-an-unsorted-array)
-<i>O(n log n)</i>| Linearithmic,  | # [Sorting elements in array with **merge sort**](#Mergesort)
-<i>O(n<sup>2</sup>)</i>| Quadratic | # [Duplicate elements in array](#Has-duplicates), # [Sorting array with **bubble sort**](#Bubble-sort)
-<i>O(n<sup>3</sup>)</i>| Cubic | # [3 variables equation solver](#Triple-nested-loops)
-<i>O(2<sup>n</sup>)</i>| Exponential | # [Find all subsets](#Subsets-of-a-Set)
-<i>O(n!)</i>| Factorial | # [Find all permutations of a given set/string](#Permutations)
--->
-
 <table>
 <thead>
 <tr>
@@ -436,11 +424,11 @@ Big O Notation | Name | Example(s)
 
 <h1 id="O-1-Constant-time">O(1) - Constant time<a href="#O-1-Constant-time" class="headerlink" title="O(1) - Constant time"></a></h1><p><code>O(1)</code> describes algorithms that takes the same amount of time to compute regardless of the input size.</p>
 <p>For instance, if a function takes the identical time to process 10 elements as well as 1 million items, then we say that it has a constant growth rate or <code>O(1)</code>. Let’s see some cases.</p>
-<h2 id="Odd-or-Even">Odd or Even<a href="#Odd-or-Even" class="headerlink" title="Odd or Even"></a></h2><p>  Find if a number is odd or even.</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEvenOrOdd</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n % <span class="number">2</span> ? <span class="string">'Odd'</span> : <span class="string">'Even'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isEvenOrOdd(<span class="number">10</span>)); <span class="comment">// =&gt; Even</span></span><br><span class="line"><span class="built_in">console</span>.log(isEvenOrOdd(<span class="number">10001</span>)); <span class="comment">// =&gt; Odd</span></span><br></pre></td></tr></table></figure>
+<h2 id="Odd-or-Even">Odd or Even<a href="#Odd-or-Even" class="headerlink" title="Odd or Even"></a></h2><p>Find if a number is odd or even.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEvenOrOdd</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n % <span class="number">2</span> ? <span class="string">'Odd'</span> : <span class="string">'Even'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isEvenOrOdd(<span class="number">10</span>)); <span class="comment">// =&gt; Even</span></span><br><span class="line"><span class="built_in">console</span>.log(isEvenOrOdd(<span class="number">10001</span>)); <span class="comment">// =&gt; Odd</span></span><br></pre></td></tr></table></figure>
 
-<p>  <strong>Advanced note:</strong> you could also replace <em><code>n % 2</code></em> with the bit AND operator: <em><code>n &amp; 1</code></em>. If the first bit (<abbr title="Least Significant Bit">LSB</abbr>) is <code>1</code> then is odd otherwise is even.</p>
-<p> It doesn’t matter if n is <code>10</code> or <code>10,001</code>, it will execute line 2 only one time.</p>
+<p><strong>Advanced note:</strong> you could also replace <em><code>n % 2</code></em> with the bit AND operator: <em><code>n &amp; 1</code></em>. If the first bit (<abbr title="Least Significant Bit">LSB</abbr>) is <code>1</code> then is odd otherwise is even.</p>
+<p>It doesn’t matter if n is <code>10</code> or <code>10,001</code>, it will execute line 2 one time.</p>
 <blockquote>
 <p>Do not be fool by one-liners. They don’t always translate to constant times. You have to be aware of how they are implemented.</p>
 </blockquote>
@@ -457,8 +445,9 @@ Big O Notation | Name | Example(s)
 <blockquote>
 <p>Only a hash table with a perfect <em>hash function</em> will have a worst-case runtime of <em>O(1)</em>. The perfect hash function is not practical, so there will be some collisions and workarounds leads to a worst-case runtime of <em>O(n)</em>. Still, on <em>average</em> the lookup time is <em>O(1)</em>.</p>
 </blockquote>
-<h1 id="O-n-Linear-time">O(n) - Linear time<a href="#O-n-Linear-time" class="headerlink" title="O(n) - Linear time"></a></h1><p>Linear running time algorithms are very common. It implies visiting every element from the input in the worst-case scenario.</p>
-<p>Linear time complexity <em><code>O(n)</code></em> means that as the input grows, the algorithms take proportionally longer. A function with a linear time complexity has a growth rate. Some examples:</p>
+<h1 id="O-n-Linear-time">O(n) - Linear time<a href="#O-n-Linear-time" class="headerlink" title="O(n) - Linear time"></a></h1><p>Linear running time algorithms are very common. Linear runtime means that the program visits every element from the input.</p>
+<p>Linear time complexity <em><code>O(n)</code></em> means that as the input grows, the algorithms take proportionally longer to complete.</p>
+<p>Some examples:</p>
 <h2 id="The-largest-item-on-an-unsorted-array">The largest item on an unsorted array<a href="#The-largest-item-on-an-unsorted-array" class="headerlink" title="The largest item on an unsorted array"></a></h2><p>Let’s say you want to find the maximum value from an unsorted array.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMax</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> max;</span><br><span class="line">  <span class="keyword">let</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n.length; i++) &#123;</span><br><span class="line">    counter++;</span><br><span class="line">    <span class="keyword">if</span>(max === <span class="literal">undefined</span> || max &lt; n[i]) &#123;</span><br><span class="line">      max = n[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`n: <span class="subst">$&#123;n.length&#125;</span>, counter: <span class="subst">$&#123;counter&#125;</span>`</span>);</span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -472,7 +461,9 @@ Big O Notation | Name | Example(s)
 <li>Line 6-8: 3 operations inside the for-loop.</li>
 </ul>
 <p>So, this gets us <code>3(n) + 2</code>.</p>
-<p>Applying the asymptotic analysis that we learn in the previous post, we can only leave the most significant term, thus: <code>n</code>.  And finally using the Big O notation we get: <code>O(n)</code>.</p>
+<p>Applying the Big O notation that we learn in the
+<a href="https://adrianmejia.com/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/#Asymptotic-analysis">previous post</a>,
+we only need the biggest order term, thus <code>O(n)</code>.</p>
 <p>We can verify this using our <code>counter</code>. If <code>n</code> has 3 elements:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">findMax([<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]);</span><br><span class="line"><span class="comment">// n: 3, counter: 3</span></span><br></pre></td></tr></table></figure>
 
@@ -482,9 +473,10 @@ Big O Notation | Name | Example(s)
 <p>Now imagine that you have an array of one million items. Do you think it will take the same time? Of course not, it will take longer to the size of the input. If we plot it n and <code>findMax</code> running time we will have a graph like a linear equation.</p>
 <img src="/images/linear-running-time-o(n).jpg" title="Linear Running time O(n) example">
 
-<h1 id="O-n-2-Quadratic-time">O(n^2) - Quadratic time<a href="#O-n-2-Quadratic-time" class="headerlink" title="O(n^2) - Quadratic time"></a></h1><p>A function with a quadratic time complexity has a growth rate n^2. If the input is size 2, it will do 4 operations. If the input is size 8, it will take 64, and so on. Here are some code examples of quadratic algorithms:</p>
+<h1 id="O-n-2-Quadratic-time">O(n^2) - Quadratic time<a href="#O-n-2-Quadratic-time" class="headerlink" title="O(n^2) - Quadratic time"></a></h1><p>A function with a quadratic time complexity has a growth rate of n<sup>2</sup>. If the input is size 2, it will do 4 operations. If the input is size 8, it will take 64, and so on.</p>
+<p>Here are some code examples of quadratic algorithms:</p>
 <h2 id="Has-duplicates">Has duplicates<a href="#Has-duplicates" class="headerlink" title="Has duplicates"></a></h2><p>You want to find duplicate words in an array. A naïve solution will be the following:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasDuplicates</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> dupliates = [];</span><br><span class="line">  <span class="keyword">let</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> outter = <span class="number">0</span>; outter &lt; n.length; outter++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> inner = <span class="number">0</span>; inner &lt; n.length; inner++) &#123;</span><br><span class="line">      counter++;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(outter === inner) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(n[outter] === n[inner]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`n: <span class="subst">$&#123;n.length&#125;</span>, counter: <span class="subst">$&#123;counter&#125;</span>`</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasDuplicates</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> duplicates = [];</span><br><span class="line">  <span class="keyword">let</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> outter = <span class="number">0</span>; outter &lt; n.length; outter++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> inner = <span class="number">0</span>; inner &lt; n.length; inner++) &#123;</span><br><span class="line">      counter++;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(outter === inner) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(n[outter] === n[inner]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`n: <span class="subst">$&#123;n.length&#125;</span>, counter: <span class="subst">$&#123;counter&#125;</span>`</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Time complexity analysis:</p>
 <ul>
@@ -494,7 +486,7 @@ Big O Notation | Name | Example(s)
 </ul>
 <p>We get <code>3n^2 + 2</code>.</p>
 <p>Again, when we have an asymptotic analysis, we drop all constants and leave the most significant term: <code>n^2</code>. So, in big O notation, it would be <code>O(n^2)</code>.</p>
-<p>We are using a counter variable to help us verify. The <code>hasDupliates</code> function has two loops. If we have an input of 4 words, it will execute the inner block 16 times. If we have 9, it will perform counter 81 times and so forth.</p>
+<p>We are using a counter variable to help us verify. The <code>hasduplicates</code> function has two loops. If we have an input of 4 words, it will execute the inner block 16 times. If we have 9, it will perform counter 81 times and so forth.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hasDuplicates([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]);</span><br><span class="line"><span class="comment">// n: 4, counter: 16</span></span><br></pre></td></tr></table></figure>
 
 <p>and with n size 9:</p>
@@ -504,7 +496,7 @@ Big O Notation | Name | Example(s)
 <h2 id="Bubble-sort">Bubble sort<a href="#Bubble-sort" class="headerlink" title="Bubble sort"></a></h2><p>We want to sort the elements in an array.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> outer = <span class="number">0</span>; outer &lt; n.length; outer++) &#123;</span><br><span class="line">    <span class="keyword">let</span> outerElement = n[outer];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> inner = outer + <span class="number">1</span>; inner &lt; n.length; inner++) &#123;</span><br><span class="line">      <span class="keyword">let</span> innerElement = n[inner];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(outerElement &gt; innerElement) &#123;</span><br><span class="line">        <span class="comment">// swap</span></span><br><span class="line">        n[outer] = innerElement;</span><br><span class="line">        n[inner] = outerElement;</span><br><span class="line">        <span class="comment">// update references</span></span><br><span class="line">        outerElement = n[outer];</span><br><span class="line">        innerElement = n[inner];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Also, you might notice that for a colossal <code>n</code>, the time it takes to solve the problem increases a lot. Can you spot the relationship between nested loops and the running time? When a function has a single loop, it usually translates to a running time complexity of O(n). Now, this function has 2 nested loops and quadratic running time: O(n^2).</p>
+<p>Also, you might notice that for a colossal <code>n</code>, the time it takes to solve the problem increases a lot. Can you spot the relationship between nested loops and the running time? When a function has a single loop, it usually translates to a running time complexity of O(n). Now, this function has 2 nested loops and quadratic running time: O(n<sup>2</sup>).</p>
 <!--
 
 As you can probably guess, two inner loops translate to O(n^2) since it has to go through the array twice in most cases.
@@ -521,8 +513,8 @@ Expand:
 ---
 -->
 
-<h1 id="O-n-c-Polynomial-time">O(n^c) - Polynomial time<a href="#O-n-c-Polynomial-time" class="headerlink" title="O(n^c) - Polynomial time"></a></h1><p>Polynomial running is represented as O(n^c), when c &gt; 1. As you already saw, two inner loops almost translate to O(n^2) since it has to go through the array twice in most cases. Are three nested loops cubic? In most cases, yes!</p>
-<p>Usually, we want to stay away from polynomial running times (quadratic, cubic, O(n^c) …) since they take longer to compute as the input grows fast. However, they are not the worst. Let’s something that it’s even slower.</p>
+<h1 id="O-n-c-Polynomial-time">O(n^c) - Polynomial time<a href="#O-n-c-Polynomial-time" class="headerlink" title="O(n^c) - Polynomial time"></a></h1><p>Polynomial running is represented as O(n<sup>c</sup>), when <code>c &gt; 1</code>. As you already saw, two inner loops almost translate to O(n<sup>2</sup>) since it has to go through the array twice in most cases. Are three nested loops cubic? If each one visit all elements, then yes!</p>
+<p>Usually, we want to stay away from polynomial running times (quadratic, cubic, n<sup>c</sup> …) since they take longer to compute as the input grows fast. However, they are not the worst.</p>
 <h2 id="Triple-nested-loops">Triple nested loops<a href="#Triple-nested-loops" class="headerlink" title="Triple nested loops"></a></h2><p>Let’s say you want to find the solutions for a multi-variable equation that looks like this:</p>
 <blockquote>
 <p>3x + 9y + 8z = 79</p>
@@ -532,19 +524,20 @@ Expand:
 
 <p>This algorithm has a cubic running time: <code>O(n^3)</code>.</p>
 <p><strong>Note:</strong> We could do a more efficient solution but for the purpose of showing an example of a cubic runtime is good enough.</p>
-<h1 id="O-log-n-Logarithmic-time">O(log n) - Logarithmic time<a href="#O-log-n-Logarithmic-time" class="headerlink" title="O(log n) - Logarithmic time"></a></h1><p>Logarithmic time complexities usually apply to algorithms that divide problems in half every time. For instance, let’s say that we want to look for a person in an old phone book. It has every name sorted alphabetically. There are at least two ways to do it:</p>
+<h1 id="O-log-n-Logarithmic-time">O(log n) - Logarithmic time<a href="#O-log-n-Logarithmic-time" class="headerlink" title="O(log n) - Logarithmic time"></a></h1><p>Logarithmic time complexities usually apply to algorithms that divide problems in half every time. For instance, let’s say that we want to look for a word in an old fashion dictionary. It has every word sorted alphabetically. There are at least two ways to do it:</p>
 <p>Algorithm A:</p>
 <ul>
-<li>Start at the beginning of the book and go in order until you find the contact you are looking for. Run-time: <code>O(n)</code></li>
+<li>Start at the beginning of the book and go in order until you find the contact you are looking for.</li>
 </ul>
 <p>Algorithm B:</p>
 <ul>
-<li>Open the book in the middle and check the first name on it.</li>
-<li>If the name that you are looking for is alphabetically bigger, then look to the right. Otherwise, look in the left half.</li>
+<li>Open the book in the middle and check the first word on it.</li>
+<li>If the word that you are looking for is alphabetically bigger, then look to the right. Otherwise, look in the left half.</li>
 </ul>
+<p>Which one is faster? The first algorithms go word by word <em>O(n)</em>, while the algorithm B split the problem in half on each iteration <em>O(log n)</em>. This 2nd algorithm is a binary search.</p>
 <h2 id="Binary-search">Binary search<a href="#Binary-search" class="headerlink" title="Binary search"></a></h2><p>Find the index of an element in a sorted array.</p>
 <p>If we implement (Algorithm A) going through all the elements in an array, it will take a running time of <code>O(n)</code>. Can we do better? We can try using the fact that the collection is already sorted. Later, we can divide in half as we look for the element in question.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">indexOf</span>(<span class="params">array, element, offset = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// split array in half</span></span><br><span class="line marked">  <span class="keyword">const</span> half = <span class="built_in">parseInt</span>(array.length / <span class="number">2</span>);</span><br><span class="line marked">  <span class="keyword">const</span> current = array[half];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(current === element) &#123;</span><br><span class="line">    <span class="keyword">return</span> offset + half;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(element &gt; current) &#123;</span><br><span class="line">    <span class="keyword">const</span> right = array.slice(half);</span><br><span class="line marked">    <span class="keyword">return</span> indexOf(right, element, offset + half);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> left = array.slice(<span class="number">0</span>, half)</span><br><span class="line marked">    <span class="keyword">return</span> indexOf(left, element, offset);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> directory = [<span class="string">"Adrian"</span>, <span class="string">"Bella"</span>, <span class="string">"Charlotte"</span>, <span class="string">"Daniel"</span>, <span class="string">"Emma"</span>, <span class="string">"Hanna"</span>, <span class="string">"Isabella"</span>, <span class="string">"Jayden"</span>, <span class="string">"Kaylee"</span>, <span class="string">"Luke"</span>, <span class="string">"Mia"</span>, <span class="string">"Nora"</span>, <span class="string">"Olivia"</span>, <span class="string">"Paisley"</span>, <span class="string">"Riley"</span>, <span class="string">"Thomas"</span>, <span class="string">"Wyatt"</span>, <span class="string">"Xander"</span>, <span class="string">"Zoe"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(indexOf(directory, <span class="string">'Hanna'</span>));   <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">console</span>.log(indexOf(directory, <span class="string">'Adrian'</span>));  <span class="comment">// =&gt; 0</span></span><br><span class="line"><span class="built_in">console</span>.log(indexOf(directory, <span class="string">'Zoe'</span>));     <span class="comment">// =&gt; 18</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">indexOf</span>(<span class="params">array, element, offset = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// split array in half</span></span><br><span class="line marked">  <span class="keyword">const</span> half = <span class="built_in">parseInt</span>(array.length / <span class="number">2</span>);</span><br><span class="line marked">  <span class="keyword">const</span> current = array[half];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(current === element) &#123;</span><br><span class="line">    <span class="keyword">return</span> offset + half;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(element &gt; current) &#123;</span><br><span class="line">    <span class="keyword">const</span> right = array.slice(half);</span><br><span class="line">    <span class="keyword">return</span> indexOf(right, element, offset + half);</span><br><span class="line marked">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> left = array.slice(<span class="number">0</span>, half)</span><br><span class="line">    <span class="keyword">return</span> indexOf(left, element, offset);</span><br><span class="line marked">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> directory = [<span class="string">"Adrian"</span>, <span class="string">"Bella"</span>, <span class="string">"Charlotte"</span>, <span class="string">"Daniel"</span>, <span class="string">"Emma"</span>, <span class="string">"Hanna"</span>, <span class="string">"Isabella"</span>, <span class="string">"Jayden"</span>, <span class="string">"Kaylee"</span>, <span class="string">"Luke"</span>, <span class="string">"Mia"</span>, <span class="string">"Nora"</span>, <span class="string">"Olivia"</span>, <span class="string">"Paisley"</span>, <span class="string">"Riley"</span>, <span class="string">"Thomas"</span>, <span class="string">"Wyatt"</span>, <span class="string">"Xander"</span>, <span class="string">"Zoe"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(indexOf(directory, <span class="string">'Hanna'</span>));   <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">console</span>.log(indexOf(directory, <span class="string">'Adrian'</span>));  <span class="comment">// =&gt; 0</span></span><br><span class="line"><span class="built_in">console</span>.log(indexOf(directory, <span class="string">'Zoe'</span>));     <span class="comment">// =&gt; 18</span></span><br></pre></td></tr></table></figure>
 
 <p>Calculating the time complexity of <code>indexOf</code> is not as straightforward as the previous examples. This function is recursive.</p>
 <p>There are several ways to analyze recursive algorithms. For simplicity, we are going to use the <code>Master Method</code>.</p>
@@ -634,8 +627,9 @@ https://stackoverflow.com/q/13467674/684957
 https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms) -->
 
 <h1 id="O-n-log-n-Linearithmic">O(n log n) - Linearithmic<a href="#O-n-log-n-Linearithmic" class="headerlink" title="O(n log n) - Linearithmic"></a></h1><p>Linearithmic time complexity it’s slightly slower than a linear algorithm but still much better than a quadratic algorithm (you will see a graph at the very end of the post).</p>
-<h2 id="Mergesort">Mergesort<a href="#Mergesort" class="headerlink" title="Mergesort"></a></h2><p>What’s the best way to sort an array?  Before, we proposed a solution using bubble sort that has a time complexity of O(n^2). Can we do better?</p>
-<p>We can use an algorithm called <code>mergesort</code> to improve it:</p>
+<h2 id="Mergesort">Mergesort<a href="#Mergesort" class="headerlink" title="Mergesort"></a></h2><p>What’s the best way to sort an array?  Before, we proposed a solution using bubble sort that has a time complexity of O(n<sup>2</sup>). Can we do better?</p>
+<p>We can use an algorithm called <code>mergesort</code> to improve it.
+This’s how it works:</p>
 <ol>
 <li>We are going to divide the array recursively until the elements are two or less.</li>
 <li>We know how to sort 2 items, so we sort them iteratively (base case).</li>
@@ -663,7 +657,7 @@ https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms) -->
 <p><i>O(n<sup>log<sub>2</sub>2</sup> log(n))</i></p>
 <p><i>O(n<sup>1</sup> log(n))</i></p>
 <p><i>O(n log(n))</i> <strong>👈 this is running time of the merge sort</strong></p>
-<h1 id="O-2-n-Exponential-time">O(2^n) - Exponential time<a href="#O-2-n-Exponential-time" class="headerlink" title="O(2^n) - Exponential time"></a></h1><p>Exponential (base 2) running time means that the calculations performed by an algorithm double every time as the input grows.</p>
+<h1 id="O-2-n-Exponential-time">O(2^n) - Exponential time<a href="#O-2-n-Exponential-time" class="headerlink" title="O(2^n) - Exponential time"></a></h1><p>Exponential (base 2) running time means that the calculations performed by an algorithm double every as the input grows.</p>
 <h2 id="Subsets-of-a-Set">Subsets of a Set<a href="#Subsets-of-a-Set" class="headerlink" title="Subsets of a Set"></a></h2><p>Finding all distinct subsets of a given set. For instance, let’s do some examples to try to come up with an algorithm to solve it:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getSubsets(<span class="string">''</span>) <span class="comment">// =&gt;  ['']</span></span><br><span class="line">getSubsets(<span class="string">'a'</span>) <span class="comment">// =&gt; ['', 'a']</span></span><br><span class="line">getSubsets(<span class="string">'ab'</span>) <span class="comment">// =&gt; ['', 'a', 'b', 'ab']</span></span><br></pre></td></tr></table></figure>
 
@@ -702,7 +696,7 @@ https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms) -->
 <p>If print out the output, it would be something like this:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getPermutations(<span class="string">'ab'</span>) <span class="comment">// ab, ba...</span></span><br><span class="line"><span class="comment">// n = 2, f(n) = 2;</span></span><br><span class="line">getPermutations(<span class="string">'abc'</span>) <span class="comment">// abc, acb, bac, bca, cab, cba...</span></span><br><span class="line"><span class="comment">// n = 3, f(n) = 6;</span></span><br><span class="line">getPermutations(<span class="string">'abcd'</span>) <span class="comment">// abcd, abdc, acbd, acdb, adbc, adcb, bacd...</span></span><br><span class="line"><span class="comment">// n = 4, f(n) = 24;</span></span><br><span class="line">getPermutations(<span class="string">'abcde'</span>) <span class="comment">// abcde, abced, abdce, abdec, abecd, abedc, acbde...</span></span><br><span class="line"><span class="comment">// n = 5, f(n) = 120;</span></span><br></pre></td></tr></table></figure>
 
-<p>I tried with an string with a length of 10. It took around 8 seconds!</p>
+<p>I tried with a string with a length of 10. It took around 8 seconds!</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">time node ./lib/permutations.js</span><br><span class="line"><span class="comment"># getPermutations('abcdefghij') // =&gt; abcdefghij, abcdefghji, abcdefgihj, abcdefgijh, abcdefgjhi, abcdefgjih, abcdefhgij...</span></span><br><span class="line"><span class="comment"># // n = 10, f(n) = 3,628,800;</span></span><br><span class="line"><span class="comment"># ./lib/permutations.js  8.06s user 0.63s system 101% cpu 8.562 total</span></span><br></pre></td></tr></table></figure>
 
 <p>I have a little homework for you…</p>
@@ -1077,8 +1071,8 @@ https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms) -->
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Sun Mar 31 2019 18:00:14 GMT-0400 (Eastern Daylight Time)">
-            v.pp93se
+          <span class="muted m-x-4" title="Tue Apr 02 2019 15:21:31 GMT-0400 (Eastern Daylight Time)">
+            v.ppclrv
           </span>
         </div>
       </div>
