@@ -3495,15 +3495,12 @@ This’s how it works:</p>
     <link href="https://adrianmejia.com/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/"/>
     <id>https://adrianmejia.com/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/</id>
     <published>2018-04-04T20:16:07.000Z</published>
-    <updated>2019-04-02T19:21:05.539Z</updated>
+    <updated>2019-04-05T20:12:00.000Z</updated>
     
     <content type="html"><![CDATA[<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-<p>As a developer, you have the power to change the world! You can write programs that enable new technologies and work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.</p>
-<!-- Millions of people might use some applications (e.g., Google,
-Baidu, Youtube, Facebook). -->
-
-<p>However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this online course.</p>
+<p>As a developer, you have the power to change the world! You can write programs that enable new technologies or work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.</p>
+<p>However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this post.</p>
 <a id="more"></a>
 
 <hr>
@@ -3535,20 +3532,17 @@ Baidu, Youtube, Facebook). -->
 <hr>
 <p>We are going to explore how you can measure your code performance using analysis of algorithms: <strong>time complexity</strong> and <strong>big O notation</strong>.</p>
 <p>First, let’s see a real story to learn why this is important.</p>
-<h1 id="An-algorithm-that-saved-millions-of-lives">An algorithm that saved millions of lives<a href="#An-algorithm-that-saved-millions-of-lives" class="headerlink" title="An algorithm that saved millions of lives"></a></h1><p>During War World II the Germans used <abbr title="AM broadcasting is a radio broadcasting technology, which employs amplitude modulation transmissions.">AM</abbr> radio signals to communicate with troops around Europe. Anybody with an AM frecuency radio and some knowledge of Morse code could intercept the message. However, the information was encoded! All the countries that were under attack tried to decode it. Sometimes, they got lucky and were able to make sense of a couple of messages at the end of the day. Unfortunately, The Nazis changed the encoding every single day!</p>
-<p>A math genius called Alan Turing joined the British military to crack the German “Enigma” code. He knew they would never get ahead if they keep doing the calculations by pen and paper. So after many months of hard work, they built a machine. Unfortunately, It took more than a day to decode a message! So, it was useless :((((</p>
-<p>Alan’s team found out that every encrypted message ended with the same string: “Heil Hitler” Aha! After changing the algorithm, the machine was able to decoded in minutes rather than days! They used it the info to finish the war faster and save millions of lives!</p>
-<blockquote>
-<p>The same machine that was going to get shut down as a failure became a live saver. Likewise, you can do way more with your computing resources when you write efficient code. That is what we are going to learn in this course!</p>
-</blockquote>
+<h1 id="An-algorithm-that-saved-millions-of-lives">An algorithm that saved millions of lives<a href="#An-algorithm-that-saved-millions-of-lives" class="headerlink" title="An algorithm that saved millions of lives"></a></h1><p>During War World II, the Germans used <abbr title="AM broadcasting is a radio broadcasting technology, which employs amplitude modulation transmissions.">AM</abbr> radio signals to communicate with troops around Europe. Anybody with an AM frequency radio and some knowledge of Morse code could intercept the message. However, the information was encoded! All the countries that were under attack tried to decode it. Sometimes, they got lucky and were able to make sense of a couple of messages at the end of the day. Unfortunately, the Nazis changed the encoding every single day!</p>
+<p>A math genius called Alan Turing joined the British military to crack the German “Enigma” code. He knew they would never get ahead if they keep doing the calculations by pen and paper. So after many months of hard work, they built a machine. Unfortunately, It took more than a day to decode a message! So, it was not very useful.</p>
+<p>Alan’s team found out that every encrypted message ended with the same string: “Heil Hitler” Aha! After changing the algorithm, the machine was able to decode messages a lot faster! They used it the info to finish the war faster and save millions of lives!</p>
+<p><em>The same machine that was going to get shut down as a failure became a live saver. Likewise, you can do way more with your computing resources when you write efficient code. That is what we are going to learn in this post series!</em></p>
 <p>Another popular algorithm is <code>PageRank</code> developed in 1998 by Sergey Brin and Larry Page (Google founders). This was (and is) used by a Google search engine to make sense of trillions of web pages. Google was not the only search engine, however, since their algorithm returned better results, eventually, most of the competitors faded away at the time. Today it powers most of 3 billion daily searches very quickly. That is the power of algorithms that scale! 🏋🏻‍</p>
 <h1 id="So-why-should-you-learn-to-write-efficient-algorithms">So, why should you learn to write efficient algorithms?<a href="#So-why-should-you-learn-to-write-efficient-algorithms" class="headerlink" title="So, why should you learn to write efficient algorithms?"></a></h1><p>There are many advantages; these are just some of them:</p>
 <ul>
 <li>You would become a much better software developer (and get better jobs/income).</li>
 <li>Spend less time debugging, optimizing and re-writing code.</li>
 <li>Your software will run faster with the same hardware (cheaper to scale).</li>
-<li>Your programs might be used to aid discoveries that save millions of lives.</li>
-<li>Outperform competitors!</li>
+<li>Your programs might be used to aid discoveries that save lives (maybe?).</li>
 </ul>
 <p>Without further ado, let’s step up our game!</p>
 <h1 id="What-are-algorithms">What are algorithms?<a href="#What-are-algorithms" class="headerlink" title="What are algorithms?"></a></h1><p>Algorithms (as you might know) are steps of how to do some task. For example, when you cook, you follow a <strong>recipe</strong> to prepare a dish. If you play a game, you are devising <strong>strategies</strong> to help you win. Likewise, algorithms in computers are a set of instructions used to solve a problem.</p>
@@ -3759,11 +3753,8 @@ Titles:
     
       &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML&quot; async&gt;&lt;/script&gt;
 
-&lt;p&gt;As a developer, you have the power to change the world! You can write programs that enable new technologies and work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.&lt;/p&gt;
-&lt;!-- Millions of people might use some applications (e.g., Google,
-Baidu, Youtube, Facebook). --&gt;
-
-&lt;p&gt;However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this online course.&lt;/p&gt;
+&lt;p&gt;As a developer, you have the power to change the world! You can write programs that enable new technologies or work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.&lt;/p&gt;
+&lt;p&gt;However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this post.&lt;/p&gt;
     
     </summary>
     
@@ -4498,14 +4489,14 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 
 <p>In the code below, we are exporting the <code>area</code> and <code>circumference</code> functions. We defined the <code>PI</code> constant, but this is only accessible within the module. Only the elements associated with <code>exports</code> are available outside the module.</p>
 <p>So, we can consume it using <code>require</code> in another file like follows:</p>
-<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> circle = <span class="built_in">require</span>(<span class="string">'./circle'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;circle.area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circunference: <span class="subst">$&#123;circle.circumference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> circle = <span class="built_in">require</span>(<span class="string">'./circle'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;circle.area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circumference: <span class="subst">$&#123;circle.circumference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
 
 <p>Noticed that this time we prefix the module name with <code>./</code>. That indicates that the module is a local file.</p>
 <h1 id="Module-Wrapper">Module Wrapper<a href="#Module-Wrapper" class="headerlink" title="Module Wrapper"></a></h1><p>You can think of each Node.js module as a self-contained function like the following one:</p>
 <figure class="highlight javascript"><figcaption><span>Module Wrapper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">exports, require, module, __filename, __dirname</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">module</span>.exports = exports = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Your module code ...</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>We have already covered <code>exports</code> and <code>require</code>. Notice the relationship between <code>module.exports</code> and <code>exports</code>. They point to the same reference. But, if you assign something directly to <code>exports</code> you will break its link to <code>module.exports</code>. More on that in the next section.</p>
-<p>For our convenience <code>__filename</code> and <code>__dirname</code> are defined. They provide the full path to the current file and directory. The latter excludes the filename and print out the directory path.</p>
+<p>For our convenience <code>__filename</code> and <code>__dirname</code> are defined. They provide the full path to the current file and directory. The latter excludes the filename and prints out the directory path.</p>
 <p>For instance, for our <code>./circle.js</code> module, it would be something like this:</p>
 <ul>
 <li><p><code>__filename</code>: <code>/User/adrian/code/circle.js</code></p>
@@ -4513,7 +4504,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 <li><p><code>__dirname</code>: <code>/User/adrian/code</code></p>
 </li>
 </ul>
-<p>Ok, we have covered <code>exports</code>, <code>require</code>, <code>__filename</code>, and <code>__dirname</code>. The only one we haven’t cover is <code>module</code>. Let’s go for it!</p>
+<p>Ok, we have covered <code>exports</code>, <code>require</code>, <code>__filename</code>, and <code>__dirname</code>. The only one we haven’t covered is <code>module</code>. Let’s go for it!</p>
 <h1 id="Module-exports-vs-Exports">Module.exports vs Exports<a href="#Module-exports-vs-Exports" class="headerlink" title="Module.exports vs Exports"></a></h1><p>The <code>module</code> is not global; it is local for each module. It contains metadata about a module like id, exports, parent, children, and so on.</p>
 <p><code>exports</code> is an alias of <code>module.exports</code>. Consequently, whatever you assign to <code>exports</code> is also available on <code>module.exports</code>. However, if you assign something directly to exports, then you lose the shortcut to <code>module.exports</code>. E.g.</p>
 <figure class="highlight javascript"><figcaption><span>cat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">  makeSound() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Meowww'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exports = Cat; // It will not work with `new Cat();`</span></span><br><span class="line"><span class="comment">// exports.Cat = Cat; // It will require `new Cat.Cat();` to work (yuck!)</span></span><br><span class="line"><span class="built_in">module</span>.exports = Cat;</span><br></pre></td></tr></table></figure>
@@ -4524,7 +4515,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 <p>To sum up, when to use <code>module.exports</code> vs <code>exports</code>:</p>
 <p>Use <code>exports</code> to:</p>
 <ul>
-<li>Export named function. e.g. <code>exports.area</code>, <code>exports.circunference</code>.</li>
+<li>Export named function. e.g. <code>exports.area</code>, <code>exports.circumference</code>.</li>
 </ul>
 <p>Use <code>module.exports</code> to:</p>
 <ol>
@@ -4534,7 +4525,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
 </li>
 </ol>
 <h1 id="Imports">Imports<a href="#Imports" class="headerlink" title="Imports"></a></h1><p>Starting with version 8.5.0+, Node.js supports ES modules natively with a feature flag and new file extention <code>*.mjs</code>.</p>
-<p>For instace, our previous <code>circle.js</code> can be rewritten as <code>circle.mjs</code> as follows:</p>
+<p>For instance, our previous <code>circle.js</code> can be rewritten as <code>circle.mjs</code> as follows:</p>
 <figure class="highlight javascript"><figcaption><span>circle.mjs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14159265359</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (radius ** <span class="number">2</span>) * PI;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">circumference</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span> * radius * PI;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Then, we can use import:</p>
@@ -4573,7 +4564,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     <link href="https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-04-02T19:21:05.534Z</updated>
+    <updated>2019-04-11T14:13:05.051Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 

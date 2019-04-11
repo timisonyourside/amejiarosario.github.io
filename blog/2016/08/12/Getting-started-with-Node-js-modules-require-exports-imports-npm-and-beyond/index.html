@@ -302,7 +302,7 @@ Modules are a crucial concept to understand Node.js projects. In this post, we c
       
         <span class="m-x-2" title="Pageviews">
           <i class="fa fa-eye" aria-hidden="true"></i>
-          97.6k
+          101.3k
         </span>
       
 
@@ -365,14 +365,14 @@ Modules are a crucial concept to understand Node.js projects. In this post, we c
 
 <p>In the code below, we are exporting the <code>area</code> and <code>circumference</code> functions. We defined the <code>PI</code> constant, but this is only accessible within the module. Only the elements associated with <code>exports</code> are available outside the module.</p>
 <p>So, we can consume it using <code>require</code> in another file like follows:</p>
-<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> circle = <span class="built_in">require</span>(<span class="string">'./circle'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;circle.area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circunference: <span class="subst">$&#123;circle.circumference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> circle = <span class="built_in">require</span>(<span class="string">'./circle'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Circle with radius <span class="subst">$&#123;r&#125;</span> has</span></span><br><span class="line"><span class="string">  area: <span class="subst">$&#123;circle.area(r)&#125;</span>;</span></span><br><span class="line"><span class="string">  circumference: <span class="subst">$&#123;circle.circumference(r)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
 
 <p>Noticed that this time we prefix the module name with <code>./</code>. That indicates that the module is a local file.</p>
 <h1 id="Module-Wrapper">Module Wrapper<a href="#Module-Wrapper" class="headerlink" title="Module Wrapper"></a></h1><p>You can think of each Node.js module as a self-contained function like the following one:</p>
 <figure class="highlight javascript"><figcaption><span>Module Wrapper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">exports, require, module, __filename, __dirname</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">module</span>.exports = exports = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Your module code ...</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>We have already covered <code>exports</code> and <code>require</code>. Notice the relationship between <code>module.exports</code> and <code>exports</code>. They point to the same reference. But, if you assign something directly to <code>exports</code> you will break its link to <code>module.exports</code>. More on that in the next section.</p>
-<p>For our convenience <code>__filename</code> and <code>__dirname</code> are defined. They provide the full path to the current file and directory. The latter excludes the filename and print out the directory path.</p>
+<p>For our convenience <code>__filename</code> and <code>__dirname</code> are defined. They provide the full path to the current file and directory. The latter excludes the filename and prints out the directory path.</p>
 <p>For instance, for our <code>./circle.js</code> module, it would be something like this:</p>
 <ul>
 <li><p><code>__filename</code>: <code>/User/adrian/code/circle.js</code></p>
@@ -380,7 +380,7 @@ Modules are a crucial concept to understand Node.js projects. In this post, we c
 <li><p><code>__dirname</code>: <code>/User/adrian/code</code></p>
 </li>
 </ul>
-<p>Ok, we have covered <code>exports</code>, <code>require</code>, <code>__filename</code>, and <code>__dirname</code>. The only one we haven’t cover is <code>module</code>. Let’s go for it!</p>
+<p>Ok, we have covered <code>exports</code>, <code>require</code>, <code>__filename</code>, and <code>__dirname</code>. The only one we haven’t covered is <code>module</code>. Let’s go for it!</p>
 <h1 id="Module-exports-vs-Exports">Module.exports vs Exports<a href="#Module-exports-vs-Exports" class="headerlink" title="Module.exports vs Exports"></a></h1><p>The <code>module</code> is not global; it is local for each module. It contains metadata about a module like id, exports, parent, children, and so on.</p>
 <p><code>exports</code> is an alias of <code>module.exports</code>. Consequently, whatever you assign to <code>exports</code> is also available on <code>module.exports</code>. However, if you assign something directly to exports, then you lose the shortcut to <code>module.exports</code>. E.g.</p>
 <figure class="highlight javascript"><figcaption><span>cat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">  makeSound() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Meowww'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exports = Cat; // It will not work with `new Cat();`</span></span><br><span class="line"><span class="comment">// exports.Cat = Cat; // It will require `new Cat.Cat();` to work (yuck!)</span></span><br><span class="line"><span class="built_in">module</span>.exports = Cat;</span><br></pre></td></tr></table></figure>
@@ -391,7 +391,7 @@ Modules are a crucial concept to understand Node.js projects. In this post, we c
 <p>To sum up, when to use <code>module.exports</code> vs <code>exports</code>:</p>
 <p>Use <code>exports</code> to:</p>
 <ul>
-<li>Export named function. e.g. <code>exports.area</code>, <code>exports.circunference</code>.</li>
+<li>Export named function. e.g. <code>exports.area</code>, <code>exports.circumference</code>.</li>
 </ul>
 <p>Use <code>module.exports</code> to:</p>
 <ol>
@@ -401,7 +401,7 @@ Modules are a crucial concept to understand Node.js projects. In this post, we c
 </li>
 </ol>
 <h1 id="Imports">Imports<a href="#Imports" class="headerlink" title="Imports"></a></h1><p>Starting with version 8.5.0+, Node.js supports ES modules natively with a feature flag and new file extention <code>*.mjs</code>.</p>
-<p>For instace, our previous <code>circle.js</code> can be rewritten as <code>circle.mjs</code> as follows:</p>
+<p>For instance, our previous <code>circle.js</code> can be rewritten as <code>circle.mjs</code> as follows:</p>
 <figure class="highlight javascript"><figcaption><span>circle.mjs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14159265359</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (radius ** <span class="number">2</span>) * PI;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">circumference</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span> * radius * PI;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Then, we can use import:</p>
@@ -643,8 +643,8 @@ Modules are a crucial concept to understand Node.js projects. In this post, we c
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Tue Apr 02 2019 15:21:31 GMT-0400 (Eastern Daylight Time)">
-            v.ppclrv
+          <span class="muted m-x-4" title="Thu Apr 11 2019 10:16:06 GMT-0400 (Eastern Daylight Time)">
+            v.ppsvmu
           </span>
         </div>
       </div>
