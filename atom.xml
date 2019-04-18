@@ -3499,7 +3499,7 @@ This’s how it works:</p>
     
     <content type="html"><![CDATA[<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-<p>As a developer, you have the power to change the world! You can write programs that enable new technologies or work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.</p>
+<p>As a developer, you have the power to change the world! You can write programs that enable new technologies. For instance, develop software to find an earlier diagnosis of diseases. But, that’s not the only way, you might do it indirectly by creating projects that make people more productive and help them free up time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.</p>
 <p>However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this post.</p>
 <a id="more"></a>
 
@@ -3533,10 +3533,10 @@ This’s how it works:</p>
 <p>We are going to explore how you can measure your code performance using analysis of algorithms: <strong>time complexity</strong> and <strong>big O notation</strong>.</p>
 <p>First, let’s see a real story to learn why this is important.</p>
 <h1 id="An-algorithm-that-saved-millions-of-lives">An algorithm that saved millions of lives<a href="#An-algorithm-that-saved-millions-of-lives" class="headerlink" title="An algorithm that saved millions of lives"></a></h1><p>During War World II, the Germans used <abbr title="AM broadcasting is a radio broadcasting technology, which employs amplitude modulation transmissions.">AM</abbr> radio signals to communicate with troops around Europe. Anybody with an AM frequency radio and some knowledge of Morse code could intercept the message. However, the information was encoded! All the countries that were under attack tried to decode it. Sometimes, they got lucky and were able to make sense of a couple of messages at the end of the day. Unfortunately, the Nazis changed the encoding every single day!</p>
-<p>A math genius called Alan Turing joined the British military to crack the German “Enigma” code. He knew they would never get ahead if they keep doing the calculations by pen and paper. So after many months of hard work, they built a machine. Unfortunately, It took more than a day to decode a message! So, it was not very useful.</p>
-<p>Alan’s team found out that every encrypted message ended with the same string: “Heil Hitler” Aha! After changing the algorithm, the machine was able to decode messages a lot faster! They used it the info to finish the war faster and save millions of lives!</p>
+<p>A brilliant mathematician called Alan Turing joined the British military to crack the German “Enigma” code. He knew they would never get ahead if they keep doing the calculations by pen and paper. So after many months of hard work, they built a machine. Unfortunately, the first version of the device took to long to decode a message! So, it was not very useful.</p>
+<p>Alan’s team found out that every encrypted message ended with the same string: “Heil Hitler” Aha! After changing the algorithm, the machine was able to decode transmissions a lot faster! They used it the info to finish the war quicker and save millions of lives!</p>
 <p><em>The same machine that was going to get shut down as a failure became a live saver. Likewise, you can do way more with your computing resources when you write efficient code. That is what we are going to learn in this post series!</em></p>
-<p>Another popular algorithm is <code>PageRank</code> developed in 1998 by Sergey Brin and Larry Page (Google founders). This was (and is) used by a Google search engine to make sense of trillions of web pages. Google was not the only search engine, however, since their algorithm returned better results, eventually, most of the competitors faded away at the time. Today it powers most of 3 billion daily searches very quickly. That is the power of algorithms that scale! 🏋🏻‍</p>
+<p>Another popular algorithm is <code>PageRank</code> developed in 1998 by Sergey Brin and Larry Page (Google founders). This algorithm was (and is) used by a Google search engine to make sense of trillions of web pages. Google was not the only search engine. However, since their algorithm returned better results most of the competitors faded away. Today it powers most of 3 billion daily searches very quickly. That is the power of algorithms that scale! 🏋🏻‍</p>
 <h1 id="So-why-should-you-learn-to-write-efficient-algorithms">So, why should you learn to write efficient algorithms?<a href="#So-why-should-you-learn-to-write-efficient-algorithms" class="headerlink" title="So, why should you learn to write efficient algorithms?"></a></h1><p>There are many advantages; these are just some of them:</p>
 <ul>
 <li>You would become a much better software developer (and get better jobs/income).</li>
@@ -3568,7 +3568,7 @@ This’s how it works:</p>
 <li>Best-case time complexity (e.g., already sorted)</li>
 <li>Average-case time complexity (e.g., elements in random order)</li>
 </ul>
-<p>We usually care more about the <strong>worst-case time complexity</strong>. We are hoping for the best but preparing for the <strong>worst</strong>.</p>
+<p>We usually care more about the <strong>worst-case time complexity</strong> (We are hoping for the best but preparing for the <em>worst</em>).</p>
 <h1 id="Calculating-time-complexity">Calculating time complexity<a href="#Calculating-time-complexity" class="headerlink" title="Calculating time complexity"></a></h1><p>Here’s a code example of how you can calculate the time complexity: <em>Find the smallest number in an array</em>.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Get the smallest number on an array of numbers</span></span><br><span class="line"><span class="comment"> * @param &#123;Array&#125; n array of numbers</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMin</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line marked">  <span class="keyword">const</span> array = <span class="built_in">Array</span>.from(n);</span><br><span class="line marked">  <span class="keyword">let</span> min;</span><br><span class="line"></span><br><span class="line">  array.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line marked">    <span class="keyword">if</span>(min === <span class="literal">undefined</span> || element &lt; min) &#123;</span><br><span class="line marked">      min = element;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line marked">  <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3620,7 +3620,7 @@ This’s how it works:</p>
 <td>20,003</td>
 </tr>
 </tbody></table>
-<p>Believe it or not, also <code>k</code> wouldn’t make too much of a difference. Using this kind of asymptotic analysis we take the higher order element, in this case: <code>n</code>.</p>
+<p>Believe it or not, also the constant <code>k</code> wouldn’t make too much of a difference. Using this kind of asymptotic analysis we take the higher order element, in this case: <code>n</code>.</p>
 <p>Let’s do another example so we can get this concept. Let’s say we have the following function: `3 n^2 + 2n + 20`. What would be the result of using the asymptotic analysis?</p>
 <blockquote>
 <p>`3 n^2 + 2n + 20` as `n` grows bigger and bigger; the term that will make the most difference is `n^2`.</p>
@@ -3631,7 +3631,7 @@ This’s how it works:</p>
 <blockquote>
 <p>The letter `O` refers to the <strong>order</strong> of a function.</p>
 </blockquote>
-<p>The Big O notation is used to classify algorithms by their worst running time or also referred as the upper bound of the growth rate of a function.</p>
+<p>The Big O notation is used to classify algorithms by their worst running time or also referred to as the upper bound of the growth rate of a function.</p>
 <p>In our previous example with <code>getMin</code> function, we can say it has a running time of <code>O(n)</code>. There are many different running times. Here are the most common that we are going to cover in the next post and their relationship with time:</p>
 <p>Growth rates vs. <code>n</code> size:</p>
 <div class="table--responsive">
@@ -3753,7 +3753,7 @@ Titles:
     
       &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML&quot; async&gt;&lt;/script&gt;
 
-&lt;p&gt;As a developer, you have the power to change the world! You can write programs that enable new technologies or work in software to find an earlier diagnosis of diseases for instance. Also, you might create a project to free up people’s time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.&lt;/p&gt;
+&lt;p&gt;As a developer, you have the power to change the world! You can write programs that enable new technologies. For instance, develop software to find an earlier diagnosis of diseases. But, that’s not the only way, you might do it indirectly by creating projects that make people more productive and help them free up time to do other amazing things. Whatever you do, it has the potential to impact the community who use it.&lt;/p&gt;
 &lt;p&gt;However, these accomplishments are only possible if we write software that is fast and can scale. Learning how to measure your code performance is the goal of this post.&lt;/p&gt;
     
     </summary>
@@ -4564,7 +4564,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     <link href="https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-04-11T14:13:05.051Z</updated>
+    <updated>2019-04-18T17:53:53.239Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 
