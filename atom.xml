@@ -2026,14 +2026,14 @@ With this function, we get if two nodes are connected or not. However, they don'
     <link href="https://adrianmejia.com/blog/2018/04/28/Data-Structures-Time-Complexity-for-Beginners-Arrays-HashMaps-Linked-Lists-Stacks-Queues-tutorial/"/>
     <id>https://adrianmejia.com/blog/2018/04/28/Data-Structures-Time-Complexity-for-Beginners-Arrays-HashMaps-Linked-Lists-Stacks-Queues-tutorial/</id>
     <published>2018-04-28T23:20:40.000Z</published>
-    <updated>2018-04-28T23:20:40.000Z</updated>
+    <updated>2019-04-22T19:49:40.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- Data Structures Time Complexity for Beginners -->
-
-<p>When we are developing software, we have to store data in memory. Depending on how you want to manipulate the information, you might choose a data structure over another. There are many types of data, such as arrays, maps, sets, lists, trees, graphs, etc. Choosing the right data structure for a task can be tricky. So, this post will help you to know the trade-offs, so, you can use the right tool for the job!</p>
+    <content type="html"><![CDATA[<p>When we are developing software, we have to store data in memory. However, there are many types of data structures, such as arrays, maps, sets, lists, trees, graphs, etc. and choosing the right one for the task can be tricky. So, this series of posts will help you to know the trade-offs, so, you can use the right tool for the job!</p>
 <a id="more"></a>
 
-<p>On this section, we are going to focus on linear data structures like Arrays, Lists, Sets, Stacks, Queues and so on.</p>
+<p>On this section, we are going to focus on linear data structures: Arrays, Lists, Sets, Stacks, and Queues.</p>
+<p>You can find all these implementations and more in the Github repo:
+<a href="https://github.com/amejiarosario/dsa.js" target="_blank" rel="noopener">https://github.com/amejiarosario/dsa.js</a></p>
 <hr>
 <p>This post is part of a tutorial series:</p>
 <p><strong>Learning Data Structures and Algorithms (DSA) for Beginners</strong></p>
@@ -2175,20 +2175,28 @@ With this function, we get if two nodes are connected or not. However, they don'
 </tr>
 </tbody></table>
 <p>Note: <strong>Binary search trees</strong> and trees, in general, will be cover in the next post. Also, graph data structures.</p>
-<h1 id="Primitive-Data-Types">Primitive Data Types<a href="#Primitive-Data-Types" class="headerlink" title="Primitive Data Types"></a></h1><p>Primitive data types are the most basic elements where all the other data structures built upon. Some primitives are:</p>
+<h1 id="Primitive-Data-Types">Primitive Data Types<a href="#Primitive-Data-Types" class="headerlink" title="Primitive Data Types"></a></h1><p>Primitive data types are the most basic elements where all the other data structures are built upon. Some primitives are:</p>
 <ul>
 <li>Integers. E.g., <code>1</code>, <code>2</code>, <code>3</code>, …</li>
 <li>Characters. E.g., <code>a</code>, <code>b</code>, <code>&quot;1&quot;</code>, <code>&quot;*&quot;</code></li>
 <li>Booleans. E.g., <code>true</code> or <code>false</code>.</li>
 <li>Float (floating points) or doubles. E.g., <code>3.14159</code>, <code>1483e-2</code>.</li>
+<li>Null values. E.g. <code>null</code></li>
 </ul>
+<p>JavaScript specific primitives:</p>
+<ul>
+<li><code>undefined</code></li>
+<li><code>Symbol</code></li>
+<li><code>Number</code></li>
+</ul>
+<p>Note: Objects are not primitive since it’s a collection of zero or more primitives and other objects.</p>
 <h1 id="Array">Array<a href="#Array" class="headerlink" title="Array"></a></h1><p>Arrays are collections of zero or more elements. Arrays are one of the most used data structure because of its simplicity and fast way of retrieving information.</p>
 <p>You can think of an array as a drawer where you can store things on the bins.</p>
 <p><strong>Array is like a drawer that stores things on bins</strong></p>
 <img src="/images/array-drawer.jpg" title="Array is like a drawer that stores things on bins">
 
 
-<p>It’s when you want to search for something you can go directly to the bin number (<em><code>O(1)</code></em>). However, if you forgot what cabinet had, then you will have to open one by one (<em><code>O(n)</code></em>) to verify its content until you find what you are looking for. That same happens with an array.</p>
+<p>When you want to search for something you can go directly to the bin number. That’s a constant time operation (<em><code>O(1)</code></em>). However, if you forgot what cabinet had, then you will have to open one by one (<em><code>O(n)</code></em>) to verify its content until you find what you are looking for. That same happens with an array.</p>
 <!-- http://apprize.info/javascript/20lessons/20lessons.files/image052.jpg -->
 <!-- https://cdn2.iconfinder.com/data/icons/furniture-12/48/drawer-cabinet-closet-shelf-cabin-cupboard-furntiure-512.png -->
 
@@ -2241,7 +2249,7 @@ With this function, we get if two nodes are connected or not. However, they don'
 <!-- https://github.com/v8/v8/blob/master/src/builtins/builtins-array.cc#L145 -->
 <!-- https://tc39.github.io/ecma262/#sec-array.prototype.unshift -->
 
-<p>There are multiple ways to insert elements into an array. You can append a new data to end, or you can add it to the beginning of the collection.</p>
+<p>There are multiple ways to insert elements into an array. You can append new data to end, or you can add it to the beginning of the collection.</p>
 <p>Let’s start with append to tail:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertToTail</span>(<span class="params">array, element</span>) </span>&#123;</span><br><span class="line">  array.push(element);</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(insertToTail(array, <span class="number">4</span>)); <span class="comment">// =&gt; [ 1, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
 
@@ -2250,7 +2258,7 @@ With this function, we get if two nodes are connected or not. However, they don'
 <p>The <code>Array.push</code> runtime is a <em>O(1)</em></p>
 </blockquote>
 <p>Let’s now try appending to head:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertToHead</span>(<span class="params">array, element</span>) </span>&#123;</span><br><span class="line">  array.unshift(element);</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(insertToHead(array, <span class="number">0</span>)); <span class="comment">// =&gt; [ 0, 1, 2, 3, ]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertToHead</span>(<span class="params">array, element</span>) </span>&#123;</span><br><span class="line">  array.unshift(element);</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(insertToHead(array, <span class="number">0</span>)); <span class="comment">// =&gt; [ 0, 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
 
 <p>What do you think is the runtime of the <code>insertToHead</code> function? Looks the same as the previous one except that we are using <code>unshift</code> instead of <code>push</code>. But, there’s a catch! <a href="https://tc39.github.io/ecma262/#sec-array.prototype.unshift" target="_blank" rel="noopener">unshift algorithm</a> makes room for the new element by moving all existing ones to the next position in the array. So, it will iterate through all the elements.</p>
 <blockquote>
@@ -2327,8 +2335,8 @@ With this function, we get if two nodes are connected or not. However, they don'
 <p><strong>HashMap is like a drawer that stores things on bins and labels them</strong></p>
 <img src="/images/hashmap-drawer.jpg" title="HashMap is like a drawer that stores things on bins and labels them">
 
-<p>In this example, if you are looking for a toy, you don’t have to open the bin 1, 2, and 3 to see what’s inside. You go directly to the bin labeled as “toys”. That’s a huge gain! Search time goes from <em>O(n)</em> to <em>O(1)</em>.</p>
-<p>Numbers were the array indexes, and labels are the key for the HashMap’s values. Internally, the keys get translated into indexes using a <em>hash function</em>.</p>
+<p>In this example, if you are looking for the <a href="https://gum.co/dsajs" target="_blank" rel="noopener">DSA.js book</a>, you don’t have to open the bin 1, 2, and 3 to see what’s inside. You go directly to the container labeled as “books”. That’s a huge gain! Search time goes from <em>O(n)</em> to <em>O(1)</em>.</p>
+<p>In arrays, the data is referenced using a numeric index (relatively to the position). However, HashMaps uses labels that could be a string, number, object or anything. Internally, the HashMap uses an Array, and it maps the labels to array indexes using a <em>hash function</em>.</p>
 <!-- http://apprize.info/javascript/20lessons/20lessons.files/image052.jpg -->
 
 <p>There are at least two ways to implement hashmap:</p>
@@ -2342,31 +2350,26 @@ With this function, we get if two nodes are connected or not. However, they don'
 
 <p>As you can see in the image, each key gets translated into a <strong>hash code</strong>. Since the array size is limited (e.g. 10), we have to loop through the available buckets using modulus function. In the buckets we store the key/value pair and if there’s more than one, we use a collection to hold them.</p>
 <p>Now, What do you think about covering each of the HashMap components in details? Let’s start with the <strong>hash function</strong>.</p>
-<!--  ## HashMap vs. Array
-
-Why go through the trouble of converting the key into an index and not using an array directly you might ask. Well, the main difference is that the Array's index doesn't have any relationship with the data. You have to know where your data is.
-
-Let's say you want to count how many times words are used in a text. How would you implement that?
-
-1. You can use two arrays (let's call it `A` and `B`). One for storing the word and another for storing how many times they have seen (frequency).
-2. You can use a HashMap. They *`key`* is the word, and the *`value`* is the frequency of the word.
-
-What is the runtime of the approach #1 using **two arrays**? If we say, the number of words in the text is *`n`*. Then we have to `search` if the word in the array `A`  and then increment the value on array `B` matching that index. We would have two loops 1) to go through each word and 2) searching in the array B. The runtime would be <code>O(n<sup>2</sup>)</code>.
-
-What is the runtime of the approach #2 using a **HashMap**? Well, we iterate through each word on the text and increment the value if there is something there or set it to 1 if that word is seen for the first time. The runtime would be \`O(n)\` which is much more performant than approach #1.
-
-Differences between HashMap and Array
-- Search on an array is *O(n)* while on a HashMap is *O(1)*
-- Arrays can have duplicate values, while HashMap cannot have duplicated keys (but it can have duplicate values.)
-- The array has a key (index) that is always a number from 0 to max value, while in a HashMap you have control of the key and it can be whatever you want: number, string, or symbol.
- -->
-
+<h2 id="HashMap-vs-Array">HashMap vs. Array<a href="#HashMap-vs-Array" class="headerlink" title="HashMap vs. Array"></a></h2><p>Why go through the trouble of converting the key into an index and not using an array directly you might ask. Well, the main difference is that the Array’s index doesn’t have any relationship with the data. You have to know where your data is.</p>
+<p>Let’s say you want to count how many times words are used in a text. How would you implement that?</p>
+<ol>
+<li>You can use two arrays (let’s call it <code>A</code> and <code>B</code>). One for storing the word and another for storing how many times they have seen (frequency).</li>
+<li>You can use a HashMap. They <em><code>key</code></em> is the word, and the <em><code>value</code></em> is the frequency of the word.</li>
+</ol>
+<p>What is the runtime of approach #1 using <strong>two arrays</strong>? If we say, the number of words in the text is <em><code>n</code></em>. Then we have to <code>search</code> if the word in the array <code>A</code>  and then increment the value on array <code>B</code> matching that index. For every word on <code>n</code> we have to test if it’s already on array <code>A</code>. This double loop leave use with a runtime of <code>O(n<sup>2</sup>)</code>.</p>
+<p>What is the runtime of approach #2 using a <strong>HashMap</strong>? Well, we iterate through each word on the text once and increment the value if there is something there or set it to 1 if that word is seen for the first time. The runtime would be <code>O(n)</code> which is much more performant than approach #1.</p>
+<p>Differences between HashMap and Array</p>
+<ul>
+<li>Search on an array is <em>O(n)</em> while on a HashMap is <em>O(1)</em></li>
+<li>Arrays can have duplicate values, while HashMap cannot have duplicated keys (but they can have duplicate values.)</li>
+<li>The array has a key (index) that is always a number from 0 to max value, while in a HashMap you have control of the key and it can be whatever you want: number, string, or symbol.</li>
+</ul>
 <h2 id="Hash-Function">Hash Function<a href="#Hash-Function" class="headerlink" title="Hash Function"></a></h2><p>The first step to implement a HashMap is to have a hash function. This function will map every key to its value.</p>
 <blockquote>
 <p>The <strong>perfect hash function</strong> is the one that for every key it assigns a unique index.</p>
 </blockquote>
-<p>Ideal hashing algorithms allow <em>constant time</em> access/lookup. However, it’s hard to achieve a perfect hashing function in practice. You might have the case where two different keys yields on the same index: <em>collision</em>.</p>
-<p>Collision in hashmaps is unavoidable when using an array-like underlying data structure. So one way to deal with collisions is to store multiple values in the same bucket. When we try to access the key’s value and found various values, we iterate over the values <em>O(n)</em>. However, in most implementations, the hash adjusts the size dynamically to avoid too many collisions. So, we can say that the <strong>amortized</strong> lookup time is <em>O(1)</em>. We are going to explain what we mean by amortized runtime later on this post with an example.</p>
+<p>Ideal hashing algorithms allow <em>constant time</em> access/lookup. However, it’s hard to achieve a perfect hashing function in practice. You might have the case where two different keys yields on the same index. This is called <em>collision</em>.</p>
+<p>Collisions in HashMaps are unavoidable when using an array-like underlying data structure. At some point, data can’t fit in a HashMap will reuse data slots. One way to deal with collisions is to store multiple values in the same bucket using a linked list or another array (more on this later). When we try to access the key’s value and found various values, we iterate over the values <em>O(n)</em>. However, in most implementations, the hash adjusts the size dynamically to avoid too many collisions. So, we can say that the <strong>amortized</strong> lookup time is <em>O(1)</em>. We are going to explain what we mean by amortized runtime later on this post with an example.</p>
 <h2 id="Naive-HashMap-implementation">Naïve HashMap implementation<a href="#Naive-HashMap-implementation" class="headerlink" title="Naïve HashMap implementation"></a></h2><p><a id="NaiveHashMap"></a>
 A simple (and bad) hash function would be this one:</p>
 <figure class="highlight js"><figcaption><span>Naive HashMap Implementation</span><a href="https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/maps/hash-maps/hash-map-1.js" target="_blank" rel="noopener">full code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NaiveHashMap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(initialCapacity = 2) &#123;</span><br><span class="line">    <span class="keyword">this</span>.buckets = <span class="keyword">new</span> <span class="built_in">Array</span>(initialCapacity);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  set(key, value) &#123;</span><br><span class="line">    <span class="keyword">const</span> index = <span class="keyword">this</span>.getIndex(key);</span><br><span class="line">    <span class="keyword">this</span>.buckets[index] = value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  get(key) &#123;</span><br><span class="line">    <span class="keyword">const</span> index = <span class="keyword">this</span>.getIndex(key);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.buckets[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  hash(key) &#123;</span><br><span class="line marked">    <span class="keyword">return</span> key.toString().length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getIndex(key) &#123;</span><br><span class="line">    <span class="keyword">const</span> indexHash = <span class="keyword">this</span>.hash(key);</span><br><span class="line marked">    <span class="keyword">const</span> index = indexHash % <span class="keyword">this</span>.buckets.length;</span><br><span class="line">    <span class="keyword">return</span> index;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2399,7 +2402,7 @@ A simple (and bad) hash function would be this one:</p>
 <p>For that we need:</p>
 <ol>
 <li>A proper hash function that produces as few collisions as possible.</li>
-<li>An array that is big enough to hold all the required values.</li>
+<li>An array big enough to hold all the required values.</li>
 </ol>
 <p>Let’s give it another shot to our hash function. Instead of using the length of the string, let’s sum each character <a href="https://simple.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ascii code</a>.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hash(key) &#123;</span><br><span class="line">  <span class="keyword">let</span> hashValue = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> stringKey = key.toString();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; stringKey.length; index++) &#123;</span><br><span class="line">    <span class="keyword">const</span> charCode = stringKey.charCodeAt(index);</span><br><span class="line">    hashValue += charCode;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> hashValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2574,7 +2577,7 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <p>Here some examples how to use it:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br><span class="line"><span class="comment">// const set = new Set(); // Using the built-in</span></span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> MySet(); <span class="comment">// Using our own implementation</span></span><br><span class="line"></span><br><span class="line">set.add(<span class="string">'one'</span>);</span><br><span class="line">set.add(<span class="string">'uno'</span>);</span><br><span class="line">set.add(<span class="string">'one'</span>); <span class="comment">// should NOT add this one twice</span></span><br><span class="line"></span><br><span class="line">assert.equal(set.has(<span class="string">'one'</span>), <span class="literal">true</span>);</span><br><span class="line">assert.equal(set.has(<span class="string">'dos'</span>), <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">assert.equal(set.size, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// assert.deepEqual(Array.from(set), ['one', 'uno']);</span></span><br><span class="line"></span><br><span class="line">assert.equal(set.delete(<span class="string">'one'</span>), <span class="literal">true</span>);</span><br><span class="line">assert.equal(set.delete(<span class="string">'one'</span>), <span class="literal">false</span>);</span><br><span class="line">assert.equal(set.has(<span class="string">'one'</span>), <span class="literal">false</span>);</span><br><span class="line">assert.equal(set.size, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<p>You should be able to use <code>MySet</code> and the built-in <code>Set</code> interchangeably for this examples.</p>
+<p>You should be able to use <code>MySet</code> and the built-in <code>Set</code> interchangeably for these examples.</p>
 <h2 id="Set-Operations-runtime">Set Operations runtime<a href="#Set-Operations-runtime" class="headerlink" title="Set Operations runtime"></a></h2><p>From our Set implementation using a HashMap we can sum up the time complexity as follows (very similar to the HashMap):</p>
 <p><strong>Set Time Complexities</strong></p>
 <table>
@@ -2624,13 +2627,16 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <li><code>removeFirst</code>: Removes an element from the start of the list (head/root)</li>
 </ol>
 <p><strong>Adding/Removing an element at the end of a linked list</strong></p>
-<p>There are two primary cases. 1) If the list first (root/head) doesn’t have any element yet, we make this node the head of the list.
-2) Contrary, if the list already has elements, then we have to iterate until finding the last one and appending our new node to the end.</p>
+<p>There are two primary cases:</p>
+<ol>
+<li>If the list first (root/head) doesn’t have any element yet, we make this node the head of the list.</li>
+<li>Contrary, if the list already has items, then we have to iterate until finding the last one and appending our new node to the end.</li>
+</ol>
 <p><a id="SinglyLinkedList.addLast"></a></p>
 <figure class="highlight js"><figcaption><span>LinkedList.prototype.addLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">addLast(value) &#123; <span class="comment">// similar Array.push</span></span><br><span class="line">  <span class="keyword">const</span> node = <span class="keyword">new</span> Node(value);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.root) &#123;</span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="keyword">this</span>.root;</span><br><span class="line">    <span class="keyword">while</span>(currentNode &amp;&amp; currentNode.next) &#123;</span><br><span class="line">      currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line">    currentNode.next = node;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = node;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>What’s the runtime of this code? If it is the first element, then adding to the root is <em>O(1)</em>. However, finding the last element is <em>O(n)</em>.</p>
-<p>Now, removing an element from the end of the list has a similar code. We have to find the current before last and make its <code>next</code> reference <code>null</code>.</p>
+<p>What’s the runtime of this code? If it is the first element, then adding to the root is <em>O(1)</em>. However, finding the last item is <em>O(n)</em>.</p>
+<p>Now, removing an element from the end of the list has similar code. We have to find the current before last and make its <code>next</code> reference <code>null</code>.</p>
 <p><a id="SinglyLinkedList.removeLast"></a></p>
 <figure class="highlight js"><figcaption><span>LinkedList.prototype.removeLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">removeLast() &#123;</span><br><span class="line">  <span class="keyword">let</span> current = <span class="keyword">this</span>.root;</span><br><span class="line">  <span class="keyword">let</span> target;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(current &amp;&amp; current.next) &#123;</span><br><span class="line">    <span class="keyword">while</span>(current &amp;&amp; current.next &amp;&amp; current.next.next) &#123;</span><br><span class="line">      current = current.next;</span><br><span class="line">    &#125;</span><br><span class="line">    target = current.next;</span><br><span class="line marked">    current.next = <span class="literal">null</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span>;</span><br><span class="line">    target = current;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(target) &#123;</span><br><span class="line">    <span class="keyword">return</span> target.value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2643,7 +2649,7 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <p>Adding and removing elements from the beginning is a constant time because we hold a reference to the first element:</p>
 <figure class="highlight js"><figcaption><span>LinkedList.removeFirst</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">addFirst(value) &#123;</span><br><span class="line">  <span class="keyword">const</span> node = <span class="keyword">new</span> Node(value);</span><br><span class="line">  node.next = <span class="keyword">this</span>.first;</span><br><span class="line">  <span class="keyword">this</span>.first = node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>As expected the runtime for removing/adding to the firt element from a linked List is always constant <em>O(1)</em></p>
+<p>As expected, the runtime for removing/adding to the first element from a linked List is always constant <em>O(1)</em></p>
 <p><a id="LinkedList.remove"></a></p>
 <p><strong>Removing an element anywhere from a linked list</strong></p>
 <p>Removing an element anywhere in the list leverage the <code>removeLast</code> and <code>removeFirst</code>. However, if the removal is in the middle, then we assign the previous node to the next one. That removes any reference from the current node, this is removed from the list:</p>
@@ -2658,11 +2664,11 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <p>Searching an element on the linked list is very somewhat similar to <code>remove</code>:</p>
 <figure class="highlight js"><figcaption><span>LinkedList.contains</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">contains(value) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> current = <span class="keyword">this</span>.first, index = <span class="number">0</span>; current;  index++, current = current.next) &#123;</span><br><span class="line">    <span class="keyword">if</span>(current.value === value) &#123;</span><br><span class="line">      <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>This function finds the first element with given value.</p>
+<p>This function finds the first element with the given value.</p>
 <blockquote>
 <p>The runtime for searching an element in a linked list is <em>O(n)</em></p>
 </blockquote>
-<h2 id="Singly-Linked-Lists-time-complexity">Singly Linked Lists time complexity<a href="#Singly-Linked-Lists-time-complexity" class="headerlink" title="Singly Linked Lists time complexity"></a></h2><p>Singly Linked List time complexity per function is as follows</p>
+<h2 id="Singly-Linked-Lists-time-complexity">Singly Linked Lists time complexity<a href="#Singly-Linked-Lists-time-complexity" class="headerlink" title="Singly Linked Lists time complexity"></a></h2><p>Singly Linked List time complexity per function is as follows.</p>
 <table>
 <thead>
 <tr>
@@ -2740,14 +2746,14 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <p><a id="DoublyLinkedList.removeLast"></a></p>
 <figure class="highlight js"><figcaption><span>LinkedList.prototype.removeLast</span><a href="https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/linked-lists/linked-list.js" target="_blank" rel="noopener">full code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">removeLast() &#123;</span><br><span class="line">  <span class="keyword">let</span> current = <span class="keyword">this</span>.first;</span><br><span class="line">  <span class="keyword">let</span> target;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(current &amp;&amp; current.next) &#123;</span><br><span class="line marked">    current = <span class="keyword">this</span>.last.previous;</span><br><span class="line">    <span class="keyword">this</span>.last = current;</span><br><span class="line">    target = current.next;</span><br><span class="line">    current.next = <span class="literal">null</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.first = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.last = <span class="literal">null</span>;</span><br><span class="line">    target = current;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(target) &#123;</span><br><span class="line">    <span class="keyword">this</span>.size--;</span><br><span class="line">    <span class="keyword">return</span> target.value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Using doubly linked list, we no longer have to iterate through the whole list to get the 2nd last elements. We can use directly <code>this.last.previous</code> and is <code>O(1)</code>.</p>
+<p>Using a doubly linked list, we no longer have to iterate through the whole list to get the 2nd last elements. We can use directly <code>this.last.previous</code> and is <code>O(1)</code>.</p>
 <p>Did you remember that for the Queue we had to use two arrays? Now, we can change that implementation an use a doubly linked list instead that has an <em>O(1)</em> for insert at the start and deleting at the end.</p>
 <p><a id="DoublyLinkedList.add"></a></p>
 <p><strong>Adding an element anywhere from a linked list</strong></p>
 <p>Adding an element on anywhere on the list leverages our <code>addFirst</code> and <code>addLast</code> functions as you can see below:</p>
 <figure class="highlight js"><figcaption><span>LinkedList.add</span><a href="https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/linked-lists/linked-list.js" target="_blank" rel="noopener">FullCode</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">add(value, index = <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(index === <span class="number">0</span>) &#123;</span><br><span class="line marked">    <span class="keyword">return</span> <span class="keyword">this</span>.addFirst(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> current = <span class="keyword">this</span>.first, i = <span class="number">0</span>; i &lt;= <span class="keyword">this</span>.size;  i++, current = (current &amp;&amp; current.next)) &#123;</span><br><span class="line">    <span class="keyword">if</span>(i === index) &#123;</span><br><span class="line">      <span class="keyword">if</span>(i === <span class="keyword">this</span>.size) &#123; <span class="comment">// if it doesn't have next it means that it is the last</span></span><br><span class="line marked">        <span class="keyword">return</span> <span class="keyword">this</span>.addLast(value);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">const</span> newNode = <span class="keyword">new</span> Node(value);</span><br><span class="line">      newNode.previous = current.previous;</span><br><span class="line">      newNode.next = current;</span><br><span class="line"></span><br><span class="line">      current.previous.next = newNode;</span><br><span class="line">      <span class="keyword">if</span>(current.next) &#123; current.next.previous = newNode; &#125;</span><br><span class="line">      <span class="keyword">this</span>.size++;</span><br><span class="line">      <span class="keyword">return</span> newNode;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>If we have a insertion in the middle of the array, then we have to update the <code>next</code> and <code>previous</code> reference of the surrounding elements.</p>
+<p>If we have an insertion in the middle of the array, then we have to update the <code>next</code> and <code>previous</code> reference of the surrounding elements.</p>
 <blockquote>
 <p>Adding an element anywhere within the list is <em>O(n)</em>.</p>
 </blockquote>
@@ -2796,12 +2802,12 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <td>Search for any element from the list</td>
 </tr>
 </tbody></table>
-<p>This is a great improvement compared to the singly linked list! We improved from <em>O(n)</em> to <em>O(1)</em> by:</p>
+<p>Doubly linked lists are a significant improvement compared to the singly linked list! We improved from <em>O(n)</em> to <em>O(1)</em> by:</p>
 <ul>
 <li>Adding a reference to the previous element.</li>
-<li>Holding a reference to the last element in the list.</li>
+<li>Holding a reference to the last item in the list.</li>
 </ul>
-<p>Removing first/last can be done in constant-time, however, removing in the middle of the array is still <em>O(n)</em>.</p>
+<p>Removing first/last can be done in constant-time; however, eliminating in the middle of the array is still <em>O(n)</em>.</p>
 <h1 id="Stacks">Stacks<a href="#Stacks" class="headerlink" title="Stacks"></a></h1><!-- https://docs.oracle.com/javase/10/docs/api/java/util/Stack.html -->
 
 <p>Stacks is a data structure where the last entered data is the first to come out. Also know as Last-in, First-out (LIFO).</p>
@@ -2819,7 +2825,7 @@ Yay!!! 🎉 we have a much better hash function!</p>
 <h1 id="Queues">Queues<a href="#Queues" class="headerlink" title="Queues"></a></h1><!-- https://docs.oracle.com/javase/10/docs/api/java/util/Queue.html -->
 <!-- https://stackoverflow.com/a/22615787/684957 -->
 
-<p>Queues is a data structure where the first data to get in is also the first to go out. A.k.a First-in, First-out (FIFO).
+<p>Queues are a data structure where the first data to get in is also the first to go out. A.k.a First-in, First-out (FIFO).
 It’s like a line of people at the movies, the first to come in is the first to come out.</p>
 <img src="/images/queue.jpg" title="Queue: enqueue and dequeue">
 
@@ -2858,19 +2864,114 @@ It’s like a line of people at the movies, the first to come in is the first to
 <p><strong>Time complexity</strong></p>
 <p><em>Click on the <strong>name</strong> to go the section or click on the <strong>runtime</strong> to go the implementation</em></p>
 <p><code>*</code> = Amortized runtime</p>
-<p>Name | Insert | Access | Search | Delete | Comments
--|-|-|-|-
-<a href="#Array"><strong>Array</strong></a> | <a href="#Insert-element-on-an-array"><em>O(n)</em></a> | <a href="#Access-an-element-in-an-array"><em>O(1)</em></a> | <a href="#Search-an-element-in-an-array"><em>O(n)</em></a> | <a href="#Deleting-elements-from-an-array"><em>O(n)</em></a> | Insertion to the end is <code>O(1)</code>. <a href="#Array-operations-time-complexity">Details here.</a>
-<a href="#HashMaps">(Hash)<strong>Map</strong></a> | <a href="#Insert-element-on-a-HashMap-runtime"><em>O(1)*</em></a> | <a href="#Search-Access-an-element-on-a-HashMap-runtime"><em>O(1)*</em></a> | <a href="#Search-Access-an-element-on-a-HashMap-runtime"><em>O(1)*</em></a> | <a href="#Edit-Delete-element-on-a-HashMap-runtime"><em>O(1)*</em></a> | Rehashing might affect insertion time. <a href="#HashMap-operations-time-complexity">Details here.</a>
-<strong>Map</strong> (using Binary Search Tree) | <em>O(log(n))</em> | - |  <em>O(log(n))</em> |  <em>O(log(n))</em> | Implemented using Binary Search Tree
-<a href="#Sets"><strong>Set</strong> (using HashMap)</a> | *<a href="#Set-Implementation">O(1)</a><em>* | - | *<a href="#Set-Implementation">O(1)</a>** | *<a href="#Set-Implementation">O(1)</a>** | Set using a HashMap implementation. <a href="#Set-Operations-runtime">Details here.</a>
-<strong>Set</strong> (using Binary Search Tree) | *O(log(n))</em> | - |  <em>O(log(n))</em> |  <em>O(log(n))</em> | Implemented using Binary Search Tree
-<a href="#Singly-Linked-Lists"><strong>Linked List</strong> (singly)</a> | *<a href="#SinglyLinkedList.addLast">O(n)</a>* | - | *<a href="#LinkedList.contains">O(n)</a>* | *<a href="#LinkedList.remove">O(n)</a>* | Adding/Removing to the start of the list is <em><code>O(1)</code></em>. <a href="#Singly-Linked-Lists-time-complexity">Details here</a>.
-<a href="#Doubly-Linked-Lists"><strong>Linked List</strong> (doubly)</a> | *<a href="#DoublyLinkedList.add">O(n)</a>* | - | *<a href="#LinkedList.contains">O(n)</a>* | *<a href="#LinkedList.remove">O(n)</a>*  | Adding/Deleting from the beginning/end is <em><code>O(1)</code></em>. But, deleting/adding from the middle is <em><code>O(n)</code></em>. <a href="#Doubly-Linked-Lists-time-complexity">Details here</a>
-<a href="#Stacks"><strong>Stack</strong> (array implementation)</a> | *<a href="#Stacks">O(1)</a>* | - | - | *<a href="#Stacks">O(1)</a>* | Insert/delete is last-in, first-out (LIFO)
-<a href="#QueueNaiveImpl"><strong>Queue</strong> (naive array impl.)</a> | *<a href="#QueueNaiveImpl">O(n)</a>* | - | - | *<a href="#QueueNaiveImpl">O(1)</a>* | Insert (<code>Array.shift</code>) is <em>O(n)</em>
-<a href="#QueueArrayImpl"><strong>Queue</strong> (array implementation)</a> | *<a href="#QueueArrayImpl">O(1)</a><em>* | - | - | *<a href="#QueueArrayImpl">O(1)</a></em> | Worst time insert is <em>O(n)</em>. However amortized is <em>O(1)</em>
-<a href="#QueueListImpl"><strong>Queue</strong> (list implementation)</a> | *<a href="#QueueListImpl">O(1)</a>* | - | - | *<a href="#QueueListImpl">O(1)</a>* | Using Doubly Linked List with reference to the last element.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Insert</th>
+<th>Access</th>
+<th>Search</th>
+<th>Delete</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#Array">Array</a></td>
+<td><a href="#Insert-element-on-an-array">O(n)</a></td>
+<td><a href="#Access-an-element-in-an-array">O(1)</a></td>
+<td><a href="#Search-an-element-in-an-array">O(n)</a></td>
+<td><a href="#Deleting-elements-from-an-array">O(n)</a></td>
+<td>Insertion to the end is <code>O(1)</code>. <a href="#Array-operations-time-complexity">Details here.</a></td>
+</tr>
+<tr>
+<td><a href="#HashMaps">HashMap</a></td>
+<td><a href="#Insert-element-on-a-HashMap-runtime">O(1)</a></td>
+<td><a href="#Search-Access-an-element-on-a-HashMap-runtime">O(1)</a></td>
+<td><a href="#Search-Access-an-element-on-a-HashMap-runtime">O(1)</a></td>
+<td><a href="#Edit-Delete-element-on-a-HashMap-runtime">O(1)</a></td>
+<td>Rehashing might affect insertion time. <a href="#HashMap-operations-time-complexity">Details here.</a></td>
+</tr>
+<tr>
+<td>Map (using Binary Search Tree)</td>
+<td>O(log(n))</td>
+<td>-</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>Implemented using Binary Search Tree</td>
+</tr>
+<tr>
+<td><a href="#Sets">Set (using HashMap)</a></td>
+<td><a href="#Set-Implementation">O(1)</a></td>
+<td>-</td>
+<td><a href="#Set-Implementation">O(1)</a></td>
+<td><a href="#Set-Implementation">O(1)</a></td>
+<td>Set using a HashMap implementation. <a href="#Set-Operations-runtime">Details here.</a></td>
+</tr>
+<tr>
+<td>Set (using list)</td>
+<td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-set.prototype.add" target="_blank" rel="noopener">O(n)</a></td>
+<td>-</td>
+<td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-set.prototype.has" target="_blank" rel="noopener">O(n)</a>]</td>
+<td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-set.prototype.delete" target="_blank" rel="noopener">O(n)</a></td>
+<td>Implemented using Binary Search Tree</td>
+</tr>
+<tr>
+<td>Set (using Binary Search Tree)</td>
+<td>O(log(n))</td>
+<td>-</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>Implemented using Binary Search Tree</td>
+</tr>
+<tr>
+<td><a href="#Singly-Linked-Lists">Linked List (singly)</a></td>
+<td><a href="#SinglyLinkedList.addLast">O(n)</a></td>
+<td>-</td>
+<td><a href="#LinkedList.contains">O(n)</a></td>
+<td><a href="#LinkedList.remove">O(n)</a></td>
+<td>Adding/Removing to the start of the list is <code>O(1)</code>. <a href="#Singly-Linked-Lists-time-complexity">Details here</a>.</td>
+</tr>
+<tr>
+<td><a href="#Doubly-Linked-Lists">Linked List (doubly)</a></td>
+<td><a href="#DoublyLinkedList.add">O(n)</a></td>
+<td>-</td>
+<td><a href="#LinkedList.contains">O(n)</a></td>
+<td><a href="#LinkedList.remove">O(n)</a></td>
+<td>Adding/Deleting from the beginning/end is <code>O(1)</code>. But, deleting/adding from the middle is <code>O(n)</code>. <a href="#Doubly-Linked-Lists-time-complexity">Details here</a></td>
+</tr>
+<tr>
+<td><a href="#Stacks">Stack (array implementation)</a></td>
+<td><a href="#Stacks">O(1)</a></td>
+<td>-</td>
+<td>-</td>
+<td><a href="#Stacks">O(1)</a></td>
+<td>Insert/delete is last-in, first-out (LIFO)</td>
+</tr>
+<tr>
+<td><a href="#QueueNaiveImpl">Queue (naive array impl.)</a></td>
+<td><a href="#QueueNaiveImpl">O(n)</a></td>
+<td>-</td>
+<td>-</td>
+<td><a href="#QueueNaiveImpl">O(1)</a></td>
+<td>Insert (<code>Array.shift</code>) is O(n)</td>
+</tr>
+<tr>
+<td><a href="#QueueArrayImpl">Queue (array implementation)</a></td>
+<td><a href="#QueueArrayImpl">O(1)</a></td>
+<td>-</td>
+<td>-</td>
+<td><a href="#QueueArrayImpl">O(1)</a></td>
+<td>Worst time insert is O(n). However amortized is O(1)</td>
+</tr>
+<tr>
+<td><a href="#QueueListImpl">Queue (list implementation)</a></td>
+<td><a href="#QueueListImpl">O(1)</a></td>
+<td>-</td>
+<td>-</td>
+<td><a href="#QueueListImpl">O(1)</a></td>
+<td>Using Doubly Linked List with reference to the last element.</td>
+</tr>
+</tbody></table>
 <p>Note: <strong>Binary search trees</strong> and trees, in general, will be cover in the next post. Also, graph data structures.</p>
 <!-- Links
 
@@ -2906,9 +3007,7 @@ https://www.yuque.com/ruanyf/share/issue-10
     
     <summary type="html">
     
-      &lt;!-- Data Structures Time Complexity for Beginners --&gt;
-
-&lt;p&gt;When we are developing software, we have to store data in memory. Depending on how you want to manipulate the information, you might choose a data structure over another. There are many types of data, such as arrays, maps, sets, lists, trees, graphs, etc. Choosing the right data structure for a task can be tricky. So, this post will help you to know the trade-offs, so, you can use the right tool for the job!&lt;/p&gt;
+      &lt;p&gt;When we are developing software, we have to store data in memory. However, there are many types of data structures, such as arrays, maps, sets, lists, trees, graphs, etc. and choosing the right one for the task can be tricky. So, this series of posts will help you to know the trade-offs, so, you can use the right tool for the job!&lt;/p&gt;
     
     </summary>
     
