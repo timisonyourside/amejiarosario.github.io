@@ -1104,6 +1104,8 @@ One should definitely mention the vue.js docs for basics.
 <a id="more"></a>
 
 <p>In this post, we are going to explore different techniques to balance a tree. We are going to use rotations to move nodes around and the AVL algorithm to keep track if the tree is balanced or needs adjustments. Let’s dig in!</p>
+<p>You can find all these implementations and more in the Github repo:
+<a href="https://github.com/amejiarosario/dsa.js" target="_blank" rel="noopener">https://github.com/amejiarosario/dsa.js</a></p>
 <hr>
 <p>This post is part of a tutorial series:</p>
 <p><strong>Learning Data Structures and Algorithms (DSA) for Beginners</strong></p>
@@ -1446,8 +1448,7 @@ You can <code>star</code> it to keep it handy.</p>
 <img src="/images/simpson2-tree.jpg" title="Simpson tree data structure">
 
 <p>The node <code>abe</code> is the <strong>root</strong> and <code>bart</code>, <code>lisa</code> and <code>maggie</code> are the <strong>leaf</strong> nodes of the tree. Notice that the tree’s node can have a different number of descendants: 0, 1, 3, or any other value.</p>
-<h1 id="Binary-Trees">Binary Trees<a href="#Binary-Trees" class="headerlink" title="Binary Trees"></a></h1><p>Trees nodes can have zero or more children. However, when a tree has at the most two children, then it’s called <strong>binary tree</strong>.</p>
-<p>A binary tree is one of the most common forms of trees and has many applications such as:</p>
+<p>Tree data structures have many applications such as:</p>
 <!-- - Searching in a time complexity of *O(log n)*. -->
 <!-- - Cryptography: [Generate pseudorandom numbers](https://www.cs.princeton.edu/courses/archive/fall07/cos433/prf_goldreich.pdf) -->
 <ul>
@@ -1456,8 +1457,9 @@ You can <code>star</code> it to keep it handy.</p>
 <li>Databases</li>
 <li>Priority Queues</li>
 <li>Querying an LDAP (Lightweight Directory Access Protocol)</li>
-<li>Searching through an XML/HTML file using the Document Object Model (DOM) interface.</li>
+<li>Representing the Document Object Model (DOM) for HTML on Websites.</li>
 </ul>
+<h1 id="Binary-Trees">Binary Trees<a href="#Binary-Trees" class="headerlink" title="Binary Trees"></a></h1><p>Trees nodes can have zero or more children. However, when a tree has at the most two children, then it’s called <strong>binary tree</strong>.</p>
 <h2 id="Full-Complete-and-Perfect-binary-trees">Full, Complete and Perfect binary trees<a href="#Full-Complete-and-Perfect-binary-trees" class="headerlink" title="Full, Complete and Perfect binary trees"></a></h2><p>Depending on how nodes are arranged in a binary tree, it can be <strong>full</strong>, <strong>complete</strong> and <strong>perfect</strong>:</p>
 <ul>
 <li><strong>Full binary tree</strong>: each node has exactly 0 or 2 children (but never 1).</li>
@@ -1670,6 +1672,8 @@ Let’s go through each one.</p>
 <a id="more"></a>
 
 <p>In the previous post, we explore linear data structures like arrays, linked lists, sets, stacks and so on. This one builds on top of what we learned.</p>
+<p>You can find all these implementations and more in the Github repo:
+<a href="https://github.com/amejiarosario/dsa.js" target="_blank" rel="noopener">https://github.com/amejiarosario/dsa.js</a></p>
 <hr>
 <p>This post is part of a tutorial series:</p>
 <p><strong>Learning Data Structures and Algorithms (DSA) for Beginners</strong></p>
@@ -3338,6 +3342,8 @@ https://www.yuque.com/ruanyf/share/issue-10
 </table>
 
 <p>Now, Let’s go one by one and provide code examples!</p>
+<p>You can find all these implementations and more in the Github repo:
+<a href="https://github.com/amejiarosario/dsa.js" target="_blank" rel="noopener">https://github.com/amejiarosario/dsa.js</a></p>
 <hr>
 <p>This post is part of a tutorial series:</p>
 <p><strong>Learning Data Structures and Algorithms (DSA) for Beginners</strong></p>
