@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Adrian Mejia Blog</title>
+  <title>Adrian Mejia | JavaScript, Algorithms and Web development Tutorials</title>
   <subtitle>var life = [&#39;work_smart&#39;, &#39;have_fun&#39;, &#39;make_history&#39;];</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -2418,7 +2418,7 @@ With this function, we get if two nodes are connected or not. However, they don'
 <!-- https://en.wikipedia.org/wiki/Associative_array -->
 <!-- https://medium.com/front-end-hacking/es6-map-vs-object-what-and-when-b80621932373 -->
 
-<p>HashMaps has many names like HashTable, HashMap, Map, Dictionary, Associative Arrays and so on. The concept is the same while the implementation might change slightly.</p>
+<p>Maps, dictionaries, and associative arrays all describe the same abstract data type. But hash map implementations are distinct from tree map implementations in that one uses a hash table and one uses a binary search tree.</p>
 <blockquote>
 <p>Hashtable is a data structure that <strong>maps</strong> keys to values</p>
 </blockquote>
@@ -4756,7 +4756,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     <link href="https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-04-18T17:53:53.239Z</updated>
+    <updated>2019-05-24T19:18:56.024Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 
@@ -5304,9 +5304,9 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
       <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
-      <category term="gruntjs" scheme="https://adrianmejia.com/tags/gruntjs/"/>
-    
       <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
+    
+      <category term="gruntjs" scheme="https://adrianmejia.com/tags/gruntjs/"/>
     
   </entry>
   
@@ -5508,9 +5508,9 @@ for your next web application.</li>
     
       <category term="angular 1.x" scheme="https://adrianmejia.com/tags/angular-1-x/"/>
     
-      <category term="mean stack" scheme="https://adrianmejia.com/tags/mean-stack/"/>
-    
       <category term="Tutorial_MEAN-Stack" scheme="https://adrianmejia.com/tags/Tutorial-MEAN-Stack/"/>
+    
+      <category term="mean stack" scheme="https://adrianmejia.com/tags/mean-stack/"/>
     
   </entry>
   

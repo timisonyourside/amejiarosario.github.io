@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</loc>
+    
+    <lastmod>2019-05-24T19:18:56.024Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://adrianmejia.com/blog/2018/06/11/Data-Structures-for-Beginners-Trees-binary-search-tree-tutorial/</loc>
     
     <lastmod>2019-05-23T19:17:30.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://adrianmejia.com/blog/2018/04/28/Data-Structures-Time-Complexity-for-Beginners-Arrays-HashMaps-Linked-Lists-Stacks-Queues-tutorial/</loc>
     
     <lastmod>2019-04-22T19:49:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</loc>
-    
-    <lastmod>2019-04-18T17:53:53.239Z</lastmod>
     
   </url>
   
@@ -79,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
@@ -94,6 +87,13 @@
   
   <url>
     <loc>https://adrianmejia.com/page/index.html</loc>
+    
+    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
