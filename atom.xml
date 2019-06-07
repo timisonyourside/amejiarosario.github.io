@@ -87,10 +87,10 @@ Static pages also have the advantage that can be cached and served from a CDN.</
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
-      <category term="e-commerce" scheme="https://adrianmejia.com/tags/e-commerce/"/>
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
   </entry>
   
@@ -163,7 +163,7 @@ By using <code>findAndmodify</code> statement, the document will perform search 
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
       <category term="mongodb" scheme="https://adrianmejia.com/tags/mongodb/"/>
@@ -287,7 +287,7 @@ By using <code>findAndmodify</code> statement, the document will perform search 
     
     </summary>
     
-      <category term="Miscellaneous" scheme="https://adrianmejia.com/categories/Miscellaneous/"/>
+      <category term="Learnings" scheme="https://adrianmejia.com/categories/learnings/"/>
     
     
       <category term="security" scheme="https://adrianmejia.com/tags/security/"/>
@@ -611,10 +611,10 @@ https://support.google.com/affiliate/answer/7188084?hl=en&ref_topic=7477733
     
     </summary>
     
-      <category term="Miscellaneous" scheme="https://adrianmejia.com/categories/Miscellaneous/"/>
+      <category term="Learnings" scheme="https://adrianmejia.com/categories/learnings/"/>
     
     
-      <category term="stress management" scheme="https://adrianmejia.com/tags/stress-management/"/>
+      <category term="productivity" scheme="https://adrianmejia.com/tags/productivity/"/>
     
   </entry>
   
@@ -1077,16 +1077,18 @@ One should definitely mention the vue.js docs for basics.
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
+    
+      <category term="Vue" scheme="https://adrianmejia.com/categories/coding/web-development/vue/"/>
     
     
       <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
-      <category term="vue.js" scheme="https://adrianmejia.com/tags/vue-js/"/>
-    
       <category term="todo app" scheme="https://adrianmejia.com/tags/todo-app/"/>
+    
+      <category term="vuejs" scheme="https://adrianmejia.com/tags/vuejs/"/>
     
   </entry>
   
@@ -1095,7 +1097,7 @@ One should definitely mention the vue.js docs for basics.
     <link href="https://adrianmejia.com/blog/2018/07/16/Self-balanced-Binary-Search-Trees-with-AVL-tree-Data-Structure-for-beginners/"/>
     <id>https://adrianmejia.com/blog/2018/07/16/Self-balanced-Binary-Search-Trees-with-AVL-tree-Data-Structure-for-beginners/</id>
     <published>2018-07-16T19:43:11.000Z</published>
-    <updated>2018-07-16T19:43:11.000Z</updated>
+    <updated>2019-05-30T19:43:11.000Z</updated>
     
     <content type="html"><![CDATA[<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
@@ -1367,12 +1369,10 @@ You can <code>star</code> it to keep it handy.</p>
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -1381,7 +1381,7 @@ You can <code>star</code> it to keep it handy.</p>
   </entry>
   
   <entry>
-    <title>Tree Data Structures for Beginners</title>
+    <title>Tree Data Structures in JavaScript for Beginners</title>
     <link href="https://adrianmejia.com/blog/2018/06/11/Data-Structures-for-Beginners-Trees-binary-search-tree-tutorial/"/>
     <id>https://adrianmejia.com/blog/2018/06/11/Data-Structures-for-Beginners-Trees-binary-search-tree-tutorial/</id>
     <published>2018-06-11T22:49:30.000Z</published>
@@ -1651,12 +1651,10 @@ Let’s go through each one.</p>
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -1665,7 +1663,7 @@ Let’s go through each one.</p>
   </entry>
   
   <entry>
-    <title>Graph Data Structures for Beginners</title>
+    <title>Graph Data Structures in JavaScript for Beginners</title>
     <link href="https://adrianmejia.com/blog/2018/05/14/Data-Structures-for-Beginners-Graphs-Time-Complexity-tutorial/"/>
     <id>https://adrianmejia.com/blog/2018/05/14/Data-Structures-for-Beginners-Graphs-Time-Complexity-tutorial/</id>
     <published>2018-05-14T09:19:22.000Z</published>
@@ -2103,12 +2101,10 @@ With this function, we get if two nodes are connected or not. However, they don'
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -2117,7 +2113,7 @@ With this function, we get if two nodes are connected or not. However, they don'
   </entry>
   
   <entry>
-    <title>Data Structures for Beginners: Arrays, HashMaps, and Lists</title>
+    <title>Data Structures in JavaScript: Arrays, HashMaps, and Lists</title>
     <link href="https://adrianmejia.com/blog/2018/04/28/Data-Structures-Time-Complexity-for-Beginners-Arrays-HashMaps-Linked-Lists-Stacks-Queues-tutorial/"/>
     <id>https://adrianmejia.com/blog/2018/04/28/Data-Structures-Time-Complexity-for-Beginners-Arrays-HashMaps-Linked-Lists-Stacks-Queues-tutorial/</id>
     <published>2018-04-28T23:20:40.000Z</published>
@@ -3106,12 +3102,10 @@ https://www.yuque.com/ruanyf/share/issue-10
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -3266,12 +3260,10 @@ https://www.yuque.com/ruanyf/share/issue-10
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -3673,12 +3665,10 @@ This’s how it works:</p>
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -3954,12 +3944,10 @@ Titles:
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -4217,12 +4205,10 @@ All JavaScript objects inherit their methods and properties from their prototype
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
-    
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
+      <category term="javascript es6" scheme="https://adrianmejia.com/tags/javascript-es6/"/>
     
   </entry>
   
@@ -4487,16 +4473,14 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
+    
+      <category term="Angular" scheme="https://adrianmejia.com/categories/coding/web-development/angular/"/>
     
     
       <category term="angular" scheme="https://adrianmejia.com/tags/angular/"/>
-    
-      <category term="angular 2+" scheme="https://adrianmejia.com/tags/angular-2/"/>
-    
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="todo app" scheme="https://adrianmejia.com/tags/todo-app/"/>
     
@@ -4550,12 +4534,8 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
-    
-    
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
@@ -4635,14 +4615,8 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
-    
-    
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
-    
-      <category term="npm" scheme="https://adrianmejia.com/tags/npm/"/>
     
       <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
@@ -4744,14 +4718,10 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
-    
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
-    
-      <category term="NodeJS" scheme="https://adrianmejia.com/tags/NodeJS/"/>
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
   </entry>
   
@@ -4760,7 +4730,7 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     <link href="https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-05-24T19:18:56.024Z</updated>
+    <updated>2019-06-07T00:07:23.987Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 
@@ -4772,16 +4742,14 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Programming/Web-Development/"/>
-    
-    
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="gruntjs" scheme="https://adrianmejia.com/tags/gruntjs/"/>
     
       <category term="gulpjs" scheme="https://adrianmejia.com/tags/gulpjs/"/>
+    
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
   </entry>
   
@@ -4894,16 +4862,16 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
+    
+      <category term="Angular" scheme="https://adrianmejia.com/categories/coding/web-development/angular/"/>
     
     
       <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="angularjs" scheme="https://adrianmejia.com/tags/angularjs/"/>
-    
-      <category term="angular 1.x" scheme="https://adrianmejia.com/tags/angular-1-x/"/>
     
   </entry>
   
@@ -4989,12 +4957,10 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
-      <category term="production" scheme="https://adrianmejia.com/tags/production/"/>
-    
-      <category term="scalability" scheme="https://adrianmejia.com/tags/scalability/"/>
+      <category term="scaling" scheme="https://adrianmejia.com/tags/scaling/"/>
     
   </entry>
   
@@ -5100,12 +5066,10 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
-      <category term="production" scheme="https://adrianmejia.com/tags/production/"/>
-    
-      <category term="scalability" scheme="https://adrianmejia.com/tags/scalability/"/>
+      <category term="scaling" scheme="https://adrianmejia.com/tags/scaling/"/>
     
   </entry>
   
@@ -5301,16 +5265,12 @@ We want to update the variables on <code>blur</code> (when you click somewhere e
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
-    
-    
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
-    
-      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
       <category term="gruntjs" scheme="https://adrianmejia.com/tags/gruntjs/"/>
+    
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
   </entry>
   
@@ -5501,20 +5461,22 @@ for your next web application.</li>
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
+    
+      <category term="Angular" scheme="https://adrianmejia.com/categories/coding/web-development/angular/"/>
     
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
-      <category term="angularjs" scheme="https://adrianmejia.com/tags/angularjs/"/>
+      <category term="todo app" scheme="https://adrianmejia.com/tags/todo-app/"/>
     
-      <category term="angular 1.x" scheme="https://adrianmejia.com/tags/angular-1-x/"/>
+      <category term="mongodb" scheme="https://adrianmejia.com/tags/mongodb/"/>
     
-      <category term="mean stack" scheme="https://adrianmejia.com/tags/mean-stack/"/>
+      <category term="express" scheme="https://adrianmejia.com/tags/express/"/>
     
-      <category term="Tutorial_MEAN-Stack" scheme="https://adrianmejia.com/tags/Tutorial-MEAN-Stack/"/>
+      <category term="tutorial_mean-stack" scheme="https://adrianmejia.com/tags/tutorial-mean-stack/"/>
     
   </entry>
   
@@ -5859,20 +5821,20 @@ Is NOT working? take a look at the <a href="https://github.com/amejiarosario/tod
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
+    
+      <category term="Angular" scheme="https://adrianmejia.com/categories/coding/web-development/angular/"/>
     
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
-      <category term="NodeJS" scheme="https://adrianmejia.com/tags/NodeJS/"/>
+      <category term="mongodb" scheme="https://adrianmejia.com/tags/mongodb/"/>
     
-      <category term="Tutorial_MEAN-Stack" scheme="https://adrianmejia.com/tags/Tutorial-MEAN-Stack/"/>
+      <category term="express" scheme="https://adrianmejia.com/tags/express/"/>
     
-      <category term="ExpressJS" scheme="https://adrianmejia.com/tags/ExpressJS/"/>
-    
-      <category term="MongoDB" scheme="https://adrianmejia.com/tags/MongoDB/"/>
+      <category term="tutorial_mean-stack" scheme="https://adrianmejia.com/tags/tutorial-mean-stack/"/>
     
   </entry>
   
@@ -5941,7 +5903,7 @@ Is NOT working? take a look at the <a href="https://github.com/amejiarosario/tod
 <h2 id="AngularJS-Scope">AngularJS Scope<a href="#AngularJS-Scope" class="headerlink" title="AngularJS Scope"></a></h2><p><code>$scope</code> it is an object that contains all the data to which HTML is bound. They are the glue your javascript code (controllers) and the view (HTML). Everything that is attached to the <code>$scope</code>, it is  <code>$watch</code>ed by AngularJS and updated.</p>
 <p>Scopes can be bound to javascript functions. Also, you could have more than one <code>$scope</code> and inherit from outer ones. More on this, in the controller’s section.</p>
 <h2 id="AngularJS-Controllers">AngularJS Controllers<a href="#AngularJS-Controllers" class="headerlink" title="AngularJS Controllers"></a></h2><p>Angular.js <strong>controllers</strong> are code that “controls” certain sections containing DOM elements. They encapsulate the behavior, callbacks and glue <code>$scope</code> models with views. Let’s see an example to drive the concept home:</p>
-<figure class="highlight html"><figcaption><span>AngularJS Controller Example</span><a href="http://codepen.io/amejiarosario/pen/spuCm" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-controller</span>=<span class="string">"TodoController"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">ng-model</span>=<span class="string">"todo.completed"</span>&gt;</span></span><br><span class="line">      &#123;% raw  %&#125;&#123;&#123; todo.name &#125;&#125;&#123;% endraw %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">TodoController</span>(<span class="params">$scope</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">      $scope.todos = [</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">name</span>: <span class="string">'Master HTML/CSS/Javascript'</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">name</span>: <span class="string">'Learn AngularJS'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">name</span>: <span class="string">'Build NodeJS backend'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">name</span>: <span class="string">'Get started with ExpressJS'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">name</span>: <span class="string">'Setup MongoDB database'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">name</span>: <span class="string">'Be awesome!'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span></span><br><span class="line"><span class="undefined">      ]</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>AngularJS Controller Example</span><a href="http://codepen.io/amejiarosario/pen/spuCm" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-controller</span>=<span class="string">"TodoController"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">ng-model</span>=<span class="string">"todo.completed"</span>&gt;</span></span><br><span class="line">      &#123;% raw  %&#125;&#123;&#123; todo.name &#125;&#125;&#123;% endraw %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    function TodoController($scope)&#123;</span></span><br><span class="line"><span class="undefined">      $scope.todos = [</span></span><br><span class="line"><span class="undefined">        &#123; name: 'Master HTML/CSS/Javascript', completed: true &#125;,</span></span><br><span class="line"><span class="undefined">        &#123; name: 'Learn AngularJS', completed: false &#125;,</span></span><br><span class="line"><span class="undefined">        &#123; name: 'Build NodeJS backend', completed: false &#125;,</span></span><br><span class="line"><span class="undefined">        &#123; name: 'Get started with ExpressJS', completed: false &#125;,</span></span><br><span class="line"><span class="undefined">        &#123; name: 'Setup MongoDB database', completed: false &#125;,</span></span><br><span class="line"><span class="undefined">        &#123; name: 'Be awesome!', completed: false &#125;,</span></span><br><span class="line"><span class="undefined">      ]</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>AngularJS controller interactive example:</p>
 <p data-height="268" data-theme-id="0" data-slug-hash="spuCm" data-default-tab="result" data-user="amejiarosario" class="codepen">See the Pen <a href="http://codepen.io/amejiarosario/pen/spuCm/" target="_blank" rel="noopener">spuCm</a> by Adrian Mejia (<a href="http://codepen.io/amejiarosario" target="_blank" rel="noopener">@amejiarosario</a>) on <a href="http://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p>
@@ -6055,18 +6017,18 @@ Is NOT working? take a look at the <a href="https://github.com/amejiarosario/tod
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
+    
+      <category term="Angular" scheme="https://adrianmejia.com/categories/coding/web-development/angular/"/>
     
     
-      <category term="angular" scheme="https://adrianmejia.com/tags/angular/"/>
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
+      <category term="angularjs" scheme="https://adrianmejia.com/tags/angularjs/"/>
     
-      <category term="angular 1.x" scheme="https://adrianmejia.com/tags/angular-1-x/"/>
-    
-      <category term="Tutorial_MEAN-Stack" scheme="https://adrianmejia.com/tags/Tutorial-MEAN-Stack/"/>
+      <category term="tutorial_mean-stack" scheme="https://adrianmejia.com/tags/tutorial-mean-stack/"/>
     
   </entry>
   
@@ -6591,7 +6553,7 @@ $(function(){
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Learnings" scheme="https://adrianmejia.com/categories/learnings/"/>
     
     
       <category term="startups" scheme="https://adrianmejia.com/tags/startups/"/>
@@ -6661,7 +6623,7 @@ However, I’m not going to explain any of those ways because just installing th
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
       <category term="raspberrypi" scheme="https://adrianmejia.com/tags/raspberrypi/"/>
@@ -6838,12 +6800,10 @@ for(c=0; c&lt;n; c++){
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/Programming/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/Programming/Data-Structures-and-Algorithms-DSA/"/>
+      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
     
-    
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
@@ -6909,16 +6869,18 @@ for(c=0; c&lt;n; c++){
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
     
+      <category term="Backbone" scheme="https://adrianmejia.com/categories/coding/web-development/backbone/"/>
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="backbonejs" scheme="https://adrianmejia.com/tags/backbonejs/"/>
     
       <category term="tutorial_backbonejs" scheme="https://adrianmejia.com/tags/tutorial-backbonejs/"/>
+    
+      <category term="todo app" scheme="https://adrianmejia.com/tags/todo-app/"/>
     
   </entry>
   
@@ -6972,12 +6934,12 @@ for(c=0; c&lt;n; c++){
     
     </summary>
     
-      <category term="Technologies" scheme="https://adrianmejia.com/categories/Technologies/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/Technologies/Web-Development/"/>
+      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
     
+      <category term="Backbone" scheme="https://adrianmejia.com/categories/coding/web-development/backbone/"/>
     
-      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="backbonejs" scheme="https://adrianmejia.com/tags/backbonejs/"/>
     

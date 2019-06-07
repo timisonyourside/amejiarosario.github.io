@@ -4,7 +4,14 @@
   <url>
     <loc>https://adrianmejia.com/blog/2016/06/25/List-tasks-in-npm-grunt-gulp-and-rake/</loc>
     
-    <lastmod>2019-05-24T19:18:56.024Z</lastmod>
+    <lastmod>2019-06-07T00:07:23.987Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/blog/2018/07/16/Self-balanced-Binary-Search-Trees-with-AVL-tree-Data-Structure-for-beginners/</loc>
+    
+    <lastmod>2019-05-30T19:43:11.000Z</lastmod>
     
   </url>
   
@@ -79,20 +86,6 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/page/index.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
@@ -100,7 +93,21 @@
   </url>
   
   <url>
+    <loc>https://adrianmejia.com/page/index.html</loc>
+    
+    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://adrianmejia.com/stylesheets/company_revenue.css</loc>
+    
+    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
@@ -131,13 +138,6 @@
     <loc>https://adrianmejia.com/blog/2018/08/04/Vue-js-Tutorial-for-beginners-Create-a-Todo-App/</loc>
     
     <lastmod>2018-08-05T01:30:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2018/07/16/Self-balanced-Binary-Search-Trees-with-AVL-tree-Data-Structure-for-beginners/</loc>
-    
-    <lastmod>2018-07-16T19:43:11.000Z</lastmod>
     
   </url>
   
@@ -303,13 +303,6 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/blog/2012/02/09/how-do-i-change-the-ruby-python-version-textmate-uses/</loc>
-    
-    <lastmod>2012-02-09T05:50:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://adrianmejia.com/blog/2012/02/04/get-started-with-the-web-crawler-apache-nutch-1-x/</loc>
     
     <lastmod>2012-02-04T06:32:32.000Z</lastmod>
@@ -334,13 +327,6 @@
     <loc>https://adrianmejia.com/blog/2011/12/22/learning-algorithms-from-scratch-algorithms-for-dummies/</loc>
     
     <lastmod>2011-12-22T19:27:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/11/18/how-to-remove-programs-from-the-start-up-in-mac-os-x/</loc>
-    
-    <lastmod>2011-11-18T17:18:23.000Z</lastmod>
     
   </url>
   
@@ -373,83 +359,6 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/blog/2011/11/04/update-drupal-sites/</loc>
-    
-    <lastmod>2011-11-04T06:04:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/10/26/an-approach-to-annotation-of-learning-texts-on-programming-within-a-web-based-educational-system-paper-review/</loc>
-    
-    <lastmod>2011-10-26T17:26:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/10/26/integration-of-visualization-techniques-and-completion-strategy-to-improve-learning-in-computer-programming/</loc>
-    
-    <lastmod>2011-10-26T16:52:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/10/04/focused-crawling-for-automatic-service-discovery-annotation-and-classification-in-industrial-digital-ecosystems-paper-review/</loc>
-    
-    <lastmod>2011-10-04T20:04:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/27/elearning-2-0-and-social-practice-oriented-communities-to-improve-knowledge-in-companies-paper-review/</loc>
-    
-    <lastmod>2011-09-27T15:27:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/27/occs-enabling-the-dynamic-discovery-harvesting-and-delivery-of-educational-content-from-open-corpus-sources-paper-review/</loc>
-    
-    <lastmod>2011-09-27T15:25:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/22/dynamic-hypertext-generation-for-reusing-open-corpus-content-paper-review/</loc>
-    
-    <lastmod>2011-09-22T16:14:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/21/e-learning-on-the-social-semantic-information-sources-paper-review/</loc>
-    
-    <lastmod>2011-09-21T15:50:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/17/on-line-course-organization-paper-review/</loc>
-    
-    <lastmod>2011-09-17T22:37:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/14/determining-granularity-of-independent-tasks-for-reengineering-a-legacy-system-into-an-oo-system-paper-review/</loc>
-    
-    <lastmod>2011-09-14T15:43:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/09/07/automated-reverse-engineering-java-swing-gui-paper-review/</loc>
-    
-    <lastmod>2011-09-07T04:19:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://adrianmejia.com/blog/2011/08/15/git-auto-commit-with-crontab/</loc>
     
     <lastmod>2011-08-15T14:54:54.000Z</lastmod>
@@ -464,23 +373,9 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/blog/2011/08/08/microsoft-zune-failure-analysis/</loc>
-    
-    <lastmod>2011-08-08T13:42:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://adrianmejia.com/blog/2011/08/06/php-dom-explained-and-exemplified/</loc>
     
     <lastmod>2011-08-06T20:37:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/07/21/how-to-set-up-git-github-in-windows/</loc>
-    
-    <lastmod>2011-07-21T16:52:27.000Z</lastmod>
     
   </url>
   
@@ -509,13 +404,6 @@
     <loc>https://adrianmejia.com/blog/2011/07/12/how-to-set-up-samba-in-ubuntu-linux-and-access-it-in-mac-os-and-windows/</loc>
     
     <lastmod>2011-07-13T01:27:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/blog/2011/07/12/drupal-modules-for-seo-optimation/</loc>
-    
-    <lastmod>2011-07-12T04:00:00.000Z</lastmod>
     
   </url>
   
