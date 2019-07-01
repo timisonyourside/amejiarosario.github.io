@@ -27,7 +27,7 @@
 
 <p>Is it working? Nope; It’s idle!</p>
 <p>Your computer’s processor waits for a network request to come out. It idles for the hard drive to spin out the requested data, and it pauses for external events (I/O).</p>
-<p>Take a look to the following graph to see the average time these system event takes (in nanoseconds)</p>
+<p>Take a look at the following graph to see the average time this system event takes (in nanoseconds)</p>
 <!-- ![Latency Access Time by I/O](/images/latency-access-time.png) -->
 <p><img src="/images/Latency-vs-System-Event.png" alt="Latency Access Time by I/O"></p>
 <p>As you can see in the chart above, one CPU can execute an instruction every one ns (approx.). However, if are in NYC and you make a request to a website in San Francisco, the CPU will “waste” 157 million cycles waiting for it to come back!</p>
@@ -138,16 +138,12 @@ File size#3: 523 MB</code></pre><p>Wow! Totally random! 🤯</p>
     
     </summary>
     
-      <category term="Programming" scheme="https://adrianmejia.com/categories/programming/"/>
-    
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/programming/data-structures-and-algorithms-dsa/"/>
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
     
     
-      <category term="big-o notation" scheme="https://adrianmejia.com/tags/big-o-notation/"/>
+      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
-      <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
-    
-      <category term="tutorial_algorithms" scheme="https://adrianmejia.com/tags/tutorial-algorithms/"/>
+      <category term="node.js" scheme="https://adrianmejia.com/tags/node-js/"/>
     
   </entry>
   
