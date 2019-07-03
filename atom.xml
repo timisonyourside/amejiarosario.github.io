@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrianmejia.com/"/>
-  <updated>2019-07-01T17:15:01.000Z</updated>
+  <updated>2019-07-03T23:06:12.000Z</updated>
   <id>https://adrianmejia.com/</id>
   
   <author>
@@ -14,6 +14,107 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Understanding JavaScript Callbacks and best practices</title>
+    <link href="https://adrianmejia.com/callbacks-concurrency-in-javascript-node/"/>
+    <id>https://adrianmejia.com/callbacks-concurrency-in-javascript-node/</id>
+    <published>2019-07-03T23:06:12.000Z</published>
+    <updated>2019-07-03T23:06:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Callbacks are one of the critical elements to understand JavaScript and Node.js. Nearly, all the asynchronous functions use a callback (or promises). In this post, we are going to cover callbacks in-depth and best practices.</p>
+<a id="more"></a>
+
+<p>This post assumes you know the <a href="/asynchronous-vs-synchronous-handling-concurrency-in-javascript">difference between synchronous and asynchronous code</a>.</p>
+<p>JavaScript is an event-driven language. Instead of waiting for things to happen, it executes while listening for events. The way you respond to an event is using callbacks.</p>
+<h1 id="JavaScript-callbacks">JavaScript callbacks<a href="#JavaScript-callbacks" class="headerlink" title="JavaScript callbacks"></a></h1><blockquote>
+<p>A callback is a function that is passed as an argument to another function.</p>
+</blockquote>
+<p>Callbacks are also known as <strong>higher-order function</strong>.</p>
+<p>An example of a callback is the following:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> compute = <span class="function">(<span class="params">n1, n2, callback</span>) =&gt;</span> callback(n1, n2);</span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">n1, n2</span>) =&gt;</span> n1 + n2;</span><br><span class="line"><span class="keyword">const</span> product = <span class="function">(<span class="params">n1, n2</span>) =&gt;</span> n1 * n2;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(compute(<span class="number">5</span>, <span class="number">3</span>, sum));     <span class="comment">// ↪️  8</span></span><br><span class="line"><span class="built_in">console</span>.log(compute(<span class="number">5</span>, <span class="number">3</span>, product)); <span class="comment">// ↪️  15</span></span><br></pre></td></tr></table></figure>
+
+<p>As you can see the function <code>compute</code> takes two numbers and a callback function. This <code>callback</code> function can be <code>sum</code>, <code>product</code> and any other that you develop that operates two numbers.</p>
+<h2 id="Callback-Advantages">Callback Advantages<a href="#Callback-Advantages" class="headerlink" title="Callback Advantages"></a></h2><p>Callbacks can help to make your code more maintainable if you use them well. They will also help you to:</p>
+<ul>
+<li>Keep your code DRY (Do Not Repeat Yourself)</li>
+<li>Implement better abstraction where you can have more generic functions like <code>compute</code> that can handle all sorts of functionalities (e.g., <code>sum</code>, <code>product</code>)</li>
+<li>Improve code readability and maintainability.</li>
+</ul>
+<p>So far, we have only seen callbacks that are executed immediately; however, most of the callbacks in JavaScript are tied to an event like a timer, API request or reading a file.</p>
+<h2 id="Asynchronous-callbacks">Asynchronous callbacks<a href="#Asynchronous-callbacks" class="headerlink" title="Asynchronous callbacks"></a></h2><blockquote>
+<p>An asynchronous callback is a function that is passed as an argument to another function <em>and gets invoke zero or multiple times after certain events happens</em>.</p>
+</blockquote>
+<p>It’s like when your friends tell you to call them back when you arrive at the restaurant. You coming to the restaurant is the “event” that <em>triggers</em> the callback. Something similar happens in the programming world. The event could be the file content is ready or a response from a network request, iterating a list or X milliseconds time pass.</p>
+<p>Let’s see an example with two callbacks:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'tick'</span>);</span><br><span class="line">&#125;, <span class="number">1e3</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> clearInterval(id), <span class="number">5e3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>First, you notice that we are using anonymous functions (in the previous example, we were passing the named functions such as <code>sum</code> and <code>product</code>). The callback passed to <code>setInterval</code> is triggered every second, and it prints <code>tick</code>. The second callback is called one after 5 seconds. It cancels the interval, so it just writes <code>tick</code> five times.</p>
+<blockquote>
+<p>Callbacks are a way to make sure a particular code doesn’t execute until another has already finished.</p>
+</blockquote>
+<p>The <code>console.log(&#39;tick&#39;)</code> only gets executed when a second has passed.</p>
+<p>The functions <code>setInterval</code> and <code>setTimeout</code> callbacks are very simple. They don’t provide any parameters on the callback functions. But, if we are reading from the file system or network, we can get the response as a callback parameter.</p>
+<h2 id="Callback-Parameters">Callback Parameters<a href="#Callback-Parameters" class="headerlink" title="Callback Parameters"></a></h2><p>The callback parameters allow you to get messages into your functions when they are available. Let’s say we are going to create a vanilla server on Node.js.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> port = <span class="number">1777</span>;</span><br><span class="line"><span class="keyword">const</span> host = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span> &#125;);</span><br><span class="line">  res.end(<span class="string">`Hello World from Node! You used url "<span class="subst">$&#123;req.url&#125;</span>"\r\n`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">proxy.listen(port, host, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Server running on http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>We have two callbacks here. The <code>http.createServer</code>‘s callback sends the parameters (<code>req</code>)uest and (<code>res</code>)ponse every time somebody connects to the server.</p>
+<p>You can test this server using curl (or browser)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:1777/this/is/cool</span><br></pre></td></tr></table></figure>
+
+<p>There you have it! An HTTP server that replies to everyone that connects to it using a callback. But, What would happen if there’s an error? Let’s see how to handle that next.</p>
+<h2 id="Handling-errors-with-Node-js-callbacks">Handling errors with Node.js callbacks<a href="#Handling-errors-with-Node-js-callbacks" class="headerlink" title="Handling errors with Node.js callbacks"></a></h2><p>Some callbacks send errors on the first parameter and then the data (<code>callback(error, data)</code>). That’s very common in Node.js API.
+Let’s say we want to see all the directories on a given folder:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.readdir(<span class="string">'/Users/adrian/Code'</span>, (error, files) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123; <span class="built_in">console</span>.error(error); &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(files);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>As you notice, the first parameter will have an error message. If you run it, you would probably have the error message (unless you have the same name and directory).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; [Error: ENOENT: no such file or directory, scandir &apos;/Users/noAdrian/Code&apos;]</span><br><span class="line">  errno: -2,</span><br><span class="line">  code: &apos;ENOENT&apos;,</span><br><span class="line">  syscall: &apos;scandir&apos;,</span><br><span class="line">  path: &apos;/Users/noAdrian/Code&apos; &#125;</span><br><span class="line">undefined</span><br></pre></td></tr></table></figure>
+
+<p>So that’s how you handle errors, you check for that parameter. But (there’s always a but) what if I need to do multiple async operations. The easiest way (but not the best) is to have a callback inside a callback:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dir = <span class="string">'/Users/adrian/Code'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printFilesSize</span>(<span class="params">basePath</span>) </span>&#123;</span><br><span class="line">  fs.readdir(basePath, (err, files) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`Error finding files: <span class="subst">$&#123;err&#125;</span>`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      files.forEach(<span class="function">(<span class="params">filename</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> filePath = <span class="string">`<span class="subst">$&#123;basePath&#125;</span>/<span class="subst">$&#123;filename&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">        fs.lstat(filePath, (err, stat) =&gt; &#123;</span><br><span class="line">          <span class="keyword">if</span> (err) &#123; <span class="built_in">console</span>.error(err); &#125;</span><br><span class="line">          <span class="keyword">if</span> (stat.isFile()) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(filePath, stat.size.toLocaleString());</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printFilesSize(dir);</span><br></pre></td></tr></table></figure>
+
+<p>As you can see, this program will first read files in a directory and then check the file size of each file, and if it’s a directory, it will be omitted.</p>
+<p>When callbacks are nested too many levels deep, we call this callback hell! 🔥 Or the pyramid of doom ⚠️</p>
+<p><img src="/images/callback-hell.gif" alt="callback hell"></p>
+<p>Because they are hard to maintain, how do we fix the callback hell? Read on!</p>
+<h2 id="Callback-Hell-problem-and-solutions">Callback Hell problem and solutions<a href="#Callback-Hell-problem-and-solutions" class="headerlink" title="Callback Hell problem and solutions"></a></h2><p>Callback hell is when you have too many nested callbacks.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  b(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    c(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      d();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>To make your code better, you should:</p>
+<ol>
+<li>Keep you code shallow (avoid too many nested functions): keep your code at 1-3 indentation levels.</li>
+<li>Modularize: convert your anonymous callbacks into named functions.</li>
+<li>Use promises and async/await.</li>
+</ol>
+<p>Let’s fix the callback hell from <code>printFilesSize</code> keeping our code shallow and modularizing it.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dir = <span class="string">'/Users/adrian/Code'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printFileSize</span>(<span class="params">filePath</span>) </span>&#123;</span><br><span class="line">  fs.lstat(filePath, (err, stat) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123; <span class="built_in">console</span>.error(err); &#125;</span><br><span class="line">    <span class="keyword">if</span> (stat.isFile()) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(filePath, stat.size.toLocaleString());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printFilesSize</span>(<span class="params">files, basePath</span>) </span>&#123;</span><br><span class="line">  files.forEach(<span class="function">(<span class="params">filename</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> filePath = <span class="string">`<span class="subst">$&#123;basePath&#125;</span>/<span class="subst">$&#123;filename&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">    printFileSize(filePath);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printFilesSizeFromDirectory</span>(<span class="params">basePath</span>) </span>&#123;</span><br><span class="line">  fs.readdir(basePath, (err, files) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`Error finding files: <span class="subst">$&#123;err&#125;</span>`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      printFilesSize(files, basePath);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printFilesSizeFromDirectory(dir);</span><br></pre></td></tr></table></figure>
+
+<p>The original implement had five levels of indentation, now that we modularized it is 1-2 levels.</p>
+<p>Callbacks are not the only way to deal with asynchronous code. In the following post we are going to cover:</p>
+<ul>
+<li>Promises</li>
+<li>Async/Await</li>
+<li>Generators</li>
+</ul>
+<p>Stay tuned!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Callbacks are one of the critical elements to understand JavaScript and Node.js. Nearly, all the asynchronous functions use a callback (or promises). In this post, we are going to cover callbacks in-depth and best practices.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
+    
+    
+      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
+    
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
+    
+      <category term="tutorial_async-javascript" scheme="https://adrianmejia.com/tags/tutorial-async-javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>What every programmer should know about Synchronous vs. Asynchronous Code</title>
@@ -124,7 +225,7 @@ File size#3: 523 MB</code></pre><p>Wow! Totally random! 🤯</p>
 <p>Now that you are (hopefully) convinced why writing non-blocking code is necessary, let’s see different ways we can manage it. So far, we used callbacks, but there are other ways to handle it.</p>
 <p>In JavaScript, we can handle asynchronous code using:</p>
 <ul>
-<li>Callbacks</li>
+<li><a href="/callbacks-concurrency-in-javascript-node">Callbacks</a></li>
 <li>Promises</li>
 <li>Async/Await functions</li>
 <li>Generators</li>
@@ -144,6 +245,8 @@ File size#3: 523 MB</code></pre><p>Wow! Totally random! 🤯</p>
       <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
     
       <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
+    
+      <category term="tutorial_async-javascript" scheme="https://adrianmejia.com/tags/tutorial-async-javascript/"/>
     
   </entry>
   
@@ -4896,7 +4999,7 @@ In the following sections, you are going to learn how to do that using <code>exp
     <link href="https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-06-28T18:33:37.899Z</updated>
+    <updated>2019-07-03T23:12:23.527Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 
@@ -6972,81 +7075,6 @@ for(c=0; c&lt;n; c++){
     
     
       <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Backbone.js for absolute beginners - getting started (part 4: Routers)</title>
-    <link href="https://adrianmejia.com/backbone-js-for-absolute-beginners-getting-started-part-4/"/>
-    <id>https://adrianmejia.com/backbone-js-for-absolute-beginners-getting-started-part-4/</id>
-    <published>2012-09-13T18:41:00.000Z</published>
-    <updated>2012-09-13T18:41:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This tutorial is about BackboneJS Routes.</p>
-<a id="more"></a>
-
-<p>BackboneJS Tutorial series:</p>
-<ol>
-<li><a href="/blog/2012/09/11/backbone-dot-js-for-absolute-beginners-getting-started/">Backbone.js for Absolute Beginners - Getting started (Part 1: Intro)</a></li>
-<li><a href="/blog/2012/09/13/backbone-js-for-absolute-beginners-getting-started-part-2/">Backbone.js for absolute beginners - getting started (part 2: Models, Collections and Views)</a></li>
-<li><a href="/blog/2012/09/13/backbonejs-for-absolute-beginners-getting-started-part-3/">Backbone.js for absolute beginners - getting started (part 3: CRUD)</a></li>
-<li>Backbone.js for absolute beginners - getting started (part 4: Routers) <strong>👈 you are here</strong></li>
-</ol>
-<h1 id="Backbone-Router">Backbone.Router<a href="#Backbone-Router" class="headerlink" title="Backbone.Router"></a></h1><p>You could build web application without using the routers.  However, if you want to make reference to certain ‘state’ or location of the web application, you need a reference (link/URL) to it. This is where routers come to rescue.</p>
-<p>Routing in most of JS application are achieved by hash-tags. E.g. If you take a look of Gmail URL you will see something like:</p>
-<p><code>https://mail.google.com/mail/u/0/#inbox/139c0d48e11d986b</code></p>
-<p>where the <code>#inbox/139c0d48e11d986b</code> is the hash-tag which reference some email location.</p>
-<p>In backbone, routes are hash maps that match URL patterns to functions. You can use parameter parts, such as <code>todos/:id</code>, or using splats <code>file/*path</code> you will match all the parameters from the splat on. For that reason, the splat parameter should be always the last matcher.</p>
-<h2 id="Initializing-the-Router">Initializing the Router<a href="#Initializing-the-Router" class="headerlink" title="Initializing the Router"></a></h2><p>In our Todo app, we are going to use routers to filter between the tasks that are pending and the ones that have been completed. So, let’s initialize the routes this way:</p>
-<figure class="highlight js"><figcaption><span>Define Router</span><a href="https://raw.github.com/amejiarosario/Backbone-tutorial/327ac4fc4657e73fdf7157e230b1ed7cd1519667/backbone-tutorial.html" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">app.Router = Backbone.Router.extend(&#123;</span><br><span class="line">  routes: &#123;</span><br><span class="line">    <span class="string">'*filter'</span> : <span class="string">'setFilter'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  setFilter: <span class="function"><span class="keyword">function</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'app.router.params = '</span> + params); <span class="comment">// just for didactical purposes.</span></span><br><span class="line">    <span class="built_in">window</span>.filter = params.trim() || <span class="string">''</span>;</span><br><span class="line">    app.todoList.trigger(<span class="string">'reset'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Now, you need to initialize it, adding this lines:</p>
-<figure class="highlight diff"><figcaption><span>Initialize router</span><a href="https://raw.github.com/amejiarosario/Backbone-tutorial/327ac4fc4657e73fdf7157e230b1ed7cd1519667/backbone-tutorial.html" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     //--------------</span><br><span class="line">     // Initializers</span><br><span class="line">     //--------------</span><br><span class="line"></span><br><span class="line"><span class="addition">+    app.router = new app.Router();</span></span><br><span class="line"><span class="addition">+    Backbone.history.start();</span></span><br><span class="line">     app.appView = new app.AppView();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>You can test that you router is working just typing <code>#anything/that/you/want</code> and seeing the parameter in you browser’s console.</p>
-<h2 id="2-6-1-Processing-the-routes">2.6.1 Processing the routes<a href="#2-6-1-Processing-the-routes" class="headerlink" title="2.6.1 Processing the routes"></a></h2><p>Before rendering the list of items, you need to check the parameters to wether show only the pending ones, or the completed or show them all. As shown in the code snipet below.</p>
-<figure class="highlight diff"><figcaption><span>Processing the routes in app.AppView</span><a href="https://raw.github.com/amejiarosario/Backbone-tutorial/327ac4fc4657e73fdf7157e230b1ed7cd1519667/backbone-tutorial.html" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@@ -164,7 +177,18 @@</span></span><br><span class="line">       &#125;,</span><br><span class="line">       addAll: function()&#123;</span><br><span class="line">         this.$('#todo-list').html(''); // clean the todo list</span><br><span class="line"><span class="deletion">-        app.todoList.each(this.addOne, this);</span></span><br><span class="line"><span class="addition">+        // filter todo item list</span></span><br><span class="line"><span class="addition">+        switch(window.filter)&#123;</span></span><br><span class="line"><span class="addition">+          case 'pending':</span></span><br><span class="line"><span class="addition">+            _.each(app.todoList.remaining(), this.addOne);</span></span><br><span class="line"><span class="addition">+            break;</span></span><br><span class="line"><span class="addition">+          case 'completed':</span></span><br><span class="line"><span class="addition">+            _.each(app.todoList.completed(), this.addOne);</span></span><br><span class="line"><span class="addition">+            break;</span></span><br><span class="line"><span class="addition">+          default:</span></span><br><span class="line"><span class="addition">+            app.todoList.each(this.addOne, this);</span></span><br><span class="line"><span class="addition">+            break;</span></span><br><span class="line"><span class="addition">+        &#125;</span></span><br><span class="line">       &#125;,</span><br><span class="line">       newAttributes: function()&#123;</span><br><span class="line">         return &#123;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>If you try adding the words <code>#/pending</code> or <code>#/completed</code> at the end of the URL you’ll get an error!. That’s a good sign, it means the routes are working, but we haven’t implemented the <code>app.todoList.remaining()</code> and <code>app.todoList.completed()</code>. So, that’s next:</p>
-<figure class="highlight diff"><figcaption><span>Defining completed and remaining functions in app.TodoList</span><a href="https://raw.github.com/amejiarosario/Backbone-tutorial/327ac4fc4657e73fdf7157e230b1ed7cd1519667/backbone-tutorial.html" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@@ -85,7 +90,15 @@</span></span><br><span class="line">     //--------------</span><br><span class="line">     app.TodoList = Backbone.Collection.extend(&#123;</span><br><span class="line">       model: app.Todo,</span><br><span class="line"><span class="deletion">-      localStorage: new Store("backbone-todo")</span></span><br><span class="line"><span class="addition">+      localStorage: new Store("backbone-todo"),</span></span><br><span class="line"><span class="addition">+      completed: function() &#123;</span></span><br><span class="line"><span class="addition">+        return this.filter(function( todo ) &#123;</span></span><br><span class="line"><span class="addition">+          return todo.get('completed');</span></span><br><span class="line"><span class="addition">+        &#125;);</span></span><br><span class="line"><span class="addition">+      &#125;,</span></span><br><span class="line"><span class="addition">+      remaining: function() &#123;</span></span><br><span class="line"><span class="addition">+        return this.without.apply( this, this.completed() );</span></span><br><span class="line"><span class="addition">+      &#125;</span></span><br><span class="line">     &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Now, if you try again adding the hash-tags it will work! But, it will be better if the user can have links to that instead of typing URLs. So, let’s add them.</p>
-<figure class="highlight diff"><figcaption><span>Show routes' links</span><a href="https://raw.github.com/amejiarosario/Backbone-tutorial/327ac4fc4657e73fdf7157e230b1ed7cd1519667/backbone-tutorial.html" target="_blank" rel="noopener">Full Code</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@@ -32,6 +32,11 @@</span></span><br><span class="line">     &lt;header id="header"&gt;</span><br><span class="line">       &lt;h1&gt;Todos&lt;/h1&gt;</span><br><span class="line">       &lt;input id="new-todo" placeholder="What needs to be done?" autofocus&gt;</span><br><span class="line"><span class="addition">+      &lt;div&gt;</span></span><br><span class="line"><span class="addition">+        &lt;a href="#/"&gt;show all&lt;/a&gt; |</span></span><br><span class="line"><span class="addition">+        &lt;a href="#/pending"&gt;show pending&lt;/a&gt; |</span></span><br><span class="line"><span class="addition">+        &lt;a href="#/completed"&gt;show completed&lt;/a&gt;</span></span><br><span class="line"><span class="addition">+      &lt;/div&gt;</span></span><br><span class="line">     &lt;/header&gt;</span><br><span class="line">     &lt;section id="main"&gt;</span><br><span class="line">       &lt;ul id="todo-list"&gt;&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Well, that’s all! If completed these 4 parts tutorial you will be familiar with the main Backbone modules (Models, Collections, Views, Events, and Routes). To increase you knowledge you can follow the following resources:</p>
-<ul>
-<li><a href="https://github.com/documentcloud/backbone/blob/master/backbone.js" target="_blank" rel="noopener">Backbone’s Source code - it’s the ultimate source of true</a></li>
-<li><a href="http://backbonejs.org/?utm_source=adrianmejia.com" target="_blank" rel="noopener">Official documentation</a></li>
-</ul>
-<h1 id="What’s-next">What’s next?<a href="#What’s-next" class="headerlink" title="What’s next?"></a></h1><p>Write a server API in NodeJS to apply the learned here:</p>
-<ul>
-<li><a href="/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/" target="_blank">Creating a RESTful API with NodeJS and MongoDB</a></li>
-</ul>
-<p>Now, do a Todo app in AngularJS:</p>
-<ul>
-<li><a href="/blog/2014/09/28/angularjs-tutorial-for-beginners-with-nodejs-expressjs-and-mongodb/" target="_blank">AngularJS tutorial for beginners with NodeJS ExpressJS and MongoDB</a></li>
-</ul>
-<p>Hope it was helpful!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This tutorial is about BackboneJS Routes.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
-    
-      <category term="Web Development" scheme="https://adrianmejia.com/categories/coding/web-development/"/>
-    
-      <category term="Backbone" scheme="https://adrianmejia.com/categories/coding/web-development/backbone/"/>
-    
-    
-      <category term="backbonejs" scheme="https://adrianmejia.com/tags/backbonejs/"/>
-    
-      <category term="todo app" scheme="https://adrianmejia.com/tags/todo-app/"/>
-    
-      <category term="tutorial_backbonejs" scheme="https://adrianmejia.com/tags/tutorial-backbonejs/"/>
     
   </entry>
   
