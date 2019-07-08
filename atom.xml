@@ -2476,7 +2476,7 @@ With this function, we get if two nodes are connected or not. However, they don'
 <td>Insert/delete is last-in, first-out (LIFO)</td>
 </tr>
 <tr>
-<td><a href="#QueueNaiveImpl">Queue (naive array impl.)</a></td>
+<td><a href="#QueueNaiveImpl">Queue (naïve array impl.)</a></td>
 <td><a href="#QueueNaiveImpl">O(1)</a></td>
 <td>-</td>
 <td>-</td>
@@ -3274,12 +3274,12 @@ It’s like a line of people at the movies, the first to come in is the first to
 <td>Insert/delete is last-in, first-out (LIFO)</td>
 </tr>
 <tr>
-<td><a href="#QueueNaiveImpl">Queue (naive array impl.)</a></td>
-<td><a href="#QueueNaiveImpl">O(n)</a></td>
-<td>-</td>
-<td>-</td>
+<td><a href="#QueueNaiveImpl">Queue (naïve array impl.)</a></td>
 <td><a href="#QueueNaiveImpl">O(1)</a></td>
-<td>Insert (<code>Array.shift</code>) is O(n)</td>
+<td>-</td>
+<td>-</td>
+<td><a href="#QueueNaiveImpl">O(n)</a></td>
+<td>Remove (<code>Array.shift</code>) is <em>O(n)</em></td>
 </tr>
 <tr>
 <td><a href="#QueueArrayImpl">Queue (array implementation)</a></td>
