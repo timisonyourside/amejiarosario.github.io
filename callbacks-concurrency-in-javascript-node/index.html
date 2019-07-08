@@ -351,9 +351,9 @@ ga('send', 'pageview');
 <h2 id="Asynchronous-callbacks">Asynchronous callbacks<a href="#Asynchronous-callbacks" class="headerlink" title="Asynchronous callbacks"></a></h2><blockquote>
 <p>An asynchronous callback is a function that is passed as an argument to another function <em>and gets invoke zero or multiple times after certain events happens</em>.</p>
 </blockquote>
-<p>It’s like when your friends tell you to call them back when you arrive at the restaurant. You coming to the restaurant is the “event” that <em>triggers</em> the callback. Something similar happens in the programming world. The event could be the file content is ready or a response from a network request, iterating a list or X milliseconds time pass.</p>
+<p>It’s like when your friends tell you to call them back when you arrive at the restaurant. You coming to the restaurant is the “event” that <em>triggers</em> the callback. Something similar happens in the programming world. The event could be you click a button, a file is loaded into memory, and request to a server API, and so on.</p>
 <p>Let’s see an example with two callbacks:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'tick'</span>);</span><br><span class="line">&#125;, <span class="number">1e3</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> clearInterval(id), <span class="number">5e3</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'tick ⏰'</span>), <span class="number">1e3</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> clearInterval(id), <span class="number">5e3</span>);</span><br></pre></td></tr></table></figure>
 
 <p>First, you notice that we are using anonymous functions (in the previous example, we were passing the named functions such as <code>sum</code> and <code>product</code>). The callback passed to <code>setInterval</code> is triggered every second, and it prints <code>tick</code>. The second callback is called one after 5 seconds. It cancels the interval, so it just writes <code>tick</code> five times.</p>
 <blockquote>
@@ -496,12 +496,13 @@ Let’s say we want to see all the directories on a given folder:</p>
           <b>About the author</b>
           
               <!-- Adrian Mejia Bio -->
-            <section class="bio-box">
+            
+<section class="bio-box">
   <img class="m-a-1 not-scaled" src="/images/adrian-mejia-headshot.png" alt="Adrian Mejia">
   <article class="p-x-1" style="display: flex; flex-direction:column;">
     <p class="muted">Adrian Mejia is a full-stack web developer located in Boston.
       Currently working at Cisco as a Software Engineer.
-      Adrian enjoys writing posts about programming and technology.
+      Adrian enjoys writing posts about JavaScript, Node.js, WebDev, Algorithms, Startups.
       Also, he likes to travel ✈️ and biking 🚴‍.
       <!-- Find out more <a href="/#about">here</a>. -->
     </p>
@@ -671,8 +672,8 @@ Let’s say we want to see all the directories on a given folder:</p>
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Wed Jul 03 2019 19:14:01 GMT-0400 (Eastern Daylight Time)">
-            v.pu39vd
+          <span class="muted m-x-4" title="Mon Jul 08 2019 16:36:49 GMT-0400 (Eastern Daylight Time)">
+            v.pucbxd
           </span>
         </div>
       </div>

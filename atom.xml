@@ -45,9 +45,9 @@
 <h2 id="Asynchronous-callbacks">Asynchronous callbacks<a href="#Asynchronous-callbacks" class="headerlink" title="Asynchronous callbacks"></a></h2><blockquote>
 <p>An asynchronous callback is a function that is passed as an argument to another function <em>and gets invoke zero or multiple times after certain events happens</em>.</p>
 </blockquote>
-<p>It’s like when your friends tell you to call them back when you arrive at the restaurant. You coming to the restaurant is the “event” that <em>triggers</em> the callback. Something similar happens in the programming world. The event could be the file content is ready or a response from a network request, iterating a list or X milliseconds time pass.</p>
+<p>It’s like when your friends tell you to call them back when you arrive at the restaurant. You coming to the restaurant is the “event” that <em>triggers</em> the callback. Something similar happens in the programming world. The event could be you click a button, a file is loaded into memory, and request to a server API, and so on.</p>
 <p>Let’s see an example with two callbacks:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'tick'</span>);</span><br><span class="line">&#125;, <span class="number">1e3</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> clearInterval(id), <span class="number">5e3</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'tick ⏰'</span>), <span class="number">1e3</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> clearInterval(id), <span class="number">5e3</span>);</span><br></pre></td></tr></table></figure>
 
 <p>First, you notice that we are using anonymous functions (in the previous example, we were passing the named functions such as <code>sum</code> and <code>product</code>). The callback passed to <code>setInterval</code> is triggered every second, and it prints <code>tick</code>. The second callback is called one after 5 seconds. It cancels the interval, so it just writes <code>tick</code> five times.</p>
 <blockquote>
@@ -2477,11 +2477,11 @@ With this function, we get if two nodes are connected or not. However, they don'
 </tr>
 <tr>
 <td><a href="#QueueNaiveImpl">Queue (naive array impl.)</a></td>
-<td><a href="#QueueNaiveImpl">O(n)</a></td>
-<td>-</td>
-<td>-</td>
 <td><a href="#QueueNaiveImpl">O(1)</a></td>
-<td>Insert (<code>Array.shift</code>) is O(n)</td>
+<td>-</td>
+<td>-</td>
+<td><a href="#QueueNaiveImpl">O(n)</a></td>
+<td>Remove (<code>Array.shift</code>) is <em>O(n)</em></td>
 </tr>
 <tr>
 <td><a href="#QueueArrayImpl">Queue (array implementation)</a></td>
