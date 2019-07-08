@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrianmejia.com/"/>
-  <updated>2019-07-03T23:06:12.000Z</updated>
+  <updated>2019-07-08T23:26:12.000Z</updated>
   <id>https://adrianmejia.com/</id>
   
   <author>
@@ -14,6 +14,251 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The JavaScript Promise Tutorial</title>
+    <link href="https://adrianmejia.com/promises-tutorial-concurrency-in-javascript-node/"/>
+    <id>https://adrianmejia.com/promises-tutorial-concurrency-in-javascript-node/</id>
+    <published>2019-07-08T23:26:12.000Z</published>
+    <updated>2019-07-08T23:26:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This post is the ultimate JavaScript Promises tutorial: recipes and examples for everyday situations (or that’s the goal 😉). We cover all the necessary methods like <code>then</code>, <code>catch</code>, and <code>finally</code>. Also, we go over more complex situations like executing promises in parallel with <code>Promise.all</code>, timing out APIs with <code>Promise.race</code>, promise chaining and some best practices and gotchas.</p>
+<a id="more"></a>
+
+<p><em>NOTE: I’d like this post to be up-to-date with the most common use cases for promises. If you have a question about promises and is not answered here. Please, comment below or reach out me directly <a href="https://twitter.com/amejiarosario" target="_blank" rel="noopener">@amejiarosario</a>. I’ll look into it and update this post.</em></p>
+<h1 id="JavaScript-Promises">JavaScript Promises<a href="#JavaScript-Promises" class="headerlink" title="JavaScript Promises"></a></h1><p>A promise is an object that allows you to handle asynchronous operations. It’s an alternative to plain old callbacks.</p>
+<p>Promises have many advantages over callbacks. To name a few:</p>
+<ul>
+<li>Make the async code easier to read.</li>
+<li>Provide combined error handling.</li>
+<li>Better control flow. You can have async actions execute in parallel or series.</li>
+</ul>
+<p>Callbacks tend to form deeply nested structures (a.k.a. Callback hell). Like the following:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  b(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    c(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      d(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// and so on ...</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>If you convert those functions to promises, they can be chained producing more maintainable code. Something like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(a)</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(c)</span><br><span class="line">  .then(d)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
+
+<p>As you can see, in the example above, the promise object exposes the methods <code>.then</code> and <code>.catch</code>. We are going to explore these methods later.</p>
+<h2 id="How-do-I-convert-an-existing-callback-API-to-promises">How do I convert an existing callback API to promises?<a href="#How-do-I-convert-an-existing-callback-API-to-promises" class="headerlink" title="How do I convert an existing callback API to promises?"></a></h2><p>We can convert callbacks into promises using the Promise constructor.</p>
+<p>The Promise constructor takes a callback with two arguments <code>resolve</code> and <code>reject</code>.</p>
+<ul>
+<li><strong>Resolve</strong>: is a callback that should be invoked when the async operation is completed.</li>
+<li><strong>Reject</strong>: is a callback function to be invoked when an error occurs.</li>
+</ul>
+<p>The constructor returns an object immediately, the promise instance. You can get notified when the promise is “done” using the method <code>.then</code> in the promise instance. Let’s see an example.</p>
+<h3 id="Wait-aren’t-promises-just-callbacks">Wait, aren’t promises just callbacks?<a href="#Wait-aren’t-promises-just-callbacks" class="headerlink" title="Wait, aren’t promises just callbacks?"></a></h3><p>Yes and no. Promises are not “just” callbacks, but they do use asynchronous callbacks on the <code>.then</code> and <code>.catch</code> methods. Promises are an abstraction on top of callbacks that allows you to chain multiple async operations and handle errors more elegantly. Let’s see it in action.</p>
+<h4 id="Promises-anti-pattern-promise-hell">Promises anti-pattern (promise hell)<a href="#Promises-anti-pattern-promise-hell" class="headerlink" title="Promises anti-pattern (promise hell)"></a></h4><p>Before jumping into how to convert callbacks to promises, let’s see how NOT to it.</p>
+<p>Please don’t convert callbacks to promises from this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  b(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    c(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      d(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// and so on ...</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>To this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> b().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> c().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> d().then(<span class="function"><span class="params">()</span> =&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// ⚠️ Please never ever do to this! ⚠️</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Always keep your promises as flat as you can.</p>
+<p>It’s better to do this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a()</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(c)</span><br><span class="line">  .then(d)</span><br></pre></td></tr></table></figure>
+
+<p>Let’s do some real-life examples! 💪</p>
+<h3 id="Promesifying-Timeouts">Promesifying Timeouts<a href="#Promesifying-Timeouts" class="headerlink" title="Promesifying Timeouts"></a></h3><p>Let’s see an example. What do you think will be the output of the following program?</p>
+<script defer async src="https://embed.runkit.com" data-element-id="my-element"></script>
+<pre id="my-element">
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('time is up ⏰');
+  }, 1e3);
+
+  setTimeout(() => {
+    reject('Oops 🔥');
+  }, 2e3);
+});
+
+promise
+  .then(console.log)
+  .catch(console.error);
+</pre>
+
+<p>Is the output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">time is up ⏰</span><br><span class="line">Oops! 🔥</span><br></pre></td></tr></table></figure>
+
+<p>or is it</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time is up ⏰</span><br></pre></td></tr></table></figure>
+
+<p>?</p>
+<p>It’s the latter, because</p>
+<blockquote>
+<p>When a promise it’s <code>resolve</code>d, it can no longer be <code>reject</code>ed.</p>
+</blockquote>
+<p>Once you call one method (<code>resolve</code> or <code>reject</code>) the other is invalidated since the promise in a <em>settled</em> state. Let’s explore all the different states of a promise.</p>
+<h2 id="Promise-states">Promise states<a href="#Promise-states" class="headerlink" title="Promise states"></a></h2><p>There are four states in which the promises can be:</p>
+<ul>
+<li>⏳ <strong>Pending</strong>: initial state. Async operation is still in process.</li>
+<li>✅ <strong>Fulfilled</strong>: the operation was successful. It invokes <code>.then</code> callback. E.g., <code>.then(onSuccess)</code>.</li>
+<li>⛔️ <strong>Rejected</strong>: the operation failed. It invokes the <code>.catch</code> or <code>.then</code> ‘s second argument (if any). E.g., <code>.catch(onError)</code> or <code>.then(..., onError)</code></li>
+<li>😵 <strong>Settled</strong>: it’s the promise final state. The promise is dead. Nothing else can be resolved or rejected anymore. The <code>.finally</code> method is invoked.</li>
+</ul>
+<p><img src="/images/promises-states.png" alt="Promises four states"></p>
+<h2 id="Promise-instance-methods">Promise instance methods<a href="#Promise-instance-methods" class="headerlink" title="Promise instance methods"></a></h2><p>The Promise API exposes three main methods: <code>then</code>, <code>catch</code> and <code>finally</code>. Let’s explore each one and provide examples.</p>
+<h3 id="Promise-then">Promise then<a href="#Promise-then" class="headerlink" title="Promise then"></a></h3><p>The <code>then</code> method allows you to get notified when the asynchronous operation is done, either succeeded or failed. It takes two arguments, one for the successful execution and the other one if an error happens.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">promise.then(onSuccess, onError);</span><br></pre></td></tr></table></figure>
+
+<p>You can also omit the 2nd argument and use the <code>.catch</code> the method instead to handle errors.</p>
+<p><code>then</code> returns a new promise so you can chain multiple promises together. Like in the example below:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'then#1'</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'then#2'</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'then#3'</span>));</span><br></pre></td></tr></table></figure>
+
+<p><code>Promise.resolve</code> immediately resolves the promise as successful. So all the following <code>then</code> are called. The output would be</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">then#1</span><br><span class="line">then#2</span><br><span class="line">then#3</span><br></pre></td></tr></table></figure>
+
+<p>Let’s see how to handle errors on promises with <code>then</code> and <code>catch</code>.</p>
+<h3 id="Promise-catch">Promise catch<a href="#Promise-catch" class="headerlink" title="Promise catch"></a></h3><p>Promise <code>.catch</code> the method takes a function as an argument which handles errors if they occur. If everything goes well, the catch method is never called.</p>
+<p>Let’s say we have the following promises, which one resolves or rejects after 1 second and print out their letter.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">'a'</span>), resolve() &#125;, <span class="number">1e3</span>));</span><br><span class="line"><span class="keyword">const</span> b = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">'b'</span>), resolve() &#125;, <span class="number">1e3</span>));</span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">'c'</span>), reject(<span class="string">'Oops!'</span>) &#125;, <span class="number">1e3</span>));</span><br><span class="line"><span class="keyword">const</span> d = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">'d'</span>), resolve() &#125;, <span class="number">1e3</span>));</span><br></pre></td></tr></table></figure>
+
+<p>Notice that <code>c</code> simulates a rejection with <code>reject(&#39;Oops!&#39;)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(a)</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(c)</span><br><span class="line">  .then(d)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br></pre></td></tr></table></figure>
+
+<p>The output is the following:</p>
+<p><img src="/images/promise-catch.gif" alt="promise catch"></p>
+<p>For this case, you will see <code>a</code>, <code>b</code> and the error message on <code>c</code>. The function` will never get executed because the error broke the sequence.</p>
+<p>Also, you can handle the error using the 2nd argument of the <code>then</code> function. However, be aware that <code>catch</code> will not execute anymore.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(a)</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(c)</span><br><span class="line">  .then(d, () =&gt; <span class="built_in">console</span>.log(<span class="string">'c errored out but no big deal'</span>))</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/promise-then-on-error.gif" alt="promise then error handling"></p>
+<p>As you can see the catch doesn’t get called because we are handling the error on the <code>.then(..., onError)</code> part.
+<code>d</code> is not being called regardless. If you want to ignore the error and continue with the execution of the promise chain, you can add a <code>catch</code> on <code>c</code>. Something like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(a)</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> c().catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'error ignored'</span>)))</span><br><span class="line">  .then(d)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/promise-catch-ignored.gif" alt="promise then error handling"></p>
+<p>Now <code>d</code> gets executed!! In all the other cases, it didn’t.
+This early <code>catch</code> is not desired in most cases, it can lead to things falling silently and make your async operations harder to debug.</p>
+<h3 id="Promise-finally">Promise finally<a href="#Promise-finally" class="headerlink" title="Promise finally"></a></h3><p>The <code>finally</code> method is called only when the promise is settled.</p>
+<p>You can use a <code>.then</code> after the <code>.catch</code>, in case you want a piece of code to execute always, even after a failure.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(a)</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(c)</span><br><span class="line">  .then(d)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'always called'</span>));</span><br></pre></td></tr></table></figure>
+
+<p>or you can use the <code>.finally</code> keyword:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(a)</span><br><span class="line">  .then(b)</span><br><span class="line">  .then(c)</span><br><span class="line">  .then(d)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br><span class="line">  .finally(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'always called'</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise-class-Methods">Promise class Methods<a href="#Promise-class-Methods" class="headerlink" title="Promise class Methods"></a></h2><p>There are four static methods that you can use directly from the <code>Promise</code> object.</p>
+<ul>
+<li>Promise.all</li>
+<li>Promise.reject</li>
+<li>Promise.resolve</li>
+<li>Promise.race</li>
+</ul>
+<p>Let’s see each one and provide examples.</p>
+<h3 id="Promise-resolve-and-Promise-reject">Promise.resolve and Promise.reject<a href="#Promise-resolve-and-Promise-reject" class="headerlink" title="Promise.resolve and Promise.reject"></a></h3><p>These two are helper functions that resolve or reject immediately. You can pass a <code>reason</code> that will be passed on the next <code>.then</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'Yay!!!'</span>)</span><br><span class="line">  .then(<span class="built_in">console</span>.log)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br></pre></td></tr></table></figure>
+
+<p>This code will output <code>Yay!!!</code> as expected.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.reject(<span class="string">'Oops 🔥'</span>)</span><br><span class="line">  .then(<span class="built_in">console</span>.log)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br></pre></td></tr></table></figure>
+
+<p>The output will be a console error with the error reason of <code>Oops 🔥</code>.</p>
+<h3 id="Executing-promises-in-Parallel-with-Promise-all">Executing promises in Parallel with Promise.all<a href="#Executing-promises-in-Parallel-with-Promise-all" class="headerlink" title="Executing promises in Parallel with Promise.all"></a></h3><p>Usually, promises are executed in series, one after another, but if they are independent of each other.</p>
+<p>Let’s say are polling data from 2 different APIs. Since they are not related we can do all at once with <code>Promise.all()</code>.</p>
+<p>For this example, we are going to pull the Bitcoin price in USD and convert it to EUR. As you imagine, both API calls can be called in parallel. However, we need a way to know when both are done to calculate the final price. We can use <code>Promise.all</code>. When all promises are done, a new promise will be returning will the results.</p>
+<script defer async src="https://embed.runkit.com" data-element-id="promise-all"></script>
+<pre id="promise-all">
+const axios = require('axios');
+
+const bitcoinPromise = axios.get('https://api.coinpaprika.com/v1/coins/btc-bitcoin/markets');
+const dollarPromise = axios.get('https://api.exchangeratesapi.io/latest?base=USD');
+const currency = 'EUR';
+
+// Get the price of bitcoins on
+Promise.all([bitcoinPromise, dollarPromise])
+  .then(([bitcoinMarkets, dollarExchanges]) => {
+    const byCoinbaseBtc = d => d.exchange_id === 'coinbase-pro' && d.pair === 'BTC/USD';
+    const coinbaseBtc = bitcoinMarkets.data.find(byCoinbaseBtc)
+    const coinbaseBtcInUsd = coinbaseBtc.quotes.USD.price;
+    const rate = dollarExchanges.data.rates[currency];
+    return rate * coinbaseBtcInUsd;
+  })
+  .then(price => console.log(`The Bitcoin in ${currency} is ${price.toLocaleString()}`))
+  .catch(console.log);
+</pre>
+
+
+<p>As you can see, <code>Promise.all</code> accepts an array of promises. When the request both requests are completed, then we can proceed to calculate the price.</p>
+<p>Let’s do another example and time it:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'a'</span>), <span class="number">2000</span>));</span><br><span class="line"><span class="keyword">const</span> b = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'b'</span>), <span class="number">1000</span>));</span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'c'</span>), <span class="number">1000</span>));</span><br><span class="line"><span class="keyword">const</span> d = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'d'</span>), <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'promise.all'</span>);</span><br><span class="line"><span class="built_in">Promise</span>.all([a(), b(), c(), d()])</span><br><span class="line">  .then(<span class="function"><span class="params">results</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Done! <span class="subst">$&#123;results&#125;</span>`</span>))</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br><span class="line">  .finally(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.timeEnd(<span class="string">'promise.all'</span>));</span><br></pre></td></tr></table></figure>
+
+<p>How long is it going to take to solve each of these promises? 5 seconds? 1 second? Or 2 seconds?</p>
+<p>You can experiment with the dev tools and report back your results ;)</p>
+<h3 id="Promise-race">Promise race<a href="#Promise-race" class="headerlink" title="Promise race"></a></h3><p>The <code>Promise.race(iterable)</code> takes a collection of promises and resolves as soon as the first promise settles.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'a'</span>), <span class="number">2000</span>));</span><br><span class="line"><span class="keyword">const</span> b = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'b'</span>), <span class="number">1000</span>));</span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'c'</span>), <span class="number">1000</span>));</span><br><span class="line"><span class="keyword">const</span> d = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'d'</span>), <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'promise.race'</span>);</span><br><span class="line"><span class="built_in">Promise</span>.race([a(), b(), c(), d()])</span><br><span class="line">  .then(<span class="function"><span class="params">results</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Done! <span class="subst">$&#123;results&#125;</span>`</span>))</span><br><span class="line">  .catch(<span class="built_in">console</span>.error)</span><br><span class="line">  .finally(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.timeEnd(<span class="string">'promise.race'</span>));</span><br></pre></td></tr></table></figure>
+
+<p>What’s the output?</p>
+<p>It’s <code>b</code>! With <code>Promise.race</code> only the fastest gets to be part of the result. 🏁</p>
+<p>You might wonder: <em>What’s the usage of the Promise race?</em></p>
+<p>I haven’t used it as often as the others. But, it can come handy in some cases like timing out promises and <a href="#How-to-limit-parallel-promises">batching array of requests</a>.</p>
+<h4 id="Timing-out-requests-with-Promise-race">Timing out requests with Promise race<a href="#Timing-out-requests-with-Promise-race" class="headerlink" title="Timing out requests with Promise race"></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'http://slowwly.robertomurray.co.uk/delay/3000/url/https://api.jsonbin.io/b/5d1fb4dd138da811182c69af'</span>),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">1000</span>))</span><br><span class="line">])</span><br><span class="line">.then(<span class="built_in">console</span>.log)</span><br><span class="line">.catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/promise-race-fail.gif" alt="Promise race timeout"></p>
+<p>If the request is fast enough, then you have the result.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'http://slowwly.robertomurray.co.uk/delay/1/url/https://api.jsonbin.io/b/5d1fb4dd138da811182c69af'</span>),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">1000</span>))</span><br><span class="line">])</span><br><span class="line">.then(<span class="built_in">console</span>.log)</span><br><span class="line">.catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/promise-race-pass.gif" alt="Promise race"></p>
+<h2 id="Promises-FAQ">Promises FAQ<a href="#Promises-FAQ" class="headerlink" title="Promises FAQ"></a></h2><p>This section covers tricks and tips using all the promises methods that we explained before.</p>
+<h3 id="Executing-promises-in-series-and-passing-arguments">Executing promises in series and passing arguments<a href="#Executing-promises-in-series-and-passing-arguments" class="headerlink" title="Executing promises in series and passing arguments"></a></h3><p>This time we are going to use the promises API for Node’s <code>fs</code> and we are going to concatenate two files:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>).promises; <span class="comment">// requires node v8+</span></span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'file.txt'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">content1</span> =&gt;</span> fs.writeFile(<span class="string">'output.txt'</span>, content1))</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> fs.readFile(<span class="string">'file2.txt'</span>, <span class="string">'utf8'</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">content2</span> =&gt;</span> fs.writeFile(<span class="string">'output.txt'</span>, content2, &#123; <span class="attr">flag</span>: <span class="string">'a+'</span> &#125;))</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error));</span><br></pre></td></tr></table></figure>
+
+<p>On this example, we read file 1 and write it to the output file. Later, we read file 2 and append it to the output file again.
+As you can see, <code>writeFile</code> promise returns the content of the file, and you can use it in the next <code>then</code> clause.</p>
+<h3 id="How-do-I-chain-multiple-conditional-promises">How do I chain multiple conditional promises?<a href="#How-do-I-chain-multiple-conditional-promises" class="headerlink" title="How do I chain multiple conditional promises?"></a></h3><p>You might have a case where you want to skip specific steps on a promise chain. You can do that in two ways.</p>
+<script defer async src="https://embed.runkit.com" data-element-id="ex1"></script>
+<pre id="ex1">
+const a = () => new Promise((resolve) => setTimeout(() => { console.log('a'), resolve() }, 1e3));
+const b = () => new Promise((resolve) => setTimeout(() => { console.log('b'), resolve() }, 2e3));
+const c = () => new Promise((resolve) => setTimeout(() => { console.log('c'), resolve() }, 3e3));
+const d = () => new Promise((resolve) => setTimeout(() => { console.log('d'), resolve() }, 4e3));
+
+const shouldExecA = true;
+const shouldExecB = false;
+const shouldExecC = false;
+const shouldExecD = true;
+
+Promise.resolve()
+  .then(() => shouldExecA && a())
+  .then(() => shouldExecB && b())
+  .then(() => shouldExecC && c())
+  .then(() => shouldExecD && d())
+  .then(() => console.log('done'))
+</pre>
+
+<p>If you run the code example, you will notice that only <code>a</code> and <code>d</code> are executed as expected.</p>
+<p>An alternative way is creating a chain and then only add them if</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chain = <span class="built_in">Promise</span>.resolve();</span><br><span class="line"><span class="keyword">if</span> (shouldExecA) chain = chain.then(a);</span><br><span class="line"><span class="keyword">if</span> (shouldExecB) chain = chain.then(b);</span><br><span class="line"><span class="keyword">if</span> (shouldExecC) chain = chain.then(c);</span><br><span class="line"><span class="keyword">if</span> (shouldExecD) chain = chain.then(d);</span><br><span class="line"></span><br><span class="line">chain</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'done'</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="How-to-limit-parallel-promises">How to limit parallel promises?<a href="#How-to-limit-parallel-promises" class="headerlink" title="How to limit parallel promises?"></a></h3><p>To accomplish this, we have to throttle <code>Promise.all</code> somehow.</p>
+<p>Let’s say you have many concurrent requests to do. If you do a <code>Promise.all</code> that won’t be good (especially when the API is rate limited).
+So, we need to develop and function that does that for us. Let’s call it <code>promiseAllThrottled</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// simulate 10 async tasks that takes 5 seconds to complete.</span></span><br><span class="line"><span class="keyword">const</span> requests = <span class="built_in">Array</span>(<span class="number">10</span>)</span><br><span class="line">  .fill()</span><br><span class="line">  .map(<span class="function">(<span class="params">_, i</span>) =&gt;</span> () =&gt; <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve =&gt; setTimeout((</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">`exec'ing task #<span class="subst">$&#123;i&#125;</span>`</span>), resolve(<span class="string">`task #<span class="subst">$&#123;i&#125;</span>`</span>); &#125;, <span class="number">5000</span>))));</span><br><span class="line"></span><br><span class="line">promiseAllThrottled(requests, &#123; <span class="attr">concurrency</span>: <span class="number">3</span> &#125;)</span><br><span class="line">  .then(<span class="built_in">console</span>.log)</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Oops something went wrong'</span>, error));</span><br></pre></td></tr></table></figure>
+
+<p>The output should be something like this:</p>
+<p><img src="/images/promise-throttle.gif" alt="promise throttle"></p>
+<p>So, the code above will limit the concurrency to 3 tasks executing in parallel. This is one possible implementation of <code>promiseAllThrottled</code> using <code>Promise.race</code> to throttle the number of active tasks at a given time:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Similar to Promise.all but a concurrency limit</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @param &#123;Array&#125; iterable Array of functions that returns a promise</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; concurrency max number of parallel promises running</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseAllThrottled</span>(<span class="params">iterable, &#123; concurrency = <span class="number">3</span> &#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> promises = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">enqueue</span>(<span class="params">current = <span class="number">0</span>, queue = []</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// return if done</span></span><br><span class="line">    <span class="keyword">if</span> (current === iterable.length) &#123; <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(); &#125;</span><br><span class="line">    <span class="comment">// take one promise from collection</span></span><br><span class="line">    <span class="keyword">const</span> promise = iterable[current];</span><br><span class="line">    <span class="keyword">const</span> activatedPromise = promise();</span><br><span class="line">    <span class="comment">// add promise to the final result array</span></span><br><span class="line">    promises.push(activatedPromise);</span><br><span class="line">    <span class="comment">// add current activated promise to queue and remove it when done</span></span><br><span class="line">    <span class="keyword">const</span> autoRemovePromise = activatedPromise.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// remove promise from the queue when done</span></span><br><span class="line">      <span class="keyword">return</span> queue.splice(queue.indexOf(autoRemovePromise), <span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// add promise to the queue</span></span><br><span class="line">    queue.push(autoRemovePromise);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// if queue length &gt;= concurrency, wait for one promise to finish before adding more.</span></span><br><span class="line">    <span class="keyword">const</span> readyForMore = queue.length &lt; concurrency ? <span class="built_in">Promise</span>.resolve() : <span class="built_in">Promise</span>.race(queue);</span><br><span class="line">    <span class="keyword">return</span> readyForMore.then(<span class="function"><span class="params">()</span> =&gt;</span> enqueue(current + <span class="number">1</span>, queue));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> enqueue()</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Promise</span>.all(promises));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>promiseAllThrottled</code> takes promises one by one. It executes the promises and adds it to the queue. If the queue is less than the concurrency limit, it keeps adding to the line. Once the limit is reached, then we use <code>Promise.race</code> to wait for one promise to finish so we can replace it with a new one.
+The trick here is that the promise removes itself from the queue when it is done.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This post is the ultimate JavaScript Promises tutorial: recipes and examples for everyday situations (or that’s the goal 😉). We cover all the necessary methods like &lt;code&gt;then&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;finally&lt;/code&gt;. Also, we go over more complex situations like executing promises in parallel with &lt;code&gt;Promise.all&lt;/code&gt;, timing out APIs with &lt;code&gt;Promise.race&lt;/code&gt;, promise chaining and some best practices and gotchas.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
+    
+    
+      <category term="javascript" scheme="https://adrianmejia.com/tags/javascript/"/>
+    
+      <category term="nodejs" scheme="https://adrianmejia.com/tags/nodejs/"/>
+    
+      <category term="tutorial_async-javascript" scheme="https://adrianmejia.com/tags/tutorial-async-javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Understanding JavaScript Callbacks and best practices</title>
@@ -226,7 +471,7 @@ File size#3: 523 MB</code></pre><p>Wow! Totally random! 🤯</p>
 <p>In JavaScript, we can handle asynchronous code using:</p>
 <ul>
 <li><a href="/callbacks-concurrency-in-javascript-node">Callbacks</a></li>
-<li>Promises</li>
+<li><a href="/promises-tutorial-concurrency-in-javascript-node">Promises</a></li>
 <li>Async/Await functions</li>
 <li>Generators</li>
 </ul>
@@ -6896,185 +7141,6 @@ However, I’m not going to explain any of those ways because just installing th
     
     
       <category term="raspberrypi" scheme="https://adrianmejia.com/tags/raspberrypi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Algorithms for dummies (Part 1): Big-O Notation and Sorting</title>
-    <link href="https://adrianmejia.com/algorithms-for-dummies-part-1-sorting/"/>
-    <id>https://adrianmejia.com/algorithms-for-dummies-part-1-sorting/</id>
-    <published>2014-02-13T13:28:51.000Z</published>
-    <updated>2014-02-13T13:28:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>After being developing software for a while,  I realized that there is a couple of ways to become better at it. One it’s through your experience: writing code, working on projects, getting hands dirty… Other one it’s learning algorithms and design patterns. In other words through leveraging the experience of other computer scientists. Learning to use algorithms efficiently can instantly add to you the equivalent of 10 years of experience or more. Let’s get started and add new tools to our arsenal!</p>
-<a id="more"></a>
-
-<p>How do you know a piece of code that you just wrote is good enough?  When you modify a program, how do you know if it is better as you found it? How do scale programs to handle huge amount of data? In fact, You cannot improve what you can’t measure.</p>
-<p>How to measure them? We could count the number of seconds it takes to execute and compare it with other one. However, it’s not just troublesome to timers around code but if we run it in different hardware (e.g. supercomputer) it will seem like more efficient when indeed it’s exactly the same program. Let’s illustrate a better way with an example. Let’s say you want to sort an array of n integers.</p>
-<h1 id="Sorting-Algorithms">Sorting Algorithms<a href="#Sorting-Algorithms" class="headerlink" title="Sorting Algorithms"></a></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">1</span>; x &lt; arr.length; x++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> y=x; y &gt; <span class="number">0</span> &amp;&amp; arr[y-<span class="number">1</span>] &gt; arr[y]; y--)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = arr[y];</span><br><span class="line">        arr[y] = arr[y-<span class="number">1</span>];</span><br><span class="line">        arr[y-<span class="number">1</span>] = t;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Do you recognize this algorithm? It’s called Insertion sort. It has two nested loops, which means that as the number of elements n in the array <code>arr</code> grows it will take approximately n * n longer to perform the sorting. In big-O notation, this will be represented like O(n^2). More on this notation later.</p>
-<p>What would happen if the array arr is already sorted? That would be the best-case scenario. The inner for loop will never go through all the elements in the array then (because <code>arr[y-1] &gt; arr[y]</code>  won’t be met). So the algorithm in run in O(n).</p>
-<p>We are not living in an ideal world. So O(n^2) will be probably the average time complexity. Can you think a better way of sorting an array of elements?</p>
-<p>Take some minutes to think and come back…</p>
-<h2 id="Merge-Sort">Merge Sort<a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a></h2><p>A more efficient algorithm is the Merge sort. It uses the principle of divide and conquer to solve the problem faster. The idea is the follows:</p>
-<img src="/images/mergesort.gif">
-
-<ul>
-<li>Divide the array in half</li>
-<li>Divide the halves by half until 2 or 3 elements are remaining</li>
-<li>Sort each of these halves</li>
-<li>Merge them back together</li>
-</ul>
-<p>Can you determine the time complexity of mergesort?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] helper = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length];</span><br><span class="line">  mergesort(arr, helper, <span class="number">0</span>, arr.length-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergesort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span>[] helper, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(low &lt; high)&#123;</span><br><span class="line">    <span class="keyword">int</span> middle = (high+low)/<span class="number">2</span>;</span><br><span class="line">    mergesort(arr, helper, low, middle);</span><br><span class="line">    mergesort(arr, helper, middle+<span class="number">1</span>, high);</span><br><span class="line">    merge(arr, helper, low, middle, high);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span>[] helper, <span class="keyword">int</span> low, <span class="keyword">int</span> middle, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> x=low; x &lt;= high; x++) &#123;</span><br><span class="line">    helper[x] = arr[x];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> left = low;</span><br><span class="line">  <span class="keyword">int</span> curr = low;</span><br><span class="line">  <span class="keyword">int</span> right = middle+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(left &lt;= middle &amp;&amp; right &lt;= high) &#123;</span><br><span class="line">    <span class="keyword">if</span>(helper[right] &gt; helper[left])</span><br><span class="line">      arr[curr++] = helper[left++];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      arr[curr++] = helper[right++];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(left &lt;= middle)</span><br><span class="line">    arr[curr++] = helper[left++];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Even though the code is much longer, the algorithm is much more efficient.</p>
-<img src="/images/insertion_vs_mergsort.png">
-
-<p>It would take some more knowledge to derive the running time mathematically, and we haven’t covered that yet. However, bear with me, it’s O(n log(n)). Let’s sum up:</p>
-<p>Algorithm | best | average | worst | space complexity
-Insertion Sort | O(n) | O(n^2) | O(n^2) | O(1)
-Merge sort | O(n log(n)) | O(n log(n)) | O(n log(n)) | O(n)</p>
-<p>Notice that the table has also the space complexity. How much space does the algorithms take is also an important parameter to compare algorithms. The merge sort uses an additional array that’s way its space complexity is <code>O(n)</code>, however, the insertion sort uses <code>O(1)</code> because it does the sorting in-place.</p>
-<h1 id="Big-O-Notation">Big O Notation<a href="#Big-O-Notation" class="headerlink" title="Big O Notation"></a></h1><p>Big O is defined as the asymptotic upper limit of a function. In plain english, it means that is a function that cover the maximum values a function could take. As we saw a little earlier this notation help us to predict performance and compare algorithms.</p>
-<table>
-<thead>
-<tr>
-<th>Growth Rate</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>Constant</td>
-</tr>
-<tr>
-<td>log(n)</td>
-<td>Logarithmic</td>
-</tr>
-<tr>
-<td>n</td>
-<td>Linear</td>
-</tr>
-<tr>
-<td>n log(n)</td>
-<td>Linearithmic</td>
-</tr>
-<tr>
-<td>n^2</td>
-<td>Quadratic</td>
-</tr>
-<tr>
-<td>n^3</td>
-<td>Cubic</td>
-</tr>
-<tr>
-<td>2^n</td>
-<td>Exponential</td>
-</tr>
-</tbody></table>
-<p>This is kinda abstract let’s see what it means in code:</p>
-<table>
-  <tr>
-    <th>Growth Rate</th>
-    <th>Name</th>
-    <th>Code Example</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Constant</td>
-    <td><pre>a= b + 1;</pre></td>
-    <td>statement (one line of code)</td>
-  </tr>
-  <tr>
-    <td>log(n)</td>
-    <td>Logarithmic</td>
-    <td>
-      <pre>
-      while(n>1){
-        n=n/2;
-      }
-      </pre>
-    </td>
-    <td>Divide in half (binary search)</td>
-  </tr>
-  <tr>
-    <td>n</td>
-    <td>Linear</td>
-    <td>
-      <pre>
-for(c=0; c&lt;n; c++){
-  a+=1;
-}
-</pre></td>
-    <td>Loop</td>
-  </tr>
-  <tr>
-    <td>n*log(n)</td>
-    <td>Linearithmic</td>
-    <td>Mergesort, Quicksort, ...</td>
-    <td>Effective sorting algorithms</td>
-  </tr>
-  <tr>
-    <td>n^2</td>
-    <td>Quadratic</td>
-    <td>
-      <pre>
-for(c=0; c&lt;n; c++){
-  for(i=0; i&lt;n; i++){
-    a+=1;
-  }
-}
-</pre>
-    </td>
-    <td>Double loop</td>
-  </tr>
-  <tr>
-    <td>n^3</td>
-    <td>Cubic</td>
-    <td>
-      <pre>
-for(c=0; c&lt;n; c++){
-  for(i=0; i&lt;n; i++){
-    for(x=0; x&lt;n; x++){
-      a+=1;
-    }
-  }
-}
-</pre>
-    </td>
-    <td>Triple loop</td>
-  </tr>
-  <tr>
-    <td>2^n</td>
-    <td>Exponential</td>
-    <td>Trying to braeak a password generating all possible combinations</td>
-    <td>Exhaustive search</td>
-  </tr>
-</table>
-
-<p>That’s all for this first part 1. I will continue publishing this tutorials every week or so. Stay tune!</p>
-<hr>
-**Update**
-
-<p> Checkout out the next post clicking here: <a href="/blog/2018/04/04/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/">Data Structures and Algorithms (DSA) for Beginners</a></p>
-<hr>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;After being developing software for a while,  I realized that there is a couple of ways to become better at it. One it’s through your experience: writing code, working on projects, getting hands dirty… Other one it’s learning algorithms and design patterns. In other words through leveraging the experience of other computer scientists. Learning to use algorithms efficiently can instantly add to you the equivalent of 10 years of experience or more. Let’s get started and add new tools to our arsenal!&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://adrianmejia.com/categories/coding/"/>
-    
-      <category term="Data Structures and Algorithms (DSA)" scheme="https://adrianmejia.com/categories/coding/data-structures-and-algorithms-dsa/"/>
-    
-    
-      <category term="algorithms" scheme="https://adrianmejia.com/tags/algorithms/"/>
     
   </entry>
   

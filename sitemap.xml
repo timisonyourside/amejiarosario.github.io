@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adrianmejia.com/promises-tutorial-concurrency-in-javascript-node/</loc>
+    
+    <lastmod>2019-07-08T23:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/</loc>
     
     <lastmod>2019-07-08T21:41:11.065Z</lastmod>
@@ -107,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
@@ -121,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
     
     <lastmod>2018-10-22T03:14:07.617Z</lastmod>
     
