@@ -2,16 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://adrianmejia.com/promises-tutorial-concurrency-in-javascript-node/</loc>
+    <loc>https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/</loc>
     
-    <lastmod>2019-07-08T23:26:12.000Z</lastmod>
+    <lastmod>2019-08-03T14:22:12.562Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/</loc>
+    <loc>https://adrianmejia.com/support/index.html</loc>
     
-    <lastmod>2019-07-08T21:41:11.065Z</lastmod>
+    <lastmod>2019-08-03T14:15:44.215Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/stylesheets/company_revenue.css</loc>
+    
+    <lastmod>2019-08-03T14:15:44.215Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
+    
+    <lastmod>2019-08-03T14:15:44.214Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
+    
+    <lastmod>2019-08-03T14:15:44.214Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/niceties/adrian-book-long.html</loc>
+    
+    <lastmod>2019-08-03T14:15:44.214Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/page/index.html</loc>
+    
+    <lastmod>2019-08-03T14:15:44.214Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/es/index.html</loc>
+    
+    <lastmod>2019-08-03T14:15:44.032Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://adrianmejia.com/promises-tutorial-concurrency-in-javascript-node/</loc>
+    
+    <lastmod>2019-07-08T23:26:12.000Z</lastmod>
     
   </url>
   
@@ -93,58 +142,9 @@
   </url>
   
   <url>
-    <loc>https://adrianmejia.com/support/index.html</loc>
-    
-    <lastmod>2019-02-24T16:23:00.515Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://adrianmejia.com/I-got-hacked-and-It-changed-my-life-on-security-tips/</loc>
     
     <lastmod>2019-01-24T21:08:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/page/index.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sq.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/stylesheets/company_revenue.css</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-sd.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/niceties/adrian-book-long.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.616Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://adrianmejia.com/es/index.html</loc>
-    
-    <lastmod>2018-10-22T03:14:07.447Z</lastmod>
     
   </url>
   
