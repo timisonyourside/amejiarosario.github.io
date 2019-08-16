@@ -4244,7 +4244,7 @@ This’s how it works:</p>
 <li>Line 7: 1 operation</li>
 <li>Line 9-13: it is a loop that executes size of <code>n</code> times<ul>
 <li>Line 10: 1 operation</li>
-<li>Line 11: this one is tricky. It is inside a conditional. We will assume the worst case where the array is sorted in ascending order. The condition (<code>if</code> block) will be executed each time. Thus, 1 operation</li>
+<li>Line 11: this one is tricky. It is inside a conditional. We will assume the worst case where the array is sorted in descending order. The condition (<code>if</code> block) will be executed each time. Thus, 1 operation</li>
 </ul>
 </li>
 <li>Line 14: 1 operation</li>
@@ -5244,7 +5244,7 @@ In the following sections, you are going to learn how to do that using <code>exp
     <link href="https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/"/>
     <id>https://adrianmejia.com/List-tasks-in-npm-grunt-gulp-and-rake/</id>
     <published>2016-06-25T19:14:49.000Z</published>
-    <updated>2019-08-03T14:22:12.562Z</updated>
+    <updated>2019-08-07T14:49:49.634Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run</span><br><span class="line">yarn run</span><br><span class="line">grunt --<span class="built_in">help</span></span><br><span class="line">gulp --tasks</span><br><span class="line">rake --tasks</span><br></pre></td></tr></table></figure>
 

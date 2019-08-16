@@ -420,7 +420,7 @@ However, these accomplishments are only possible if we write software that is fa
 <li>Line 7: 1 operation</li>
 <li>Line 9-13: it is a loop that executes size of <code>n</code> times<ul>
 <li>Line 10: 1 operation</li>
-<li>Line 11: this one is tricky. It is inside a conditional. We will assume the worst case where the array is sorted in ascending order. The condition (<code>if</code> block) will be executed each time. Thus, 1 operation</li>
+<li>Line 11: this one is tricky. It is inside a conditional. We will assume the worst case where the array is sorted in descending order. The condition (<code>if</code> block) will be executed each time. Thus, 1 operation</li>
 </ul>
 </li>
 <li>Line 14: 1 operation</li>
@@ -957,8 +957,8 @@ Titles:
       <div class="container">
         <div class="p-y-2">
           &copy; 2019 <a href="http://adrianmejia.com">Adrian Mejia</a>
-          <span class="muted m-x-4" title="Sat Aug 03 2019 10:24:06 GMT-0400 (Eastern Daylight Time)">
-            v.pvo006
+          <span class="muted m-x-4" title="Fri Aug 16 2019 17:00:06 GMT-0400 (Eastern Daylight Time)">
+            v.pwcl06
           </span>
         </div>
       </div>
@@ -991,9 +991,7 @@ Titles:
       <script src="/js/posts.js"></script>    
 
     <!-- uxa -->
-    <img src="http://app.uxeranalytics.com/image1.png?uxa=blog" alt="test" id="pxl1">
-    <script>
-      document.getElementById('pxl1').src += `&ref=${escape(document.referrer)}&url=${escape(window.location.href)}`;
-    </script>
+    <img src="//data.uxeranalytics.com/image1.png?uxa=blog" id="pxl1">
+    <script src="//data.uxeranalytics.com/uxa.js"></script>
   </body>
 </html>
