@@ -270,4 +270,4 @@ Notice that `cat.js` is using commonJS modules.
 
 # Summary
 
-We learned about how to create Node.js modules and used it in our code.  Modules allow us to reuse code easily. They provide functionality that is isolated from other modules. The `require` function is used to load modules. The `exports` and `module.exports` allow us to define what parts of our code we want to expose. We also explored the difference between `module.exports` and `exports`. Finally, we took a quick pick about what's coming up for modules using `imports`.
+We learned about how to create Node.js modules and used it in our code.  Modules allow us to reuse code easily. They provide functionality that is isolated from other modules. The `require` function is used to load modules. The `exports` and `module.exports` allow us to define what parts of our code we want to expose. We also explored the difference between `module.exports` and `exports`. Finally, we took a quick peek about what's coming up for modules using `imports`.
